@@ -1,0 +1,877 @@
+/* drew.fun - Design System (Inspired by Midjourney Medical, Apple & Figma) */
+
+:root {
+  /* Colors - High contrast, deep blacks, rich gold accents */
+  --bg: #000000;
+  --bg-card: #080808;
+  --bg-hover: #101010;
+  --bg-abstract: #030303;
+  --text-main: #ffffff; /* pure white for title headers */
+  --text-body: #f4dca2; /* bright warm cream/gold for lead texts */
+  --text-muted: #e2e2e7; /* off-white/light grey for high readability */
+  --text-dim: #8e8e93; /* medium grey for labels & tags */
+  --gold: #d4af37;
+  --gold-bright: #f4d37e;
+  --gold-dim: #9c7f28;
+  --gold-glow: rgba(212, 175, 55, 0.06);
+  --gold-glow-hover: rgba(212, 175, 55, 0.12);
+  
+  --border: #181818;
+  --border-double: #2a2a2a;
+  --border-gold: rgba(212, 175, 55, 0.2);
+  
+  /* Fonts */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Fira Code', monospace;
+
+  /* Layout */
+  --max-width: 900px; /* Aligned for clean, readable text layouts */
+  --header-height: 90px;
+
+  color-scheme: dark;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dim);
+}
+
+/* Typography styles */
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  font-family: var(--font-display); /* Bold sans-serif for headings */
+  font-weight: 700;
+  letter-spacing: -0.03em; /* Tight letter spacing */
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 1.5rem;
+}
+
+p.lead {
+  color: var(--text-body);
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--gold-bright);
+}
+
+/* Technical Monospace Labels */
+.tech-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  display: block; /* Ensure it wraps onto its own line */
+  margin-bottom: 0.5rem;
+}
+
+/* Containers */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+/* Tab Layout Grid */
+.tab-content-panel {
+  display: none;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.tab-content-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Grid & Cards */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+}
+
+@media (min-width: 900px) {
+  .grid-2 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Midjourney-like Minimalistic Cards */
+.card {
+  background-color: transparent;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  margin: 1.5rem 0;
+}
+
+/* Technical Details Table */
+.tech-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.tech-table tr {
+  border-bottom: 1px dashed #1c1c1c;
+}
+
+.tech-table tr:last-child {
+  border-bottom: none;
+}
+
+.tech-table td {
+  padding: 0.85rem 0;
+  vertical-align: middle;
+}
+
+.tech-table td.label {
+  color: var(--text-dim);
+  width: 25%;
+  text-transform: uppercase;
+}
+
+.tech-table td.val {
+  color: var(--text-muted);
+}
+
+/* Header & Tabs styling */
+header {
+  width: 100%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.header-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo on left: monospace, underlined */
+.logo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  color: var(--text-main);
+  text-transform: uppercase;
+  border-bottom: 1.5px solid var(--text-main);
+  cursor: pointer;
+  padding-bottom: 2px;
+  outline: none;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-tabs button {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 0.25rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.nav-tabs button:hover, .nav-tabs button.active {
+  color: var(--gold-bright);
+}
+
+.nav-tabs button.active {
+  border-bottom: 1.5px solid var(--gold);
+}
+
+/* Clean UI Controls Panel (Figma/Apple style) */
+.controls-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* Minimal filter chip button */
+.chip {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 0.3rem 0.75rem;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--border-double);
+  color: var(--text-muted);
+}
+
+.chip.active {
+  background-color: var(--gold-glow);
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+/* Minimalist select dropdown styling */
+.select-sort {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.75rem;
+  padding: 0.35rem 1.75rem 0.35rem 0.75rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='rgb(142, 142, 147)' height='8' viewBox='0 0 24 24' width='8' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+}
+
+.select-sort:hover {
+  border-color: var(--border-double);
+}
+
+/* Clean, standard outline button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-bright);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  border-color: var(--gold);
+  color: #fff;
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+/* Resume Experience Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.resume-section-header {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 4.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  border-left: none;
+  padding-left: 0;
+}
+
+.resume-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.timeline-title {
+  font-size: 1.95rem; /* Massive clean title matching Midjourney blog headings */
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.timeline-company {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.timeline-date {
+  color: var(--text-dim);
+}
+
+.timeline-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.timeline-bullets li {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  padding-left: 0;
+}
+
+.timeline-bullets li strong {
+  color: var(--text-main);
+  font-weight: normal;
+}
+
+/* Projects Placeholder Layout */
+.project-placeholder {
+  border: 1px dashed var(--border);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.project-placeholder p {
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Essays Section (Apple/Figma Grid & Visual CSS Mockups)
+   ========================================================================== */
+.essay-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 grid layout like Figma features */
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .essay-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.essay-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.essay-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.04);
+}
+
+.essay-title {
+  font-size: 1.45rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.essay-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.essay-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.essay-meta span {
+  color: var(--gold-dim);
+}
+
+/* Custom visual abstract containers (CSS Graphics) */
+.abstract-container {
+  height: 110px;
+  width: 100%;
+  background-color: var(--bg-abstract);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Graphic Abstract 1: Latency Network Map */
+.network-map-abstract {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.network-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  height: 1px;
+  width: 70%;
+  top: 50%;
+  left: 15%;
+  transform: rotate(-10deg);
+}
+
+.network-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--gold-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold);
+}
+
+.node-chicago { top: 35%; left: 20%; }
+.node-ny { top: 45%; left: 35%; }
+.node-london { top: 25%; left: 60%; }
+.node-tokyo { top: 60%; left: 75%; }
+
+.pulse-ring {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  top: calc(45% - 6px);
+  left: calc(35% - 6px);
+  animation: pulse 2.5s infinite ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Graphic Abstract 2: Sentiment Stock Spikes */
+.sentiment-chart-abstract {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0 1rem 0.5rem 1rem;
+}
+
+.chart-bar {
+  width: 12px;
+  background-color: #121212;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-bar.spike {
+  background-color: var(--gold-dim);
+  border: 1px solid var(--gold-bright);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* Graphic Abstract 3: Labeled Quants Bubble Clusters */
+.quants-cluster-abstract {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cluster-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #0c0c0c;
+  border: 1px dashed var(--border-double);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-dim);
+}
+
+.circle-math { width: 55px; height: 55px; top: 10%; left: 10%; }
+.circle-ml { width: 65px; height: 65px; top: 25%; left: 45%; border-style: solid; border-color: var(--gold-dim); color: var(--gold-bright); }
+.circle-phys { width: 45px; height: 45px; top: 50%; left: 20%; }
+.circle-cloud { width: 50px; height: 50px; top: 45%; left: 70%; }
+
+/* Graphic Abstract 4: Heatmap grid representing multi-asset risk-parity correlation matrix */
+.matrix-heatmap-abstract {
+  display: grid;
+  grid-template-columns: repeat(6, 12px);
+  gap: 3px;
+}
+
+.matrix-cell {
+  width: 12px;
+  height: 12px;
+  background-color: #0c0c0c;
+  border-radius: 1px;
+}
+
+.matrix-cell.corr-high { background-color: var(--gold); box-shadow: 0 0 6px var(--gold); }
+.matrix-cell.corr-mid { background-color: var(--gold-dim); }
+.matrix-cell.corr-low { background-color: #1a1a1a; }
+
+/* ==========================================================================
+   Books Reading List Layout
+   ========================================================================== */
+.books-table td.title {
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.genre-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+}
+
+.genre-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.rating-badge {
+  color: var(--gold-bright);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Footer Section */
+footer {
+  padding: 6rem 0;
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Print Stylesheet for Resume Export
+   ========================================================================== */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+
+  header, footer, section:not(#about), .nav-tabs, .btn, .tech-label, .tech-table, .resume-section-header::after {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  section#about {
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .grid-2 {
+    display: block !important;
+  }
+
+  .grid-2 > div:first-child {
+    display: none !important;
+  }
+
+  .grid-2 > div:last-child {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .resume-print-header {
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    border-bottom: 1.5px solid #000000 !important;
+    padding-bottom: 10px !important;
+  }
+
+  .resume-print-header h1 {
+    font-family: Arial, sans-serif !important;
+    font-size: 20pt !important;
+    font-weight: bold !important;
+    text-transform: none !important;
+    color: #000000 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .resume-print-header p {
+    font-family: Arial, sans-serif !important;
+    font-size: 9.5pt !important;
+    color: #000000 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .resume-section-header {
+    font-family: Arial, sans-serif !important;
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    border-bottom: 1px solid #000000 !important;
+    margin-top: 15px !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 2px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .timeline {
+    gap: 12px !important;
+    margin-top: 0 !important;
+  }
+
+  .timeline-item {
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-bottom: 8px !important;
+    page-break-inside: avoid !important;
+  }
+
+  .timeline-item::before {
+    display: none !important;
+  }
+
+  .resume-meta-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    margin-bottom: 3px !important;
+  }
+
+  .timeline-title {
+    font-family: Arial, sans-serif !important;
+    font-size: 10pt !important;
+    font-weight: bold !important;
+    font-style: normal !important;
+    color: #000000 !important;
+  }
+
+  .timeline-company {
+    font-family: Arial, sans-serif !important;
+    font-size: 10pt !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    display: inline !important;
+  }
+
+  .timeline-date {
+    font-family: Arial, sans-serif !important;
+    font-size: 9.5pt !important;
+    color: #000000 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .timeline-bullets {
+    margin-left: 15px !important;
+    gap: 2px !important;
+  }
+
+  .timeline-bullets li {
+    font-family: Arial, sans-serif !important;
+    font-size: 9.5pt !important;
+    color: #000000 !important;
+    padding-left: 0 !important;
+    margin-bottom: 1px !important;
+    display: list-item !important;
+    list-style-type: disc !important;
+  }
+
+  .timeline-bullets li::before {
+    display: none !important;
+  }
+
+  .timeline-bullets li strong {
+    color: #000000 !important;
+    font-weight: bold !important;
+  }
+
+  .skills-print-row {
+    margin-bottom: 4px !important;
+    font-size: 9.5pt !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .skills-print-row strong {
+    font-weight: bold !important;
+  }
+
+  @page {
+    margin: 0.5in !important;
+  }
+}
