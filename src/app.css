@@ -659,12 +659,50 @@ header {
 /* ==========================================================================
    Books Reading List Layout
    ========================================================================== */
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.books-table th {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.25rem 0.5rem;
+  border-bottom: 1.5px solid var(--border);
+  font-weight: 500;
+  text-align: left; /* Explicitly align headers left to match the data! */
+}
+
+.books-table th:last-child {
+  text-align: right;
+  padding-right: 0;
+}
+
+.books-table td {
+  padding: 1.25rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--text-muted);
+}
+
+.books-table td:last-child {
+  padding-right: 0;
+}
+
+.books-table tr:hover td {
+  color: var(--text-main);
+}
+
 .books-table td.title {
   color: var(--text-main);
-  font-family: var(--font-display);
+  font-family: var(--font-mono); /* Force uniform MONOSPACE for titles! */
   font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: -0.01em;
+  font-size: 1.05rem;
+  letter-spacing: normal;
 }
 
 .genre-tag {
