@@ -715,6 +715,101 @@ footer {
 }
 
 /* ==========================================================================
+   Mobile Responsiveness (Targeting small screens under 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Reduce container horizontal padding */
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  /* Stack header elements vertically to prevent collision */
+  .header-container {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.25rem 1rem;
+    text-align: center;
+  }
+
+  .nav-tabs {
+    gap: 1rem;
+    font-size: 0.72rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* About me mobile layouts */
+  .grid-2 {
+    gap: 2.5rem;
+  }
+
+  /* Timeline title size adjustment */
+  .timeline-title {
+    font-size: 1.45rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Split metadata row to stacked elements to prevent collision */
+  .resume-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  /* Reduce timeline bullets font size slightly */
+  .timeline-bullets li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Figma controls panel stacking */
+  .controls-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .filter-group {
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .select-sort {
+    width: 100%;
+  }
+
+  /* Force table scrolling so it doesn't overflow screen */
+  .books-table {
+    font-size: 0.85rem;
+    min-width: 600px;
+  }
+
+  .books-table th, .books-table td {
+    padding: 0.85rem 0.5rem;
+  }
+
+  .books-table td.title {
+    font-size: 1rem;
+  }
+
+  /* Visual essay headings */
+  .essay-title {
+    font-size: 1.35rem;
+  }
+  
+  .essay-card {
+    padding: 1.5rem;
+  }
+  
+  /* Abstract container height adjustment */
+  .abstract-container {
+    height: 90px;
+  }
+}
+
+/* ==========================================================================
    Print Stylesheet for Resume Export
    ========================================================================== */
 @media print {
