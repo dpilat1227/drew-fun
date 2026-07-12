@@ -83,10 +83,6 @@
       fetchBooks();
     }
   });
-
-  function triggerPrint() {
-    window.print();
-  }
 </script>
 
 <!-- Header & Tab Navigation -->
@@ -189,9 +185,9 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" onclick={triggerPrint} style="width: 100%; justify-content: center; font-family: var(--font-mono);">
-          Download PDF / Print Resume
-        </button>
+        <a href="/Drew_Pilat_Resume.pdf" download="Drew_Pilat_Resume.pdf" class="btn btn-primary" style="width: 100%; justify-content: center; font-family: var(--font-mono); text-decoration: none;">
+          Download PDF Resume
+        </a>
       </div>
 
       <!-- Experience & Education Column -->
@@ -577,7 +573,7 @@
             <button class="btn" onclick={fetchBooks} style="margin-top: 1rem;">Retry Sync</button>
           </div>
         {:else}
-          <div class="books-container">
+          <div class="books-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%;">
             <table class="books-table">
               <thead>
                 <tr>
