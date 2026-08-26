@@ -1,5 +1,5 @@
 <script>
-  let { src, alt, caption = '', label = '' } = $props();
+  let { src, alt, caption = '', label = '', chrome = true } = $props();
   let zoomed = $state(false);
 
   function onKey(e) {
@@ -18,6 +18,14 @@
 
 <figure>
   <div class="figure">
+    {#if chrome}
+      <div class="chrome-bar">
+        <span class="chrome-dot"></span>
+        <span class="chrome-dot"></span>
+        <span class="chrome-dot"></span>
+        {#if label}<span class="chrome-title">{label}</span>{/if}
+      </div>
+    {/if}
     <button type="button" class="zoom" onclick={() => (zoomed = true)} aria-label={`Enlarge image: ${alt}`}>
       <img {src} {alt} loading="lazy" decoding="async" />
     </button>
@@ -50,11 +58,11 @@
     display: block;
     width: 100%;
     height: auto;
-    transition: opacity 0.25s var(--ease);
+    transition: transform 0.45s var(--ease);
   }
 
   .zoom:hover img {
-    opacity: 0.9;
+    transform: scale(1.015);
   }
 
   .backdrop {

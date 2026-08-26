@@ -12,35 +12,52 @@ const normalize = (p) => {
 
 let path = $state(normalize(window.location.pathname));
 
+if (window.location.hash) {
+  requestAnimationFrame(() => {
+    document.querySelector(window.location.hash)?.scrollIntoView();
+  });
+}
+
 export const route = {
   get path() {
     return path;
   },
 };
 
-export function navigate(to, { replace = false } = {}) {
-  const next = normalize(to);
-  if (next === path) return;
-  if (replace) history.replaceState({}, '', next);
-  else history.pushState({}, '', next);
+function apply(url, { replace = false } = {}) {
+  const next = normalize(url.pathname);
+  const dest = `${url.pathname}${url.hash}`;
+  if (replace) history.replaceState({}, '', dest);
+  else if (`${window.location.pathname}${window.location.hash}` !== dest) {
+    history.pushState({}, '', dest);
+  }
   path = next;
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  if (url.hash) {
+    requestAnimationFrame(() => {
+      document.querySelector(url.hash)?.scrollIntoView({ behavior: 'smooth' });
+    });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+}
+
+export function navigate(to, opts = {}) {
+  const url = new URL(to, window.location.origin);
+  if (normalize(url.pathname) === path && !url.hash) return;
+  apply(url, opts);
 }
 
 window.addEventListener('popstate', () => {
   path = normalize(window.location.pathname);
 });
 
-/**
- * Intercepts same-origin left-clicks so internal <a href> links route without a
- * full page load, while modifier-clicks and external links behave normally.
- */
 window.addEventListener('click', (e) => {
   if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
   const anchor = e.target.closest?.('a');
   if (!anchor) return;
   const href = anchor.getAttribute('href');
   if (!href || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+  if (href.startsWith('#')) return;
   if (!href.startsWith('/') || href.startsWith('//')) return;
   e.preventDefault();
   navigate(href);

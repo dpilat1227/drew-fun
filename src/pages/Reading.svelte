@@ -61,8 +61,8 @@
 
 <div class="page">
   <div class="wrap">
-    <span class="tech-label">Archive // reading</span>
-    <h1 style="font-size:clamp(1.9rem,4vw,2.6rem);">Reading list</h1>
+    <span class="tech-label">Archive</span>
+    <h1>Reading</h1>
     <p class="lead" style="max-width:52ch;margin-top:1rem;">
       Everything I've finished, rated honestly. Synced from a spreadsheet I actually keep up
       to date.
