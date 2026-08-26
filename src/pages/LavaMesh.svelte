@@ -9,14 +9,16 @@
     <a href="/projects" class="mono back-link">← Projects</a>
 
     <header class="case-head">
-      <span class="tech-label">Control plane // networking</span>
+      <span class="tech-label">Control plane · networking</span>
       <h1>LavaMesh</h1>
-      <p class="lead" style="max-width:58ch;margin-top:1.1rem;">
+      <p class="lead" style="max-width:22ch;margin-top:1.1rem;">
+        Headscale, with a console. And the jobs that watch it when nobody is looking.
+      </p>
+      <p style="max-width:58ch;color:var(--text-3);margin-top:1.1rem;">
         A management dashboard for <a href="https://headscale.net" target="_blank" rel="noopener noreferrer">Headscale</a>,
-        the open-source implementation of Tailscale's coordination server. Headscale ships
-        without a UI, so everything is CLI-only. LavaMesh puts a control panel on top of it:
-        node fleet, users, pre-auth keys, subnet routing, access-control policy, audit logging
-        and alerting.
+        the open-source implementation of Tailscale's coordination server. Node fleet, users,
+        pre-auth keys, subnet routing, access-control policy, audit logging and alerting.
+        Sole engineer.
       </p>
 
       <div class="meta-grid">
@@ -43,11 +45,22 @@
       </div>
     </header>
 
+    <div class="case-shell">
+      <nav class="toc no-print" aria-label="Case study">
+        <a href="#problem">01 Problem</a>
+        <a href="#walkthrough">02 Walkthrough</a>
+        <a href="#interface">03 Interface</a>
+        <a href="#engineering">04 Engineering</a>
+        <a href="#status">05 Status</a>
+        <a href="#retrospective">06 Retrospective</a>
+      </nav>
+      <div>
+
     <hr class="rule" />
 
     <!-- ── Problem ──────────────────────────────────────────────────────── -->
-    <section class="prose">
-      <span class="tech-label">01 // The problem</span>
+    <section class="prose" id="problem">
+      <span class="tech-label">01 · The problem</span>
       <h2>A control server with no console</h2>
       <p>
         Tailscale builds a mesh VPN on WireGuard. The clients are excellent and the
@@ -72,7 +85,7 @@
 
     <!-- ── Walkthrough ──────────────────────────────────────────────────── -->
     <section id="walkthrough">
-      <span class="tech-label">02 // Walkthrough</span>
+      <span class="tech-label">02 · Walkthrough</span>
       <h2>Seventy seconds of the real thing</h2>
       <p style="max-width:58ch;color:var(--text-3);">
         Recorded against a running instance. Every action changes real state: the node is
@@ -97,8 +110,8 @@
     </section>
 
     <!-- ── Interface ────────────────────────────────────────────────────── -->
-    <section>
-      <span class="tech-label">03 // Interface</span>
+    <section id="interface">
+      <span class="tech-label">03 · Interface</span>
       <h2>What it does</h2>
 
       <div class="figures">
@@ -192,8 +205,8 @@
     </section>
 
     <!-- ── Engineering ──────────────────────────────────────────────────── -->
-    <section class="prose">
-      <span class="tech-label">04 // Engineering</span>
+    <section class="prose" id="engineering">
+      <span class="tech-label">04 · Engineering</span>
       <h2>The parts worth talking about</h2>
 
       <h3>Surviving Headscale's API drift</h3>
@@ -271,8 +284,8 @@
     </section>
 
     <!-- ── Honest status ────────────────────────────────────────────────── -->
-    <section class="prose">
-      <span class="tech-label">05 // Status</span>
+    <section class="prose" id="status">
+      <span class="tech-label">05 · Status</span>
       <h2>What's real, and what isn't</h2>
       <p>
         Portfolio pages tend to imply everything works. Here is the actual line.
@@ -310,8 +323,8 @@
     </section>
 
     <!-- ── The mistake ──────────────────────────────────────────────────── -->
-    <section class="prose">
-      <span class="tech-label">06 // Retrospective</span>
+    <section class="prose" id="retrospective">
+      <span class="tech-label">06 · Retrospective</span>
       <h2>I built it before I checked whether it was needed</h2>
       <p>
         I put a pricing page with live payment links on this before talking to a single
@@ -384,6 +397,9 @@
         <a href="https://github.com/dpilat1227/lavamesh" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Source →</a>
       </div>
     </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
@@ -422,6 +438,7 @@
 
   section {
     padding: 3.75rem 0 0;
+    scroll-margin-top: 5.5rem;
   }
 
   #walkthrough {

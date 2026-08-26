@@ -7,7 +7,7 @@
     <a href="/projects" class="mono back-link">← Projects</a>
 
     <header class="case-head">
-      <span class="tech-label">Consumer product // company</span>
+      <span class="tech-label">Consumer product · company</span>
       <h1>Wellnest</h1>
       <p class="lead" style="max-width:58ch;margin-top:1.1rem;">
         A student mental-health app I co-founded and ran as COO from 2019 to 2022.
@@ -51,12 +51,14 @@
           alt="Wellnest home screen: daily conversation card, quick note and mood check"
           label="Home"
           caption="The daily loop. This is a screenshot of the shipped app, not a mock."
+          chrome={false}
         />
         <Figure
           src="/media/wellnest/promo.webp"
           alt="Wellnest promotional artwork"
           label="Brand"
           caption="Launch creative. The company is closed; this is here because it existed."
+          chrome={false}
         />
       </div>
     </section>

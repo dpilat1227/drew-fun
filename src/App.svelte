@@ -27,7 +27,7 @@
 
 <Header />
 
-<main>
+<main id="main">
   {#key route.path}
     <Page />
   {/key}

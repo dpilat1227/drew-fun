@@ -86,50 +86,64 @@
   ];
 </script>
 
-<div class="page">
+<div class="page home">
   <div class="wrap">
     <div class="print-only" style="text-align:center;margin-bottom:14pt;border-bottom:1px solid #000;padding-bottom:8pt;">
       <h1 style="font-size:18pt;margin:0;">Drew Pilat</h1>
       <p style="font-size:9.5pt;margin:2pt 0 0;">dpilat@uchicago.edu · (248) 231-9562 · linkedin.com/in/drew-pilat · drew.fun</p>
     </div>
 
-    <div class="hero no-print">
-      <span class="tech-label">Chicago, IL · looking for software engineering</span>
-      <h1>Drew Pilat</h1>
-      <p class="lead" style="margin-top:1.25rem;max-width:46ch;">
-        I build software. I spent six years on the operating side of companies —
-        founding, investing, running product — and I am now a CS masters student
-        at UChicago writing the systems instead of specifying them.
+    <section class="hero no-print">
+      <span class="tech-label">Chicago · software</span>
+      <h1 class="display-name">
+        <span class="given">Drew</span>
+        <span class="family">Pilat</span>
+      </h1>
+      <p class="lead kicker">
+        Six years operating companies. Now I write the systems instead of specifying them.
       </p>
-      <p style="max-width:52ch;color:var(--text-3);font-size:0.965rem;">
-        The thing to look at is LavaMesh: a Headscale control panel I designed and
-        shipped myself. The write-up includes the parts that don't work.
-      </p>
-
-      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:2rem;">
-        <a href="/projects/lavamesh" class="btn btn-gold">LavaMesh case study →</a>
-        <a href="/Drew_Pilat_Resume.pdf" download class="btn">Résumé (PDF)</a>
+      <div class="cta-row">
+        <a href="/projects/lavamesh" class="btn btn-gold">LavaMesh case study</a>
+        <a href="/Drew_Pilat_Resume.pdf" download class="btn">Résumé</a>
         <a href="mailto:dpilat@uchicago.edu" class="btn">Email</a>
       </div>
-    </div>
+    </section>
+  </div>
 
-    <a href="/projects/lavamesh" class="feature-strip card-link no-print">
-      <div class="feature-strip-media">
-        <img src="/media/lavamesh/dashboard.webp" alt="LavaMesh node fleet dashboard" />
+  <a href="/projects/lavamesh#walkthrough" class="film film-bleed no-print" aria-label="Open LavaMesh walkthrough">
+    <img src="/media/lavamesh/walkthrough-poster.webp" alt="LavaMesh dashboard during a live walkthrough" />
+    <div class="film-veil"></div>
+    <div class="film-play" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </div>
+    <div class="film-meta">
+      <div>
+        <span class="tech-label" style="color: rgba(228,197,122,0.85); margin-bottom: 0.35rem;">01 · Latest</span>
+        <h2>LavaMesh</h2>
       </div>
-      <div class="feature-strip-body">
-        <span class="tech-label">Latest project</span>
-        <div class="feature-title">
-          <h2 style="margin-bottom:0;font-size:1.45rem;">LavaMesh</h2>
-          <span class="badge badge-green badge-dot">Shipped</span>
-        </div>
-        <p style="color:var(--text-3);margin-top:0.75rem;font-size:0.95rem;">
-          Dashboard for Headscale: node fleet, keys, subnet routes, ACL policy,
-          audit log, alerting. Next.js, Postgres, Redis, Fly.io. Sole engineer.
-        </p>
-        <span class="read-more mono">Read the case study →</span>
+      <span class="mono" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,239,230,0.7);margin-bottom:0.35rem;">
+        Case study →
+      </span>
+    </div>
+  </a>
+
+  <div class="wrap">
+    <div class="stat-row no-print">
+      <div>
+        <div class="k">Now</div>
+        <div class="v">UChicago CS · HPC</div>
       </div>
-    </a>
+      <div>
+        <div class="k">Shipped</div>
+        <div class="v">LavaMesh, sole engineer</div>
+      </div>
+      <div>
+        <div class="k">Looking for</div>
+        <div class="v">Software engineering</div>
+      </div>
+    </div>
 
     <hr class="rule" />
 
@@ -142,7 +156,7 @@
             <tr><td>Languages</td><td>TypeScript, Python, C++, SQL</td></tr>
             <tr><td>Building with</td><td>Next.js, React, Postgres, Prisma, Redis</td></tr>
             <tr><td>Infra</td><td>Vercel, Fly.io, Docker, WireGuard</td></tr>
-            <tr><td>Looking for</td><td>Software engineering internships and full-time</td></tr>
+            <tr><td>Looking for</td><td>Internships and full-time</td></tr>
           </tbody>
         </table>
       </aside>
@@ -193,59 +207,26 @@
 </div>
 
 <style>
+  .home {
+    padding-top: 0.5rem;
+  }
+
   .hero {
-    padding-top: 1.5rem;
+    padding: 2.25rem 0 3.25rem;
   }
 
-  .feature-strip {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    margin-top: 3.25rem;
-    background: var(--bg-raised);
-    border: 1px solid var(--border-1);
-    border-radius: 12px;
-    overflow: hidden;
-    color: inherit;
+  .kicker {
+    max-width: 28ch;
+    margin-top: 1.75rem;
+    font-size: 1.2rem;
+    color: var(--text-2);
   }
 
-  .feature-strip:hover {
-    border-color: var(--border-gold);
-    transform: none;
-  }
-
-  .feature-strip-media {
-    background: var(--bg-sunken);
-    border-right: 1px solid var(--border-1);
-    min-height: 220px;
-    overflow: hidden;
-  }
-
-  .feature-strip-media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: left top;
-  }
-
-  .feature-strip-body {
-    padding: 1.75rem 1.85rem;
-  }
-
-  .feature-title {
+  .cta-row {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    gap: 0.7rem;
     flex-wrap: wrap;
-  }
-
-  .read-more {
-    display: inline-block;
-    margin-top: 1.15rem;
-    font-size: 0.74rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gold-bright);
+    margin-top: 2.25rem;
   }
 
   .split {
@@ -285,22 +266,15 @@
     .split aside {
       position: static;
     }
-
-    .feature-strip {
-      grid-template-columns: 1fr;
-    }
-
-    .feature-strip-media {
-      border-right: none;
-      border-bottom: 1px solid var(--border-1);
-      max-height: 200px;
-      min-height: 0;
-    }
   }
 
   @media print {
     .split {
       display: block;
+    }
+
+    .home {
+      padding: 0;
     }
   }
 </style>
