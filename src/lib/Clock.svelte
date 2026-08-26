@@ -34,7 +34,7 @@
   }
 
   .clock-city {
-    color: var(--gold-dim);
+    color: var(--text-3);
     margin-right: 0.55rem;
   }
 </style>

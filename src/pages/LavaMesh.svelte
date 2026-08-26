@@ -39,7 +39,7 @@
       </div>
 
       <div class="cta-row">
-        <a href="https://github.com/dpilat1227/lavamesh" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Source on GitHub →</a>
+        <a href="https://github.com/dpilat1227/lavamesh" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source on GitHub →</a>
         <a href="https://lavamesh.com" target="_blank" rel="noopener noreferrer" class="btn">Product site</a>
         <a href="#walkthrough" class="btn">Watch the walkthrough</a>
       </div>
@@ -394,7 +394,7 @@
       <a href="/projects" class="btn">← All projects</a>
       <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
         <a href="https://lavamesh.com" target="_blank" rel="noopener noreferrer" class="btn">Product site</a>
-        <a href="https://github.com/dpilat1227/lavamesh" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Source →</a>
+        <a href="https://github.com/dpilat1227/lavamesh" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source →</a>
       </div>
     </div>
 
@@ -415,7 +415,7 @@
   }
 
   .back-link:hover {
-    color: var(--gold-bright);
+    color: var(--accent);
   }
 
   .case-head {

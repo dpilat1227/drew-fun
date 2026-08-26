@@ -94,58 +94,18 @@
     </div>
 
     <section class="hero no-print">
-      <span class="tech-label">Chicago · software</span>
-      <h1 class="display-name">
-        <span class="given">Drew</span>
-        <span class="family">Pilat</span>
-      </h1>
+      <h1 class="display-name">Drew Pilat</h1>
       <p class="lead kicker">
-        Six years operating companies. Now I write the systems instead of specifying them.
+        UChicago CS. Looking for internships and full-time.
       </p>
       <div class="cta-row">
-        <a href="/projects/lavamesh" class="btn btn-gold">LavaMesh case study</a>
-        <a href="/Drew_Pilat_Resume.pdf" download class="btn">Résumé</a>
+        <a href="/Drew_Pilat_Resume.pdf" download class="btn btn-primary">Résumé</a>
         <a href="mailto:dpilat@uchicago.edu" class="btn">Email</a>
       </div>
+      <p class="quiet-link">
+        <a href="/projects/lavamesh">LavaMesh case study →</a>
+      </p>
     </section>
-  </div>
-
-  <a href="/projects/lavamesh#walkthrough" class="film film-bleed no-print" aria-label="Open LavaMesh walkthrough">
-    <img src="/media/lavamesh/walkthrough-poster.webp" alt="LavaMesh dashboard during a live walkthrough" />
-    <div class="film-veil"></div>
-    <div class="film-play" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-        <path d="M8 5v14l11-7z" />
-      </svg>
-    </div>
-    <div class="film-meta">
-      <div>
-        <span class="tech-label" style="color: rgba(228,197,122,0.85); margin-bottom: 0.35rem;">01 · Latest</span>
-        <h2>LavaMesh</h2>
-      </div>
-      <span class="mono" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,239,230,0.7);margin-bottom:0.35rem;">
-        Case study →
-      </span>
-    </div>
-  </a>
-
-  <div class="wrap">
-    <div class="stat-row no-print">
-      <div>
-        <div class="k">Now</div>
-        <div class="v">UChicago CS · HPC</div>
-      </div>
-      <div>
-        <div class="k">Shipped</div>
-        <div class="v">LavaMesh, sole engineer</div>
-      </div>
-      <div>
-        <div class="k">Looking for</div>
-        <div class="v">Software engineering</div>
-      </div>
-    </div>
-
-    <hr class="rule" />
 
     <div class="split">
       <aside class="no-print">
@@ -212,13 +172,13 @@
   }
 
   .hero {
-    padding: 2.25rem 0 3.25rem;
+    padding: 2.5rem 0 3.5rem;
   }
 
   .kicker {
-    max-width: 28ch;
-    margin-top: 1.75rem;
-    font-size: 1.2rem;
+    max-width: 36ch;
+    margin-top: 1.15rem;
+    font-size: 1.15rem;
     color: var(--text-2);
   }
 
@@ -226,7 +186,12 @@
     display: flex;
     gap: 0.7rem;
     flex-wrap: wrap;
-    margin-top: 2.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .quiet-link {
+    margin-top: 1.15rem;
+    font-size: 0.95rem;
   }
 
   .split {

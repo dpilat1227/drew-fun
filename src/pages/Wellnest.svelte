@@ -80,7 +80,7 @@
 
     <div class="foot-nav">
       <a href="/projects" class="btn">← All projects</a>
-      <a href="/projects/lavamesh" class="btn btn-gold">LavaMesh →</a>
+      <a href="/projects/lavamesh" class="btn btn-primary">LavaMesh →</a>
     </div>
   </div>
 </div>
@@ -97,7 +97,7 @@
   }
 
   .back-link:hover {
-    color: var(--gold-bright);
+    color: var(--accent);
   }
 
   .case-head {

@@ -61,11 +61,9 @@
 
 <div class="page">
   <div class="wrap">
-    <span class="tech-label">Archive</span>
     <h1>Reading</h1>
-    <p class="lead" style="max-width:52ch;margin-top:1rem;">
-      Everything I've finished, rated honestly. Synced from a spreadsheet I actually keep up
-      to date.
+    <p class="lead" style="max-width:36ch;margin-top:0.75rem;">
+      My reading list.
     </p>
 
     <div class="controls" style="margin-top:2.5rem;">

@@ -1,33 +1,39 @@
-/* drew.fun — night press
-   Display type (Instrument Serif) is for names and page titles only.
-   Prose stays in Inter. Mono is labels, data, the clock. */
+/* drew.fun
+   Titles: Zilla Slab. Everything else: Space Grotesk.
+   Accent is mint, not brass. */
 
 :root {
-  --bg: #0a0907;
-  --bg-raised: #12100c;
-  --bg-sunken: #060504;
-  --bg-hover: #1a1712;
+  --bg: #08090c;
+  --bg-raised: #101218;
+  --bg-sunken: #05060a;
+  --bg-hover: #161a22;
 
-  --text-1: #f4efe6;
-  --text-2: #c9c2b6;
-  --text-3: #8e877c;
-  --text-4: #5c564c;
+  --text-1: #f5f7fa;
+  --text-2: #c4cad4;
+  --text-3: #8b93a3;
+  --text-4: #5c6573;
 
-  --gold: #c4a35a;
-  --gold-bright: #e4c57a;
-  --gold-dim: #8a7340;
-  --gold-wash: rgba(196, 163, 90, 0.09);
+  --accent: #00e5a0;
+  --accent-bright: #5fffc4;
+  --accent-dim: #00a878;
+  --accent-wash: rgba(0, 229, 160, 0.12);
+  --violet: #7b6cff;
 
-  --green: #6dbf8f;
-  --amber: #d4a04a;
-  --red: #c96b5c;
+  --gold: var(--accent);
+  --gold-bright: var(--accent-bright);
+  --gold-dim: var(--accent-dim);
+  --gold-wash: var(--accent-wash);
 
-  --border-1: #1c1914;
-  --border-2: #2c271f;
-  --border-gold: rgba(196, 163, 90, 0.32);
+  --green: #00e5a0;
+  --amber: #ffb020;
+  --red: #ff5d73;
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Instrument Serif', 'Times New Roman', serif;
+  --border-1: #1a1e28;
+  --border-2: #2a3140;
+  --border-gold: rgba(0, 229, 160, 0.38);
+
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Zilla Slab', 'Rockwell', 'Courier New', serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --wide: 1180px;
@@ -70,19 +76,9 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 50% at 12% -10%, rgba(196, 163, 90, 0.07), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(196, 163, 90, 0.04), transparent 50%);
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  pointer-events: none;
-  opacity: 0.045;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    radial-gradient(ellipse 70% 50% at 8% -8%, rgba(0, 229, 160, 0.22), transparent 55%),
+    radial-gradient(ellipse 55% 40% at 96% 0%, rgba(123, 108, 255, 0.28), transparent 52%),
+    radial-gradient(ellipse 40% 30% at 70% 110%, rgba(255, 80, 160, 0.1), transparent 50%);
 }
 
 #app,
@@ -94,7 +90,7 @@ main,
 }
 
 ::selection {
-  background: rgba(196, 163, 90, 0.32);
+  background: rgba(0, 229, 160, 0.28);
   color: #fff;
 }
 
@@ -106,11 +102,11 @@ main,
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a261e;
+  background: #2a3140;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-dim);
+  background: var(--accent-dim);
 }
 
 :focus-visible {
@@ -135,16 +131,16 @@ h4 {
 
 h1 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.6rem, 6.5vw, 4.4rem);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
   letter-spacing: -0.03em;
-  line-height: 0.98;
+  line-height: 1.05;
 }
 
 h2 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
@@ -158,21 +154,11 @@ h3 {
 
 .display-name {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(4.2rem, 18vw, 11.5rem);
-  line-height: 0.8;
-  letter-spacing: -0.05em;
+  font-weight: 600;
+  font-size: clamp(3.2rem, 9vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   color: var(--text-1);
-}
-
-.display-name .given {
-  display: block;
-  font-style: italic;
-  color: var(--gold-bright);
-}
-
-.display-name .family {
-  display: block;
 }
 
 p {
@@ -201,15 +187,15 @@ em {
 }
 
 a {
-  color: var(--gold-bright);
+  color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+  border-bottom: 1px solid rgba(0, 229, 160, 0.35);
   transition: border-color 0.22s var(--ease), color 0.22s var(--ease);
 }
 
 a:hover {
   color: #fff;
-  border-bottom-color: var(--gold);
+  border-bottom-color: var(--accent);
 }
 
 code {
@@ -231,7 +217,7 @@ code {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold-dim);
+  color: var(--text-4);
   margin-bottom: 0.7rem;
 }
 
@@ -244,8 +230,8 @@ code {
   left: 1rem;
   top: -40px;
   z-index: 100;
-  background: var(--gold);
-  color: #120e08;
+  background: var(--accent);
+  color: #04140e;
   padding: 0.4rem 0.8rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -305,7 +291,7 @@ code {
     scroll-behavior: auto !important;
   }
 
-  body::after {
+  body::before {
     display: none;
   }
 }
@@ -316,7 +302,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(10, 9, 7, 0.72);
+  background: rgba(8, 9, 12, 0.78);
   backdrop-filter: saturate(140%) blur(16px);
   border-bottom: 1px solid var(--border-1);
 }
@@ -332,27 +318,27 @@ code {
 }
 
 .brand {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--text-1);
   border-bottom: none;
   justify-self: start;
 }
 
 .brand:hover {
-  color: var(--gold-bright);
+  color: var(--accent);
 }
 
 .site-nav {
   display: flex;
   gap: 1.7rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   justify-self: center;
 }
 
@@ -373,8 +359,8 @@ a.second:hover {
 }
 
 .site-nav a[aria-current='page'] {
-  color: var(--gold-bright);
-  border-bottom-color: var(--gold);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .header-end {
@@ -389,35 +375,36 @@ a.second:hover {
   gap: 0.5rem;
   background: transparent;
   border: 1px solid var(--border-2);
-  border-radius: 999px;
+  border-radius: 8px;
   color: var(--text-1);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.68rem 1.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.62rem 1.05rem;
   cursor: pointer;
   transition: border-color 0.24s var(--ease), background 0.24s var(--ease), color 0.24s var(--ease), transform 0.24s var(--ease);
 }
 
 .btn:hover {
-  border-color: var(--border-gold);
-  background: var(--gold-wash);
+  border-color: var(--accent);
+  background: var(--accent-wash);
   color: #fff;
   transform: translateY(-1px);
 }
 
-.btn-gold {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #120e08;
+.btn-gold,
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #04140e;
 }
 
-.btn-gold:hover {
-  background: var(--gold-bright);
-  border-color: var(--gold-bright);
-  color: #120e08;
+.btn-gold:hover,
+.btn-primary:hover {
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
+  color: #04140e;
 }
 
 /* ── Badges ────────────────────────────────────────────────────────────────── */
@@ -549,7 +536,7 @@ a.second:hover {
 }
 
 .entry-org {
-  color: var(--gold);
+  color: var(--text-3);
   text-transform: uppercase;
 }
 
@@ -614,7 +601,7 @@ figure {
   align-items: center;
   gap: 6px;
   padding: 0.55rem 0.85rem;
-  background: #0e0c0a;
+  background: #0c0e14;
   border-bottom: 1px solid var(--border-1);
 }
 
@@ -777,7 +764,8 @@ figure {
 
 .stat-row .v {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--text-1);
   letter-spacing: -0.02em;
 }
@@ -801,10 +789,69 @@ figcaption b {
   font-weight: 500;
 }
 
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2.75rem;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 2rem;
+  align-items: center;
+  color: inherit;
+  border-bottom: none;
+  padding: 0;
+}
+
+.project-card:hover {
+  color: inherit;
+}
+
+.project-shot {
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-sunken);
+  aspect-ratio: 16 / 10;
+}
+
+.project-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.project-body h2 {
+  margin-bottom: 0.55rem;
+}
+
+.project-body p {
+  color: var(--text-3);
+  font-size: 0.98rem;
+}
+
+.project-stack {
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  color: var(--text-4);
+}
+
 .figure-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+}
+
+@media (max-width: 860px) {
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
 }
 
 @media (max-width: 760px) {
@@ -981,9 +1028,9 @@ figcaption b {
 
 .books td.book-title {
   color: var(--text-1);
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.15rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.02rem;
   letter-spacing: -0.02em;
 }
 
