@@ -11,6 +11,14 @@
     biography: '#FF33A1',
   };
 
+  const genreTone = {
+    all: 'purple',
+    'sci-fi': 'green',
+    fantasy: 'purple',
+    'non-fiction': 'orange',
+    biography: 'pink',
+  };
+
   const genres = ['all', 'sci-fi', 'fantasy', 'non-fiction', 'biography'];
 
   let books = $state([]);
@@ -70,7 +78,7 @@
       <div class="control-group">
         <span class="control-label">Genre</span>
         {#each genres as g (g)}
-          <button class="chip" aria-pressed={genre === g} onclick={() => (genre = g)}>
+          <button class="chip tag tag-{genreTone[g]}" aria-pressed={genre === g} onclick={() => (genre = g)}>
             {g === 'all' ? 'All' : g}
           </button>
         {/each}

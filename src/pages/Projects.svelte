@@ -5,7 +5,13 @@
       title: 'LavaMesh',
       blurb:
         "Headscale dashboard. Nodes, keys, routes, ACLs, audit log, alerting. Sole engineer. Write-up includes the parts that don't work.",
-      stack: 'Next.js · TypeScript · Postgres · Redis · Fly.io',
+      tags: [
+        { label: 'Next.js', tone: 'purple' },
+        { label: 'TypeScript', tone: 'cyan' },
+        { label: 'Postgres', tone: 'green' },
+        { label: 'Redis', tone: 'orange' },
+        { label: 'Fly.io', tone: 'pink' },
+      ],
       image: '/media/lavamesh/dashboard.webp',
       alt: 'LavaMesh node fleet dashboard',
     },
@@ -14,7 +20,11 @@
       title: 'Wellnest',
       blurb:
         'Co-founded a student mental-health app. Raised $800k. Wound down in 2022. I ran the company, not the codebase.',
-      stack: 'Product · Fundraising · Operations',
+      tags: [
+        { label: 'Product', tone: 'pink' },
+        { label: 'Fundraising', tone: 'orange' },
+        { label: 'Operations', tone: 'purple' },
+      ],
       image: '/media/wellnest/app-home.webp',
       alt: 'Wellnest app home screen',
     },
@@ -37,7 +47,11 @@
           <div class="project-body">
             <h2>{project.title}</h2>
             <p>{project.blurb}</p>
-            <p class="mono project-stack">{project.stack}</p>
+            <div class="tag-row" style="margin-top:1rem;">
+              {#each project.tags as tag (tag.label)}
+                <span class="tag tag-{tag.tone}">{tag.label}</span>
+              {/each}
+            </div>
           </div>
         </a>
       {/each}
