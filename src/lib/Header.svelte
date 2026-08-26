@@ -15,7 +15,7 @@
 <a href="#main" class="skip">Skip to content</a>
 
 <header class="site-header no-print">
-  <div class="header-inner">
+  <div class="nav-float">
     <a href="/" class="brand">Drew</a>
     <nav class="site-nav" aria-label="Primary">
       {#each links as link (link.href)}
@@ -25,7 +25,8 @@
       {/each}
     </nav>
     <div class="header-end">
-      <Clock />
+      <span class="nav-clock"><Clock /></span>
+      <a href="mailto:dpilat@uchicago.edu" class="nav-mail">Email</a>
     </div>
   </div>
 </header>
