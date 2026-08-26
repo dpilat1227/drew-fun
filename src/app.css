@@ -329,19 +329,21 @@ code {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 }
 
-.brand {
+a.brand {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-style: normal;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--text-1);
+  color: var(--text-3);
   border-bottom: none;
   flex-shrink: 0;
 }
 
-.brand:hover {
-  color: var(--accent-bright);
+a.brand:hover,
+a.brand:focus-visible {
+  color: var(--text-1);
+  outline: none;
 }
 
 .site-nav {
@@ -917,7 +919,7 @@ figcaption b {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left top;
+  object-position: center;
 }
 
 .project-body h2 {

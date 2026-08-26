@@ -45,47 +45,8 @@
       </div>
     </header>
 
-    <div class="case-shell">
-      <nav class="toc no-print" aria-label="Case study">
-        <a href="#problem">01 Problem</a>
-        <a href="#walkthrough">02 Walkthrough</a>
-        <a href="#interface">03 Interface</a>
-        <a href="#engineering">04 Engineering</a>
-        <a href="#status">05 Status</a>
-        <a href="#retrospective">06 Retrospective</a>
-      </nav>
-      <div>
-
-    <hr class="rule" />
-
-    <!-- ── Problem ──────────────────────────────────────────────────────── -->
-    <section class="prose" id="problem">
-      <span class="tech-label">01 · The problem</span>
-      <h2>A control server with no console</h2>
-      <p>
-        Tailscale builds a mesh VPN on WireGuard. The clients are excellent and the
-        coordination server — the component that decides which machines exist and who may
-        talk to whom — is proprietary, hosted in the US, and billed per seat. Headscale
-        reimplements that coordination server as open source, so you can point the official
-        Tailscale clients at infrastructure you own.
-      </p>
-      <p>
-        What Headscale deliberately does not ship is an interface. Registering a machine,
-        approving a subnet route, or rotating a key all happen through
-        <code>headscale</code> subcommands over SSH. That's fine for one server and tedious
-        across a dozen, and it means anything you'd want to notice — a node that dropped
-        three days ago, a pre-auth key expiring tomorrow — is something you have to remember
-        to go and look for.
-      </p>
-      <p>
-        LavaMesh is the console: a web UI over Headscale's REST API, plus the scheduled jobs
-        that watch for the things a dashboard can't tell you unless someone is looking at it.
-      </p>
-    </section>
-
-    <!-- ── Walkthrough ──────────────────────────────────────────────────── -->
-    <section id="walkthrough">
-      <span class="tech-label">02 · Walkthrough</span>
+    <section id="walkthrough" class="lead-walk">
+      <span class="tech-label">01 · Walkthrough</span>
       <h2>Seventy seconds of the real thing</h2>
       <p style="max-width:58ch;color:var(--text-3);">
         Recorded against a running instance. Every action changes real state: the node is
@@ -107,6 +68,44 @@
           the screenshots have something to manage. The dashboard code is unmodified.
         </figcaption>
       </figure>
+    </section>
+
+    <div class="case-shell">
+      <nav class="toc no-print" aria-label="Case study">
+        <a href="#walkthrough">01 Walkthrough</a>
+        <a href="#problem">02 Problem</a>
+        <a href="#interface">03 Interface</a>
+        <a href="#engineering">04 Engineering</a>
+        <a href="#status">05 Status</a>
+        <a href="#retrospective">06 Retrospective</a>
+      </nav>
+      <div>
+
+    <hr class="rule" />
+
+    <!-- ── Problem ──────────────────────────────────────────────────────── -->
+    <section class="prose" id="problem">
+      <span class="tech-label">02 · The problem</span>
+      <h2>A control server with no console</h2>
+      <p>
+        Tailscale builds a mesh VPN on WireGuard. The clients are excellent and the
+        coordination server — the component that decides which machines exist and who may
+        talk to whom — is proprietary, hosted in the US, and billed per seat. Headscale
+        reimplements that coordination server as open source, so you can point the official
+        Tailscale clients at infrastructure you own.
+      </p>
+      <p>
+        What Headscale deliberately does not ship is an interface. Registering a machine,
+        approving a subnet route, or rotating a key all happen through
+        <code>headscale</code> subcommands over SSH. That's fine for one server and tedious
+        across a dozen, and it means anything you'd want to notice — a node that dropped
+        three days ago, a pre-auth key expiring tomorrow — is something you have to remember
+        to go and look for.
+      </p>
+      <p>
+        LavaMesh is the console: a web UI over Headscale's REST API, plus the scheduled jobs
+        that watch for the things a dashboard can't tell you unless someone is looking at it.
+      </p>
     </section>
 
     <!-- ── Interface ────────────────────────────────────────────────────── -->
@@ -434,6 +433,10 @@
     gap: 0.7rem;
     flex-wrap: wrap;
     margin-top: 2rem;
+  }
+
+  .lead-walk {
+    max-width: 900px;
   }
 
   section {

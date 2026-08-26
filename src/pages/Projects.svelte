@@ -12,8 +12,8 @@
         { label: 'Redis', tone: 'orange' },
         { label: 'Fly.io', tone: 'pink' },
       ],
-      image: '/media/lavamesh/dashboard.webp',
-      alt: 'LavaMesh node fleet dashboard',
+      image: '/media/lavamesh/landing-hero.webp',
+      alt: 'LavaMesh marketing landing page with product visualization',
     },
     {
       href: '/projects/wellnest',
@@ -25,8 +25,8 @@
         { label: 'Fundraising', tone: 'orange' },
         { label: 'Operations', tone: 'purple' },
       ],
-      image: '/media/wellnest/app-home.webp',
-      alt: 'Wellnest app home screen',
+      image: '/media/wellnest/iphone.webp',
+      alt: 'Wellnest app on an iPhone, home screen with daily cards',
     },
   ];
 </script>

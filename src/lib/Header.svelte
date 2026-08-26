@@ -1,7 +1,6 @@
 <script>
-  import { isActive } from './router.svelte.js';
-  import Clock from './Clock.svelte';
   import ScrollProgress from './ScrollProgress.svelte';
+  import { isActive } from './router.svelte.js';
 
   const links = [
     { href: '/', label: 'About' },
@@ -25,7 +24,6 @@
       {/each}
     </nav>
     <div class="header-end">
-      <span class="nav-clock"><Clock /></span>
       <a href="mailto:dpilat@uchicago.edu" class="nav-mail">Email</a>
     </div>
   </div>
