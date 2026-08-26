@@ -1,90 +1,10 @@
 <script>
   const now = [
-    {
-      k: 'Focus',
-      tags: [
-        { label: 'Infrastructure', tone: 'cyan' },
-        { label: 'Networking', tone: 'purple' },
-        { label: 'Backend', tone: 'green' },
-      ],
-    },
-    {
-      k: 'Languages',
-      tags: [
-        { label: 'TypeScript', tone: 'cyan' },
-        { label: 'Python', tone: 'green' },
-        { label: 'C++', tone: 'orange' },
-        { label: 'SQL', tone: 'pink' },
-      ],
-    },
-    {
-      k: 'Building',
-      tags: [
-        { label: 'Next.js', tone: 'purple' },
-        { label: 'React', tone: 'cyan' },
-        { label: 'Postgres', tone: 'green' },
-        { label: 'Prisma', tone: 'orange' },
-        { label: 'Redis', tone: 'pink' },
-      ],
-    },
-    {
-      k: 'Infra',
-      tags: [
-        { label: 'Vercel', tone: 'cyan' },
-        { label: 'Fly.io', tone: 'purple' },
-        { label: 'Docker', tone: 'orange' },
-        { label: 'WireGuard', tone: 'green' },
-      ],
-    },
-    {
-      k: 'Looking for',
-      tags: [
-        { label: 'Internships', tone: 'purple' },
-        { label: 'Full-time', tone: 'pink' },
-      ],
-    },
-  ];
-
-  const skillGroups = [
-    {
-      k: 'Programming',
-      tags: [
-        { label: 'TypeScript', tone: 'cyan' },
-        { label: 'Python', tone: 'green' },
-        { label: 'C++', tone: 'orange' },
-        { label: 'SQL', tone: 'pink' },
-        { label: 'Bash', tone: 'purple' },
-      ],
-    },
-    {
-      k: 'Web',
-      tags: [
-        { label: 'React', tone: 'cyan' },
-        { label: 'Next.js', tone: 'purple' },
-        { label: 'Svelte', tone: 'orange' },
-        { label: 'Postgres', tone: 'green' },
-        { label: 'Prisma', tone: 'pink' },
-        { label: 'Redis', tone: 'cyan' },
-      ],
-    },
-    {
-      k: 'Systems',
-      tags: [
-        { label: 'Linux', tone: 'green' },
-        { label: 'Docker', tone: 'orange' },
-        { label: 'WireGuard', tone: 'cyan' },
-        { label: 'CI/CD', tone: 'purple' },
-      ],
-    },
-    {
-      k: 'Quant',
-      tags: [
-        { label: 'Time-series', tone: 'pink' },
-        { label: 'Factor models', tone: 'purple' },
-        { label: 'VaR', tone: 'orange' },
-        { label: 'Tableau', tone: 'cyan' },
-      ],
-    },
+    { k: 'Focus', v: 'Infrastructure, networking, backend' },
+    { k: 'Languages', v: 'TypeScript, Python, C++, SQL' },
+    { k: 'Building', v: 'Next.js, React, Postgres, Prisma, Redis' },
+    { k: 'Infra', v: 'Vercel, Fly.io, Docker, WireGuard' },
+    { k: 'Looking for', v: 'Internships and full-time' },
   ];
 
   const education = [
@@ -201,19 +121,14 @@
 
     <div class="split">
       <aside class="no-print">
-        <div class="panel">
-          <span class="tech-label">Currently</span>
-          {#each now as row (row.k)}
-            <div class="now-row">
-              <span class="now-k">{row.k}</span>
-              <div class="tag-row">
-                {#each row.tags as tag (tag.label)}
-                  <span class="tag tag-{tag.tone}">{tag.label}</span>
-                {/each}
-              </div>
-            </div>
-          {/each}
-        </div>
+        <span class="tech-label">Currently</span>
+        <table class="data-table">
+          <tbody>
+            {#each now as row (row.k)}
+              <tr><td>{row.k}</td><td>{row.v}</td></tr>
+            {/each}
+          </tbody>
+        </table>
       </aside>
 
       <div>
@@ -255,18 +170,14 @@
         {/each}
 
         <div class="section-head" style="margin-top:3.5rem;">Skills</div>
-        <div class="panel">
-          {#each skillGroups as row (row.k)}
-            <div class="now-row">
-              <span class="now-k">{row.k}</span>
-              <div class="tag-row">
-                {#each row.tags as tag (tag.label)}
-                  <span class="tag tag-{tag.tone}">{tag.label}</span>
-                {/each}
-              </div>
-            </div>
-          {/each}
-        </div>
+        <table class="data-table">
+          <tbody>
+            <tr><td>Programming</td><td>TypeScript, Python (NumPy, Pandas, scikit-learn), C++, SQL, Bash</td></tr>
+            <tr><td>Web</td><td>React, Next.js, Svelte, Node, REST APIs, Prisma, Postgres, Redis</td></tr>
+            <tr><td>Systems</td><td>Linux, Docker, WireGuard, networking, CI/CD</td></tr>
+            <tr><td>Quantitative</td><td>Time-series analysis, factor modelling, risk (VaR, stress testing), Tableau</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -305,6 +216,22 @@
   .split aside {
     position: sticky;
     top: 5.5rem;
+  }
+
+  .split aside :global(.data-table tr) {
+    display: block;
+    padding: 0.7rem 0;
+  }
+
+  .split aside :global(.data-table td) {
+    display: block;
+    padding: 0;
+  }
+
+  .split aside :global(.data-table td:first-child) {
+    width: auto;
+    padding-bottom: 0.28rem;
+    white-space: normal;
   }
 
   @media (max-width: 900px) {
