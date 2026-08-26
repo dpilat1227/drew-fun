@@ -19,7 +19,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--gold);
+    background: var(--accent);
     transform-origin: 0 50%;
     z-index: 80;
     pointer-events: none;
