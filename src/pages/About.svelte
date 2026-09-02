@@ -111,11 +111,11 @@
     <section class="hero no-print">
       <h1 class="display-name">Drew Pilat</h1>
       <p class="lead kicker">
-        UChicago CS. Looking for internships and full-time.
+        M.S. Computer Science, University of Chicago &mdash; graduating Spring 2027.
       </p>
       <div class="cta-row">
-        <a href="/Drew_Pilat_Resume.pdf" download class="btn btn-primary">Résumé</a>
-        <a href="/projects/lavamesh" class="btn">LavaMesh</a>
+        <a href="/Drew_Pilat_Resume.pdf" download class="btn btn-primary">Resume</a>
+        <a href="/projects" class="btn">Projects</a>
       </div>
     </section>
 
