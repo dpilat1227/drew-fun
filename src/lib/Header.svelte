@@ -15,7 +15,6 @@
 
 <header class="site-header no-print">
   <div class="nav-float">
-    <a href="/" class="brand">Drew</a>
     <nav class="site-nav" aria-label="Primary">
       {#each links as link (link.href)}
         <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>

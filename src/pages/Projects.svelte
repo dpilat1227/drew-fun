@@ -49,9 +49,6 @@
 <div class="page">
   <div class="wrap">
     <h1>Projects</h1>
-    <p class="lead" style="max-width:36ch;margin-top:0.75rem;">
-      Drafts aren't listed.
-    </p>
 
     <div class="project-list">
       {#each projects as project (project.href)}
