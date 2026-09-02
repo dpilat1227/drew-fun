@@ -6,6 +6,7 @@
   import Projects from './pages/Projects.svelte';
   import LavaMesh from './pages/LavaMesh.svelte';
   import Wellnest from './pages/Wellnest.svelte';
+  import AgentCivilizations from './pages/AgentCivilizations.svelte';
   import Reading from './pages/Reading.svelte';
   import NotFound from './pages/NotFound.svelte';
 
@@ -14,6 +15,7 @@
     '/projects': { component: Projects, title: 'Projects — Drew Pilat' },
     '/projects/lavamesh': { component: LavaMesh, title: 'LavaMesh — Drew Pilat' },
     '/projects/wellnest': { component: Wellnest, title: 'Wellnest — Drew Pilat' },
+    '/projects/agent-civilizations': { component: AgentCivilizations, title: 'Agent Civilizations — Drew Pilat' },
     '/reading': { component: Reading, title: 'Reading — Drew Pilat' },
   };
 

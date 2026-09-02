@@ -1,10 +1,10 @@
-/* drew.fun — Copilot-adjacent: navy, Poppins, purple, tinted pills. */
+/* drew.fun — Black canvas, purple primary, vibrant multi-color accents. */
 
 :root {
-  --bg: #0a0f1e;
-  --bg-raised: #12182a;
-  --bg-sunken: #070b16;
-  --bg-hover: #1a2238;
+  --bg: #000000;
+  --bg-raised: #0d0d0d;
+  --bg-sunken: #060606;
+  --bg-hover: #111111;
 
   --text-1: #f4f6fb;
   --text-2: #c5cce0;
@@ -14,18 +14,18 @@
   --accent: #9e6ede;
   --accent-bright: #c4a3f5;
   --accent-dim: #7b4fc4;
-  --accent-wash: rgba(158, 110, 222, 0.22);
+  --accent-wash: rgba(158, 110, 222, 0.18);
 
   --cyan: #5ce1ff;
-  --cyan-wash: rgba(92, 225, 255, 0.18);
+  --cyan-wash: rgba(92, 225, 255, 0.15);
   --green: #3ee07f;
-  --green-wash: rgba(62, 224, 127, 0.18);
+  --green-wash: rgba(62, 224, 127, 0.15);
   --orange: #ff9f43;
-  --orange-wash: rgba(255, 159, 67, 0.2);
+  --orange-wash: rgba(255, 159, 67, 0.18);
   --pink: #ff7aa2;
-  --pink-wash: rgba(255, 122, 162, 0.2);
+  --pink-wash: rgba(255, 122, 162, 0.18);
   --red: #ff5d73;
-  --red-wash: rgba(255, 93, 115, 0.2);
+  --red-wash: rgba(255, 93, 115, 0.18);
   --amber: #ff9f43;
 
   --gold: var(--accent);
@@ -33,8 +33,8 @@
   --gold-dim: var(--accent-dim);
   --gold-wash: var(--accent-wash);
 
-  --border-1: rgba(255, 255, 255, 0.06);
-  --border-2: rgba(255, 255, 255, 0.12);
+  --border-1: rgba(255, 255, 255, 0.07);
+  --border-2: rgba(255, 255, 255, 0.13);
   --border-gold: rgba(158, 110, 222, 0.4);
 
   --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -81,9 +81,11 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 50% at 12% -8%, rgba(158, 110, 222, 0.28), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 92% 0%, rgba(92, 225, 255, 0.12), transparent 52%),
-    radial-gradient(ellipse 40% 30% at 8% 100%, rgba(255, 122, 162, 0.1), transparent 50%);
+    radial-gradient(ellipse 65% 45% at 10% -5%,  rgba(158, 110, 222, 0.32), transparent 50%),
+    radial-gradient(ellipse 45% 35% at 92% 2%,   rgba(92, 225, 255, 0.16), transparent 48%),
+    radial-gradient(ellipse 35% 28% at 6% 100%,  rgba(255, 122, 162, 0.12), transparent 48%),
+    radial-gradient(ellipse 50% 38% at 88% 92%,  rgba(255, 93, 115, 0.11), transparent 50%),
+    radial-gradient(ellipse 30% 22% at 50% 55%,  rgba(62, 224, 127, 0.07), transparent 45%);
 }
 
 #app,
@@ -107,7 +109,7 @@ main,
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a3140;
+  background: #1a1a1a;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -322,11 +324,11 @@ code {
   gap: 1.15rem;
   max-width: calc(100% - 1.5rem);
   padding: 0.38rem 0.4rem 0.38rem 1.1rem;
-  background: rgba(12, 18, 34, 0.78);
-  backdrop-filter: saturate(160%) blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: saturate(160%) blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 0 0.5px rgba(255,255,255,0.04);
 }
 
 a.brand {
@@ -513,11 +515,11 @@ a.project-card:hover {
 }
 
 .panel {
-  background: rgba(18, 24, 42, 0.72);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-1);
   border-radius: 20px;
   padding: 1.25rem 1.4rem;
-  box-shadow: inset 0 1px 0 rgba(158, 110, 222, 0.22);
+  box-shadow: inset 0 1px 0 rgba(158, 110, 222, 0.18);
 }
 
 .now-row {
@@ -546,7 +548,7 @@ a.project-card:hover {
 /* ── Cards & data tables ───────────────────────────────────────────────────── */
 
 .card {
-  background: var(--bg-raised);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-1);
   border-radius: 20px;
   padding: 1.6rem;
@@ -896,15 +898,18 @@ figcaption b {
   color: inherit;
   border-bottom: none;
   padding: 0.85rem;
-  background: rgba(18, 24, 42, 0.72);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-1);
   border-radius: 20px;
-  box-shadow: inset 0 1px 0 rgba(158, 110, 222, 0.22);
+  box-shadow: inset 0 1px 0 rgba(158, 110, 222, 0.15);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
 }
 
 .project-card:hover {
   color: inherit;
-  border-color: rgba(158, 110, 222, 0.35);
+  border-color: rgba(158, 110, 222, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 .project-shot {
