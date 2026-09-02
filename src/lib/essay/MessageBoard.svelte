@@ -2,12 +2,15 @@
   // Fake terminal-style message board with animated messages scrolling in
   let { messages = [], speed = 1 } = $props();
 
+  /** @type {typeof messages} */
   let displayed = $state([]);
   let idx = $state(0);
-  let container;
+  /** @type {HTMLDivElement | undefined} */
+  let container = $state();
 
   $effect(() => {
     if (messages.length === 0) return;
+    /** @type {ReturnType<typeof setTimeout>} */
     let timer;
     const add = () => {
       if (idx < messages.length) {
