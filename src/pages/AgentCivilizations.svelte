@@ -5,10 +5,17 @@
 
   // ── Scroll-driven scene tracking ──────────────────────────────────────────
   let activeScene = $state(0);
+  /** @type {HTMLElement[]} */
   let sections = [];
 
+  /**
+   * Svelte action: registers a section element for IntersectionObserver tracking.
+   * @param {HTMLElement} el
+   * @param {number} index
+   * @returns {{ destroy(): void }}
+   */
   function registerSection(el, index) {
-    if (!el) return;
+    if (!el) return { destroy() {} };
     sections[index] = el;
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -17,7 +24,7 @@
       { threshold: 0.3 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return { destroy() { obs.disconnect(); } };
   }
 
   // ── Scene 2: Network graph growing ────────────────────────────────────────
@@ -34,8 +41,13 @@
     }
   });
 
+  /**
+   * @param {number} count
+   * @returns {{ cx: number, cy: number, tone: string, pulsing: boolean }[]}
+   */
   function genNodes(count) {
     // deterministic pseudo-random spread across the SVG viewbox
+    /** @param {number} seed */
     const rng = (seed) => {
       let x = Math.sin(seed) * 10000;
       return x - Math.floor(x);
@@ -51,9 +63,11 @@
   let nodes = $derived(genNodes(nodeCount));
 
   // ── Scene 3: Agent rain ───────────────────────────────────────────────────
+  /** @type {{ x: number, delay: number, tone: string }[]} */
   let rainAgents = $state([]);
   $effect(() => {
     if (activeScene >= 3 && rainAgents.length === 0) {
+      /** @param {number} s */
       const rng = (s) => { let x = Math.sin(s) * 10000; return x - Math.floor(x); };
       rainAgents = Array.from({ length: 60 }, (_, i) => ({
         x: rng(i * 2.1) * 560 + 20,
