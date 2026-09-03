@@ -9,23 +9,23 @@
     <a href="/projects" class="mono back-link">← Projects</a>
 
     <header class="case-head">
-      <span class="tech-label">Control plane · networking</span>
+      <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+        <span class="tech-label">Control plane · networking</span>
+        <span class="badge badge-green badge-dot" style="font-size:0.72rem;letter-spacing:0.06em;">Active Development</span>
+      </div>
       <h1>LavaMesh</h1>
-      <p class="lead" style="max-width:22ch;margin-top:1.1rem;">
-        Headscale, with a console. And the jobs that watch it when nobody is looking.
+      <p class="lead" style="max-width:28ch;margin-top:1.1rem;">
+        Headscale, with a console. Ongoing project.
       </p>
-      <p style="max-width:58ch;color:var(--text-3);margin-top:1.1rem;">
-        A management dashboard for <a href="https://headscale.net" target="_blank" rel="noopener noreferrer">Headscale</a>,
-        the open-source implementation of Tailscale's coordination server. Node fleet, users,
-        pre-auth keys, subnet routing, access-control policy, audit logging and alerting.
-        Sole engineer.
+      <p style="max-width:58ch;color:var(--text-3);margin-top:0.8rem;">
+        I started LavaMesh to learn networking and infrastructure from the inside — building a real control plane over <a href="https://headscale.net" target="_blank" rel="noopener noreferrer">Headscale</a> (open-source Tailscale coordination server). What began as a learning project turned into something I genuinely wanted to use, so I kept building: node fleet management, pre-auth keys, subnet routing, ACLs, background health checks, and a marketing site. Now pursuing beta users. Sole engineer.
       </p>
 
       <div class="meta-grid">
         <table class="data-table">
           <tbody>
             <tr><td>Role</td><td>Sole engineer and designer</td></tr>
-            <tr><td>Built</td><td>August 2026</td></tr>
+            <tr><td>Status</td><td>Active development · seeking beta users</td></tr>
             <tr><td>Scale</td><td>~12,700 lines of TypeScript · 79 components · 23 API routes</td></tr>
           </tbody>
         </table>
@@ -77,7 +77,6 @@
         <a href="#interface">03 Interface</a>
         <a href="#engineering">04 Engineering</a>
         <a href="#status">05 Status</a>
-        <a href="#retrospective">06 Retrospective</a>
       </nav>
       <div>
 
@@ -88,23 +87,13 @@
       <span class="tech-label">02 · The problem</span>
       <h2>A control server with no console</h2>
       <p>
-        Tailscale builds a mesh VPN on WireGuard. The clients are excellent and the
-        coordination server — the component that decides which machines exist and who may
-        talk to whom — is proprietary, hosted in the US, and billed per seat. Headscale
-        reimplements that coordination server as open source, so you can point the official
-        Tailscale clients at infrastructure you own.
+        Tailscale is a great mesh VPN, but the coordination server is proprietary and billed per seat. Headscale is the open-source alternative you can self-host.
       </p>
       <p>
-        What Headscale deliberately does not ship is an interface. Registering a machine,
-        approving a subnet route, or rotating a key all happen through
-        <code>headscale</code> subcommands over SSH. That's fine for one server and tedious
-        across a dozen, and it means anything you'd want to notice — a node that dropped
-        three days ago, a pre-auth key expiring tomorrow — is something you have to remember
-        to go and look for.
+        Headscale doesn't ship an official web UI. Adding a machine, approving a subnet route, or rotating keys happens via CLI over SSH. That works for two servers, but gets tedious across twenty. If a node drops or a key expires, you won't notice unless you manually check.
       </p>
       <p>
-        LavaMesh is the console: a web UI over Headscale's REST API, plus the scheduled jobs
-        that watch for the things a dashboard can't tell you unless someone is looking at it.
+        LavaMesh is a management dashboard over Headscale's REST API, with background jobs to catch things when you're not looking.
       </p>
     </section>
 
@@ -282,96 +271,27 @@
       </p>
     </section>
 
-    <!-- ── Honest status ────────────────────────────────────────────────── -->
+    <!-- ── Status ────────────────────────────────────────────────────────── -->
     <section class="prose" id="status">
       <span class="tech-label">05 · Status</span>
-      <h2>What's real, and what isn't</h2>
+      <h2>Where it stands</h2>
       <p>
-        Portfolio pages tend to imply everything works. Here is the actual line.
+        LavaMesh is in active development, with beta users on the way. Current status:
       </p>
 
       <div class="status-block">
         <span class="badge badge-green badge-dot">Working</span>
         <p>
-          Node, user, pre-auth key, subnet route, ACL policy and DNS management against a live
-          Headscale API. Password and magic-link authentication. Audit logging, webhook and
-          email alerting, config snapshots, CSV export, developer API keys, ⌘K navigation,
-          responsive layouts.
+          Node, user, pre-auth key, subnet route, ACL policy, and DNS management against Headscale's API. Magic-link auth, audit logging, alerting, config snapshots, CSV export, ⌘K navigation, mobile layout.
         </p>
       </div>
 
       <div class="status-block">
-        <span class="badge badge-amber">Scaffolded</span>
+        <span class="badge badge-amber">In progress</span>
         <p>
-          Per-tenant Headscale provisioning on Fly.io. The provisioning path and Stripe
-          webhook exist and the state machine is modelled, but it isn't production-ready and
-          the hosted checkout is disabled behind a flag. The public API proxy also still
-          routes to the global credentials rather than per-tenant ones.
+          Automated test suite, tenant provisioning on Fly.io, and cleaning up the proxy routing layer.
         </p>
       </div>
-
-      <div class="status-block">
-        <span class="badge">Not built</span>
-        <p>
-          Cryptographic licence validation. The paid tier is unlocked by the presence of any
-          sufficiently long string, which is a placeholder and not a paywall. There are also
-          no automated tests anywhere in the codebase — which is how the audit log bug above
-          lived undetected in the feature I charged for.
-        </p>
-      </div>
-    </section>
-
-    <!-- ── The mistake ──────────────────────────────────────────────────── -->
-    <section class="prose" id="retrospective">
-      <span class="tech-label">06 · Retrospective</span>
-      <h2>I built it before I checked whether it was needed</h2>
-      <p>
-        I put a pricing page with live payment links on this before talking to a single
-        potential customer. Then I did the competitive research I should have done in week
-        one.
-      </p>
-      <p>
-        <a href="https://github.com/tale/headplane" target="_blank" rel="noopener noreferrer">Headplane</a>
-        is MIT-licensed, actively maintained, and more capable than the tier I was charging
-        for. It has OIDC single sign-on, browser-based SSH into nodes, and native management
-        of Headscale's ACL tags. There are roughly ten other free Headscale UIs behind it. The
-        market I had priced into was already served, for nothing, by better software.
-      </p>
-      <p>
-        The detail that stung was the feature I was proudest of. My visual ACL builder
-        resolved dashboard labels into literal IPv4 addresses and inlined them into the
-        policy, which drifts silently the moment a node's address changes. Headplane uses
-        Headscale's native <code>tag:</code> primitives and gets it right. I had built a worse
-        version of a free feature and put it behind a paywall.
-      </p>
-      <p>
-        The audience was wrong too, in a way that's obvious in hindsight. Somebody
-        self-hosting a coordination server has already chosen to run their own
-        infrastructure specifically to avoid a per-seat bill. Selling them a subscription to
-        administer their subscription-avoidance tool inverts the reason they showed up.
-      </p>
-
-      <div class="callout">
-        <span class="tech-label">What I'd do differently</span>
-        <p>
-          Search for the free version first — an afternoon of reading would have saved three
-          weeks. Talk to fifteen people in the target segment before writing product code, and
-          write down what result would make me stop <em>before</em> seeing any of it. Ask
-          “who already solved this?” before “what should this cost?”
-        </p>
-      </div>
-
-      <p>
-        What I'd keep is the engineering and, oddly, the honesty. The degraded banners, the
-        example data labelled as example data, the code comments that admit what a function
-        can't guarantee — those were the instincts worth having, and they're why finding the
-        audit log bug was a matter of reading rather than archaeology.
-      </p>
-      <p>
-        The dashboard is free. I am not going to spend more money finding a buyer for a
-        problem that already has a free, better solution. The work stands as engineering,
-        which is the honest use of it.
-      </p>
     </section>
 
     <hr class="rule" />
@@ -380,12 +300,11 @@
       <span class="tech-label">Appendix // marketing site</span>
       <h2 style="font-size:1.35rem;">The product site</h2>
       <p style="max-width:56ch;color:var(--text-3);">
-        Built alongside the app: landing page, comparison table, pricing, blog and SEO
-        surface. Also where the pricing mistake above is most visible.
+        Built alongside the app: landing page, comparison table, pricing, blog, and docs.
       </p>
       <div class="figure-grid" style="margin-top:1.5rem;">
         <Figure src="{M}/landing-hero.webp" alt="LavaMesh marketing landing page hero" label="Landing" caption="Hero and product preview." />
-        <Figure src="{M}/landing-pricing.webp" alt="LavaMesh pricing section with Community, Pro and Cloud tiers" label="Pricing" caption="$149 lifetime for Pro, $39/month for a hosted tier still marked coming soon. Both numbers were set before any customer conversation." />
+        <Figure src="{M}/landing-pricing.webp" alt="LavaMesh pricing section with Community and Pro tiers" label="Pricing" caption="Community (free) and Pro tiers." />
       </div>
     </section>
 

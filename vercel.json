@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/((?!media/|assets/|favicon\\.svg|icons\\.svg|robots\\.txt|Drew_Pilat_Resume\\.pdf).*)",
+      "source": "/((?!media/|assets/|og-image\\.png|favicon\\.svg|icons\\.svg|robots\\.txt|Drew_Pilat_Resume\\.pdf).*)",
       "destination": "/index.html"
     }
   ],
