@@ -1,5 +1,5 @@
 <script>
-  import Figure from '../lib/Figure.svelte';
+  import Figure from "../lib/Figure.svelte";
 </script>
 
 <div class="page">
@@ -7,12 +7,13 @@
     <a href="/projects" class="mono back-link">← Projects</a>
 
     <header class="case-head">
-      <span class="tech-label">Consumer product · company</span>
+      <span class="tech-label">Mental health · Digital health · VC-backed</span>
       <h1>Wellnest</h1>
       <p class="lead" style="max-width:58ch;margin-top:1.1rem;">
-        A student mental-health app I co-founded and ran as COO from 2019 to 2022.
-        We raised $800k pre-seed, signed university partnerships, and shipped a
-        consumer app that held a 5.0 App Store rating. We wound it down in 2022.
+        A student mental-health app I co-founded and ran as COO from 2019 to
+        2022. We raised $800k pre-seed, signed university partnerships, and
+        shipped a consumer app that held a 5.0 App Store rating. We wound it
+        down in 2022.
       </p>
 
       <div class="meta-grid">
@@ -25,8 +26,13 @@
         </table>
         <table class="data-table">
           <tbody>
-            <tr><td>What I did</td><td>Fundraising, partnerships, product, operations</td></tr>
-            <tr><td>What I didn't</td><td>Write the production codebase</td></tr>
+            <tr
+              ><td>What I did</td><td
+                >Fundraising, partnerships, product, operations</td
+              ></tr
+            >
+            <tr><td>What I didn't</td><td>Write the production codebase</td></tr
+            >
             <tr><td>Raised</td><td>$800,000 pre-seed</td></tr>
           </tbody>
         </table>
@@ -73,14 +79,18 @@
         and a hiring manager will Google it anyway.
       </p>
       <p>
-        The engineering write-up is
-        <a href="/projects/lavamesh">LavaMesh</a>.
+        The engineering write-ups are
+        <a href="/projects/lavamesh">LavaMesh</a> and
+        <a href="/projects/lavamoney">LavaMoney</a>.
       </p>
     </section>
 
     <div class="foot-nav">
       <a href="/projects" class="btn">← All projects</a>
-      <a href="/projects/lavamesh" class="btn btn-primary">LavaMesh →</a>
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+        <a href="/projects/lavamoney" class="btn">LavaMoney →</a>
+        <a href="/projects/lavamesh" class="btn btn-primary">LavaMesh →</a>
+      </div>
     </div>
   </div>
 </div>

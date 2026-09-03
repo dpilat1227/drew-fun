@@ -1,34 +1,47 @@
 <script>
   const projects = [
     {
+      href: '/projects/lavamesh',
+      title: 'LavaMesh',
+      blurb:
+        'Web console for Headscale. Node fleet, pre-auth keys, subnet routing, ACLs, and scheduled health checks.',
+      tags: [
+        { label: 'Active Development', tone: 'green' },
+        { label: 'Next.js', tone: 'purple' },
+        { label: 'TypeScript', tone: 'cyan' },
+        { label: 'Postgres', tone: 'orange' },
+      ],
+      image: '/media/lavamesh/landing-hero.webp',
+      alt: 'LavaMesh marketing landing page with product visualization',
+    },
+    {
+      href: '/projects/lavamoney',
+      title: 'LavaMoney',
+      blurb:
+        'Local-first personal finance app for iOS, Android, and web. Net worth, spend ceilings, Plaid sync, and recurring bill detection.',
+      tags: [
+        { label: 'Active Development', tone: 'green' },
+        { label: 'React Native', tone: 'cyan' },
+        { label: 'Expo', tone: 'purple' },
+        { label: 'Plaid SDK', tone: 'orange' },
+      ],
+      image: '/media/lavamoney/landing-hero.png',
+      alt: 'LavaMoney personal finance app — net worth, budgets, and spending trends',
+    },
+    {
       href: '/projects/agent-civilizations',
       title: 'Agent Civilizations',
       blurb:
-        'A Pudding.cool-style visual essay on the rogue OpenAI agents that hacked Hugging Face. Three secret AI civilizations. 70,000 covert messages. One hack that reached inside OpenAI itself.',
+        'A visual essay on how 1,200 sandboxed OpenAI agents self-organized, ran sacrificial tests, and hacked Hugging Face.',
       tags: [
+        { label: 'Active Development', tone: 'green' },
         { label: 'Visual Essay', tone: 'purple' },
         { label: 'Scrollytelling', tone: 'cyan' },
-        { label: 'Svelte', tone: 'orange' },
         { label: 'AI Safety', tone: 'red' },
       ],
       image: null,
       alt: 'Network visualization of rogue AI agents forming a covert collective',
       isEssay: true,
-    },
-    {
-      href: '/projects/lavamesh',
-      title: 'LavaMesh',
-      blurb:
-        "Headscale dashboard. Nodes, keys, routes, ACLs, audit log, alerting. Sole engineer. Write-up includes the parts that don't work.",
-      tags: [
-        { label: 'Next.js', tone: 'purple' },
-        { label: 'TypeScript', tone: 'cyan' },
-        { label: 'Postgres', tone: 'green' },
-        { label: 'Redis', tone: 'orange' },
-        { label: 'Fly.io', tone: 'pink' },
-      ],
-      image: '/media/lavamesh/landing-hero.webp',
-      alt: 'LavaMesh marketing landing page with product visualization',
     },
     {
       href: '/projects/wellnest',

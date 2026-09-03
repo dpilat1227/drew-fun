@@ -70,8 +70,8 @@
 <div class="page">
   <div class="wrap">
     <h1>Reading</h1>
-    <p class="lead" style="max-width:36ch;margin-top:0.75rem;">
-      My reading list.
+    <p class="lead" style="max-width:46ch;margin-top:0.75rem;">
+      Mostly science fiction, finance, and whatever catches my attention.
     </p>
 
     <div class="controls" style="margin-top:2.5rem;">
@@ -100,10 +100,9 @@
       <p class="mono" style="color:var(--text-4);padding:3rem 0;">Loading…</p>
     {:else if status === 'error'}
       <div class="card">
-        <span class="tech-label" style="color:var(--red);">Sync failed</span>
+        <span class="tech-label">Temporarily unavailable</span>
         <p style="font-size:0.94rem;color:var(--text-3);">
-          Couldn't reach the books database. This is a client-side fetch, so a network block
-          or an expired token will do it.
+          The reading list syncs from an external database and isn't reachable right now. Check back later.
         </p>
         <button class="btn" onclick={load} style="margin-top:0.5rem;">Retry</button>
       </div>

@@ -1,10 +1,10 @@
 <script>
   const now = [
-    { k: 'Focus', v: 'Infrastructure, networking, backend' },
+    { k: 'Focus', v: 'Quantitative engineering, healthcare startups, data visualization & reading sci-fi' },
     { k: 'Languages', v: 'TypeScript, Python, C++, SQL' },
-    { k: 'Building', v: 'Next.js, React, Postgres, Prisma, Redis' },
+    { k: 'Building', v: 'React Native (Expo), Next.js, Postgres, Prisma, Redis' },
     { k: 'Infra', v: 'Vercel, Fly.io, Docker, WireGuard' },
-    { k: 'Looking for', v: 'Internships and full-time' },
+    { k: 'Looking for', v: 'Internships (2026) · full-time (2027)' },
   ];
 
   const education = [
@@ -32,8 +32,8 @@
       role: 'Chief of Staff',
       tags: [
         { label: 'Product', tone: 'purple' },
-        { label: 'Quant', tone: 'cyan' },
-        { label: 'Ops', tone: 'orange' },
+        { label: 'Strategy & Ops', tone: 'orange' },
+        { label: 'Business Building', tone: 'cyan' },
       ],
       bullets: [
         [
@@ -62,7 +62,10 @@
       org: 'Jumpstart Health Investors',
       date: '2022 — 2023',
       role: 'Investment Associate',
-      tags: [{ label: 'Investing', tone: 'green' }],
+      tags: [
+        { label: 'Venture Capital · Early Stage', tone: 'green' },
+        { label: 'Healthcare Startups', tone: 'cyan' },
+      ],
       bullets: [
         [
           'Diligence',
@@ -82,7 +85,12 @@
       org: 'Wellnest',
       date: '2019 — 2022',
       role: 'Co-Founder & COO',
-      tags: [{ label: 'Company', tone: 'pink' }],
+      tags: [
+        { label: 'Founder / COO', tone: 'pink' },
+        { label: 'VC-Backed', tone: 'green' },
+        { label: 'Mental Health', tone: 'purple' },
+        { label: 'Digital Health', tone: 'cyan' },
+      ],
       bullets: [
         [
           'Fundraising',
@@ -111,7 +119,8 @@
     <section class="hero no-print">
       <h1 class="display-name">Drew Pilat</h1>
       <p class="lead kicker">
-        M.S. Computer Science, University of Chicago &mdash; graduating Spring 2027.
+        M.S. Computer Science, University of Chicago &mdash; graduating Spring 2027.<br />
+        Interested in quant finance, precision medicine, and early-to-late stage startups.
       </p>
       <div class="cta-row">
         <a href="/Drew_Pilat_Resume.pdf" download class="btn btn-primary">Resume</a>
@@ -121,7 +130,7 @@
 
     <div class="split">
       <aside class="no-print">
-        <span class="tech-label">Currently</span>
+        <div class="section-head">Currently</div>
         <table class="data-table">
           <tbody>
             {#each now as row (row.k)}
@@ -173,7 +182,7 @@
         <table class="data-table">
           <tbody>
             <tr><td>Programming</td><td>TypeScript, Python (NumPy, Pandas, scikit-learn), C++, SQL, Bash</td></tr>
-            <tr><td>Web</td><td>React, Next.js, Svelte, Node, REST APIs, Prisma, Postgres, Redis</td></tr>
+            <tr><td>Mobile &amp; Web</td><td>React Native (Expo), React, Next.js, Svelte, Node, REST APIs, Prisma, Postgres, Redis</td></tr>
             <tr><td>Systems</td><td>Linux, Docker, WireGuard, networking, CI/CD</td></tr>
             <tr><td>Quantitative</td><td>Time-series analysis, factor modelling, risk (VaR, stress testing), Tableau</td></tr>
           </tbody>
