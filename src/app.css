@@ -721,39 +721,73 @@ figure {
 }
 
 .figure {
-  border: 1px solid var(--border-1);
-  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
   overflow: hidden;
-  background: var(--bg-sunken);
+  background: #0b0d14;
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 40px -10px rgba(158, 110, 222, 0.1);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.figure:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 30px 75px -15px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 0 50px -10px rgba(158, 110, 222, 0.18);
 }
 
 .chrome-bar {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 0.55rem 0.85rem;
-  background: #0c0e14;
-  border-bottom: 1px solid var(--border-1);
+  gap: 8px;
+  padding: 0.65rem 1rem;
+  background: linear-gradient(180deg, #181b26 0%, #10121a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.chrome-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .chrome-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: #3a342c;
+  display: inline-block;
 }
 
-.chrome-dot:nth-child(1) { background: #5c4030; }
-.chrome-dot:nth-child(2) { background: #5a5030; }
-.chrome-dot:nth-child(3) { background: #3d4a38; }
+.chrome-dot.red,
+.chrome-dot:nth-child(1) {
+  background: #ff5f56;
+  box-shadow: 0 0 6px rgba(255, 95, 86, 0.4);
+}
+
+.chrome-dot.yellow,
+.chrome-dot:nth-child(2) {
+  background: #ffbd2e;
+  box-shadow: 0 0 6px rgba(255, 189, 46, 0.4);
+}
+
+.chrome-dot.green,
+.chrome-dot:nth-child(3) {
+  background: #27c93f;
+  box-shadow: 0 0 6px rgba(39, 201, 63, 0.4);
+}
 
 .chrome-title {
-  margin-left: 0.45rem;
+  margin-left: 0.6rem;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-4);
+  color: #c4a3f5;
 }
 
 .film-bleed {
@@ -912,16 +946,42 @@ figure {
 }
 
 figcaption {
-  font-family: var(--font-mono);
-  font-size: 0.735rem;
-  line-height: 1.6;
-  color: var(--text-4);
-  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: #cdd5e8;
+  margin-top: 1.5rem;
+  max-width: 68ch;
+  padding: 0 0.25rem;
 }
 
 figcaption b {
-  color: var(--text-3);
-  font-weight: 500;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+
+.fig-badge {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c4a3f5;
+  background: rgba(158, 110, 222, 0.14);
+  border: 1px solid rgba(158, 110, 222, 0.32);
+  padding: 0.22rem 0.65rem;
+  border-radius: 6px;
+  margin-right: 0.65rem;
+}
+
+.fig-text {
+  color: #cdd5e8;
+  font-size: 0.98rem;
+  line-height: 1.75;
 }
 
 .project-list {
@@ -986,7 +1046,7 @@ figcaption b {
 .figure-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 2.75rem 2.25rem;
 }
 
 @media (max-width: 860px) {
@@ -1034,10 +1094,14 @@ figcaption b {
 /* ── Video ─────────────────────────────────────────────────────────────────── */
 
 .video-frame {
-  border: 1px solid var(--border-1);
-  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
   overflow: hidden;
-  background: var(--bg-sunken);
+  background: #0b0d14;
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 40px -10px rgba(158, 110, 222, 0.1);
 }
 
 .video-frame video {

@@ -17,7 +17,7 @@
       <p class="lead" style="max-width:28ch;margin-top:1.1rem;">
         Headscale, with a console. Ongoing project.
       </p>
-      <p style="max-width:58ch;color:var(--text-3);margin-top:0.8rem;">
+      <p style="max-width:62ch;color:#cbd5e1;font-size:1.05rem;line-height:1.75;margin-top:1rem;">
         I started LavaMesh to learn networking and infrastructure from the inside — building a real control plane over <a href="https://headscale.net" target="_blank" rel="noopener noreferrer">Headscale</a> (open-source Tailscale coordination server). What began as a learning project turned into something I genuinely wanted to use, so I kept building: node fleet management, pre-auth keys, subnet routing, ACLs, background health checks, and a marketing site. Now pursuing beta users. Sole engineer.
       </p>
 
@@ -48,7 +48,7 @@
     <section id="walkthrough" class="lead-walk">
       <span class="tech-label">01 · Walkthrough</span>
       <h2>Seventy seconds of the real thing</h2>
-      <p style="max-width:58ch;color:var(--text-3);">
+      <p style="max-width:62ch;color:#cbd5e1;font-size:1.02rem;line-height:1.75;margin-top:0.6rem;">
         Recorded against a running instance. Every action changes real state: the node is
         tagged, a pending subnet route is approved, a pre-auth key is minted, and the audit
         log at the end contains exactly those events.
@@ -178,8 +178,8 @@
       <div class="mobile-row">
         <div>
           <span class="tech-label">Responsive</span>
-          <h3>It works on a phone</h3>
-          <p style="font-size:0.95rem;color:var(--text-3);">
+          <h3 style="font-size:1.3rem;font-weight:600;color:#fff;margin-top:0.6rem;">It works on a phone</h3>
+          <p style="font-size:1.02rem;color:#cdd5e8;line-height:1.75;margin-top:0.85rem;">
             Approving a route or revoking a key is exactly the sort of thing you end up doing
             from a phone, so the fleet table collapses to a stacked layout and the sidebar
             becomes a drawer rather than being hidden.
@@ -299,7 +299,7 @@
     <section>
       <span class="tech-label">Appendix // marketing site</span>
       <h2 style="font-size:1.35rem;">The product site</h2>
-      <p style="max-width:56ch;color:var(--text-3);">
+      <p style="max-width:62ch;color:#cbd5e8;font-size:1.02rem;line-height:1.75;margin-top:0.6rem;">
         Built alongside the app: landing page, comparison table, pricing, blog, and docs.
       </p>
       <div class="figure-grid" style="margin-top:1.5rem;">
@@ -370,26 +370,41 @@
   .figures {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    margin-top: 2rem;
+    gap: 4.75rem;
+    margin-top: 2.75rem;
   }
 
   .mobile-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 3.5rem;
     align-items: center;
-    margin-top: 3.5rem;
+    margin-top: 4.5rem;
   }
 
   .phones {
     display: flex;
-    gap: 1.25rem;
+    gap: 1.75rem;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 30%, rgba(158, 110, 222, 0.15) 0%, rgba(10, 12, 20, 0.95) 75%);
+    padding: 2.25rem;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 28px 65px -15px rgba(0, 0, 0, 0.85),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .phone {
     flex: 1;
     max-width: 220px;
+    border-radius: 26px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 20px 45px -10px rgba(0, 0, 0, 0.9),
+      0 0 25px rgba(158, 110, 222, 0.14);
   }
 
   .phone img {
@@ -431,11 +446,16 @@
     .meta-grid,
     .mobile-row {
       grid-template-columns: 1fr;
-      gap: 0;
+      gap: 2rem;
     }
 
-    .mobile-row {
-      gap: 1.75rem;
+    .phones {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .phone {
+      max-width: 175px;
     }
 
     .status-block {
@@ -448,7 +468,7 @@
     }
 
     .figures {
-      gap: 2.25rem;
+      gap: 3rem;
     }
   }
 </style>
