@@ -17,7 +17,7 @@
       <p class="lead" style="max-width:32ch;margin-top:1.1rem;">
         Personal finance, built local-first.
       </p>
-      <p style="max-width:58ch;color:var(--text-3);margin-top:0.8rem;">
+      <p style="max-width:62ch;color:#cbd5e1;font-size:1.05rem;line-height:1.75;margin-top:1rem;">
         I started LavaMoney to learn native mobile architecture and financial data engineering from the inside — building a fast, private wealth and budget tracker across iOS, Android, and web. What began as an exploratory project to master local-first state and real bank APIs turned into an app I rely on daily, matching the structural elegance of Copilot Money while keeping financial data on-device. Now preparing for public TestFlight beta. Sole engineer.
       </p>
 
@@ -81,7 +81,7 @@
     <section id="interface">
       <span class="tech-label">02 · Interface</span>
       <h2>Designed for clarity and momentum</h2>
-      <p style="max-width:58ch;color:var(--text-3);margin-bottom:2rem;">
+      <p style="max-width:62ch;color:#cbd5e1;font-size:1.02rem;line-height:1.75;margin-bottom:2.5rem;">
         Built around dark-mode aesthetics with high-contrast amber and green indicators. Native gestures, pull-to-refresh, and fluid screen transitions powered by Expo Router and native tab navigation.
       </p>
 
@@ -139,10 +139,10 @@
         </div>
       </div>
 
-      <div style="margin-top: 3.5rem;">
+      <div style="margin-top: 4.5rem;">
         <span class="tech-label">Cross-platform · Web Demo</span>
-        <h3 style="font-size:1.25rem;margin-bottom:0.75rem;">Public web demo &amp; landing site</h3>
-        <p style="max-width:58ch;color:var(--text-3);margin-bottom:1.5rem;">
+        <h3 style="font-size:1.35rem;font-weight:600;color:#fff;margin:0.75rem 0 0.85rem;">Public web demo &amp; landing site</h3>
+        <p style="max-width:62ch;color:#cbd5e8;font-size:1.02rem;line-height:1.75;margin-bottom:2rem;">
           To allow immediate exploration without requiring an App Store download or account creation, a companion Next.js web application serves a full interactive sandbox loaded with realistic sample history.
         </p>
         <Figure
@@ -269,44 +269,98 @@
   .phone-showcase {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2.5rem;
-    margin-top: 2.5rem;
+    gap: 3.5rem 2.5rem;
+    margin-top: 3rem;
   }
 
   .phone-card {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-1);
-    border-radius: 20px;
-    padding: 1.5rem;
+    gap: 2rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%), #0c0e18;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 26px;
+    padding: 2.25rem;
+    box-shadow:
+      0 28px 70px -15px rgba(0, 0, 0, 0.85),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transition:
+      transform 0.3s var(--ease),
+      border-color 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+
+  .phone-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(158, 110, 222, 0.35);
+    box-shadow:
+      0 35px 80px -15px rgba(0, 0, 0, 0.9),
+      0 0 0 1px rgba(158, 110, 222, 0.25),
+      0 0 35px rgba(158, 110, 222, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
   .phone-mock {
-    border-radius: 14px;
+    border-radius: 24px;
     overflow: hidden;
-    background: #000;
-    border: 1px solid var(--border-1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    background: radial-gradient(
+      circle at 50% 30%,
+      rgba(158, 110, 222, 0.16) 0%,
+      rgba(8, 10, 16, 0.95) 75%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .phone-mock img {
     display: block;
     width: 100%;
+    max-width: 290px;
     height: auto;
+    margin: 0 auto;
+    border-radius: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 24px 50px -12px rgba(0, 0, 0, 0.9),
+      0 0 25px rgba(158, 110, 222, 0.15);
+  }
+
+  .phone-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone-info .tech-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-bright);
+    text-transform: uppercase;
+    background: rgba(158, 110, 222, 0.14);
+    border: 1px solid rgba(158, 110, 222, 0.32);
+    padding: 0.22rem 0.65rem;
+    border-radius: 6px;
+    align-self: flex-start;
+    margin-bottom: 0.75rem;
   }
 
   .phone-info h3 {
-    font-size: 1.15rem;
-    margin-top: 0.35rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.85rem;
   }
 
   .phone-info p {
-    font-size: 0.92rem;
-    color: var(--text-3);
-    line-height: 1.6;
+    font-size: 0.98rem;
+    color: #cdd5e8;
+    line-height: 1.75;
     margin: 0;
   }
 
@@ -343,7 +397,20 @@
     .meta-grid,
     .phone-showcase {
       grid-template-columns: 1fr;
-      gap: 1.75rem;
+      gap: 2.25rem;
+    }
+
+    .phone-card {
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .phone-mock {
+      padding: 1rem 0.75rem;
+    }
+
+    .phone-mock img {
+      max-width: 260px;
     }
 
     .status-block {

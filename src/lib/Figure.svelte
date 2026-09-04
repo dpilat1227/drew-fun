@@ -16,13 +16,15 @@
 
 <svelte:window onkeydown={onKey} />
 
-<figure>
+<figure class="showcase-figure">
   <div class="figure">
     {#if chrome}
       <div class="chrome-bar">
-        <span class="chrome-dot"></span>
-        <span class="chrome-dot"></span>
-        <span class="chrome-dot"></span>
+        <div class="chrome-dots">
+          <span class="chrome-dot red"></span>
+          <span class="chrome-dot yellow"></span>
+          <span class="chrome-dot green"></span>
+        </div>
         {#if label}<span class="chrome-title">{label}</span>{/if}
       </div>
     {/if}
@@ -32,7 +34,10 @@
   </div>
   {#if caption}
     <figcaption>
-      {#if label}<b>{label}</b> — {/if}{caption}
+      {#if label}
+        <span class="fig-badge">{label}</span>
+      {/if}
+      <span class="fig-text">{caption}</span>
     </figcaption>
   {/if}
 </figure>
