@@ -96,6 +96,16 @@ main,
   z-index: 1;
 }
 
+/* Immersive mode: visual essay hides site chrome */
+body.immersive .site-header,
+body.immersive .site-footer {
+  display: none !important;
+}
+
+body.immersive::before {
+  display: none !important;
+}
+
 ::selection {
   background: rgba(158, 110, 222, 0.35);
   color: #fff;
