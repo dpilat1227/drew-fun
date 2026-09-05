@@ -44,6 +44,22 @@
       isEssay: true,
     },
     {
+      href: '/projects/microsecond',
+      title: 'The Anatomy of a Microsecond',
+      blurb:
+        'Where does your retail market order actually go? Payment for order flow, sub-penny internalization, microwave latency arbitrage, and the IEX speed bump — scrollytelling style.',
+      tags: [
+        { label: 'Active Development', tone: 'green' },
+        { label: 'Visual Essay', tone: 'purple' },
+        { label: 'Market Microstructure', tone: 'orange' },
+        { label: 'Scrollytelling', tone: 'cyan' },
+      ],
+      image: null,
+      alt: 'Order book ladder and routing diagram showing a retail order forking off-exchange',
+      isEssay: true,
+      essayPreview: 'microsecond',
+    },
+    {
       href: '/projects/wellnest',
       title: 'Wellnest',
       blurb:
@@ -67,7 +83,29 @@
       {#each projects as project (project.href)}
         <a href={project.href} class="project-card">
           <div class="project-shot">
-            {#if project.isEssay}
+            {#if project.essayPreview === 'microsecond'}
+              <!-- Animated order-routing preview for the microstructure essay -->
+              <div class="essay-preview" aria-label={project.alt}>
+                <svg viewBox="0 0 320 200" class="ep-svg">
+                  <circle cx="40" cy="100" r="10" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                  <text x="40" y="80" text-anchor="middle" font-family="monospace" font-size="7" fill="#c5cce0">ORDER</text>
+                  {#each [[40,100,240,40,'#9e6ede'],[40,100,240,90,'#ff9f43'],[40,100,240,140,'#5ce1ff'],[40,100,240,170,'#3ee07f']] as [x1,y1,x2,y2,c]}
+                    <path d="M {x1},{y1} C {(x1+x2)/2},{y1} {(x1+x2)/2},{y2} {x2},{y2}" fill="none" stroke={c} stroke-width="1.4" stroke-dasharray="4 3" opacity="0.75">
+                      <animate attributeName="stroke-dashoffset" values="0;-14" dur="1s" repeatCount="indefinite"/>
+                    </path>
+                  {/each}
+                  <rect x="245" y="30" width="65" height="20" rx="5" fill="rgba(158,110,222,0.12)" stroke="#9e6ede" stroke-width="1"/>
+                  <text x="277" y="44" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#c4a3f5">CITADEL</text>
+                  <rect x="245" y="80" width="65" height="20" rx="5" fill="rgba(255,159,67,0.12)" stroke="#ff9f43" stroke-width="1"/>
+                  <text x="277" y="94" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#ffc078">VIRTU</text>
+                  <rect x="245" y="130" width="65" height="20" rx="5" fill="rgba(92,225,255,0.12)" stroke="#5ce1ff" stroke-width="1"/>
+                  <text x="277" y="144" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#a3ecff">2 SIGMA</text>
+                  <rect x="245" y="160" width="65" height="20" rx="5" fill="rgba(62,224,127,0.1)" stroke="#3ee07f" stroke-width="1" stroke-dasharray="2 2"/>
+                  <text x="277" y="174" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#8ff0bd">NASDAQ</text>
+                </svg>
+                <div class="ep-label">Visual Essay</div>
+              </div>
+            {:else if project.isEssay}
               <!-- Animated network preview for the visual essay -->
               <div class="essay-preview" aria-label={project.alt}>
                 <svg viewBox="0 0 320 200" class="ep-svg">
