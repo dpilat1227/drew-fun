@@ -11,8 +11,6 @@
   import Microsecond from './pages/Microsecond.svelte';
   import Reading from './pages/Reading.svelte';
   import DraftTheme from './pages/DraftTheme.svelte';
-  import DraftStructureA from './pages/DraftStructureA.svelte';
-  import DraftStructureB from './pages/DraftStructureB.svelte';
   import NotFound from './pages/NotFound.svelte';
 
   const routes = {
@@ -25,8 +23,6 @@
     '/projects/microsecond': { component: Microsecond, title: 'The Anatomy of a Microsecond — Drew Pilat' },
     '/reading': { component: Reading, title: 'Reading — Drew Pilat' },
     '/draft-theme': { component: DraftTheme, title: 'Draft theme comparison' },
-    '/draft-structure-a': { component: DraftStructureA, title: 'Draft structure A' },
-    '/draft-structure-b': { component: DraftStructureB, title: 'Draft structure B' },
   };
 
   let match = $derived(routes[route.path] ?? { component: NotFound, title: 'Not found — Drew Pilat' });
