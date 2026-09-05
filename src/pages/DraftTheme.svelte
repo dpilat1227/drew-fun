@@ -3,15 +3,21 @@
   import Clock from "../lib/Clock.svelte";
 
   const validThemes = ["violet", "green", "merged"];
-  const validLayouts = ["bento", "sidebar", "editorial"];
+  const validLayouts = ["bento", "sidebar", "editorial", "specsheet", "index", "masthead"];
   const params = new URLSearchParams(window.location.search);
   const themeParam = params.get("theme");
   const layoutParam = params.get("layout");
 
   /** @type {'violet' | 'green' | 'merged'} */
   let theme = $state(validThemes.includes(themeParam) ? themeParam : "merged");
-  /** @type {'bento' | 'sidebar' | 'editorial'} */
+  /** @type {'bento' | 'sidebar' | 'editorial' | 'specsheet' | 'index' | 'masthead'} */
   let layout = $state(validLayouts.includes(layoutParam) ? layoutParam : "bento");
+
+  // Index/accordion layout: which sections are expanded.
+  let indexOpen = $state({ currently: true, education: false, experience: false });
+  function toggleIndex(key) {
+    indexOpen[key] = !indexOpen[key];
+  }
 
   const now = [
     { k: "Focus", v: "Quantitative engineering, healthcare startups, data visualization & reading sci-fi" },
@@ -105,6 +111,9 @@
     { id: "bento", label: "Bento" },
     { id: "sidebar", label: "Sidebar" },
     { id: "editorial", label: "Editorial" },
+    { id: "specsheet", label: "Spec Sheet" },
+    { id: "index", label: "Index" },
+    { id: "masthead", label: "Masthead" },
   ];
 
   onMount(() => {
@@ -155,7 +164,7 @@
     </div>
   </div>
 
-  {#if layout !== "sidebar"}
+  {#if layout !== "sidebar" && layout !== "masthead"}
     <header class="draft-nav">
       <div class="draft-nav-inner">
         <span class="draft-brand">Drew Pilat</span>
@@ -434,6 +443,235 @@
       </div>
     </main>
   {/if}
+
+  <!-- ═══════════════════════════════ SPEC SHEET LAYOUT ══════════════════════ -->
+  {#if layout === "specsheet"}
+    <main class="spec-main">
+      <section class="spec-hero">
+        <span class="t-kicker">OPERATOR // DREW PILAT // M.S. CS, UCHICAGO</span>
+        <h1 class="t-heading spec-name">Drew Pilat</h1>
+        <p class="t-lead">
+          M.S. Computer Science, University of Chicago — graduating Spring 2027.
+          Interested in quant finance, precision medicine, and early-to-late stage startups.
+        </p>
+        <div class="spec-cta">
+          <a href="/Drew_Pilat_Resume.pdf" download class="t-btn t-btn-primary">Resume</a>
+          <a href="/projects" class="t-btn">Projects</a>
+        </div>
+      </section>
+
+      <div class="spec-sheet">
+        <div class="spec-block">
+          <div class="spec-block-title">Currently</div>
+          {#each now as row}
+            <div class="spec-row">
+              <span class="spec-label">{row.k}</span>
+              <span class="spec-value">{row.v}</span>
+            </div>
+          {/each}
+        </div>
+
+        <div class="spec-block">
+          <div class="spec-block-title">Education</div>
+          {#each education as item}
+            <div class="spec-row">
+              <span class="spec-label">{item.date}</span>
+              <span class="spec-value">
+                <strong>{item.org}</strong> — {item.role}
+                <br />
+                <span class="t-muted-sm">{item.notes.join(" · ")}</span>
+              </span>
+            </div>
+          {/each}
+        </div>
+
+        <div class="spec-block">
+          <div class="spec-block-title">Experience</div>
+          {#each experience as job}
+            <div class="spec-row spec-row-exp">
+              <span class="spec-label">{job.date}</span>
+              <div class="spec-value">
+                <div class="spec-exp-head"><strong>{job.org}</strong> — {job.role}</div>
+                <div class="t-tag-row">
+                  {#each job.tags as tag}
+                    <span class="t-tag t-tag-{tag.tone}">{tag.label}</span>
+                  {/each}
+                </div>
+                <ul class="spec-bullets">
+                  {#each job.bullets as [label, text]}
+                    <li><strong>{label}:</strong> {text}</li>
+                  {/each}
+                </ul>
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    </main>
+  {/if}
+
+  <!-- ═══════════════════════════════ INDEX / ACCORDION LAYOUT ═══════════════ -->
+  {#if layout === "index"}
+    <main class="index-main">
+      <section class="index-hero">
+        <span class="t-kicker">OPERATOR // DREW PILAT // M.S. CS, UCHICAGO</span>
+        <h1 class="t-heading index-name">Drew Pilat</h1>
+        <p class="t-lead">
+          M.S. Computer Science, University of Chicago — graduating Spring 2027.
+          Interested in quant finance, precision medicine, and early-to-late stage startups.
+        </p>
+        <div class="index-cta">
+          <a href="/Drew_Pilat_Resume.pdf" download class="t-btn t-btn-primary">Resume</a>
+          <a href="/projects" class="t-btn">Projects</a>
+        </div>
+      </section>
+
+      <div class="index-list">
+        <div class="index-item">
+          <button class="index-row" onclick={() => toggleIndex("currently")} aria-expanded={indexOpen.currently}>
+            <span class="index-num">01</span>
+            <span class="index-title">Currently</span>
+            <span class="index-chevron" class:open={indexOpen.currently}>+</span>
+          </button>
+          {#if indexOpen.currently}
+            <div class="index-panel">
+              <div class="doc-rows">
+                {#each now as row}
+                  <div class="doc-row">
+                    <span class="doc-k">{row.k}</span>
+                    <span class="doc-v">{row.v}</span>
+                  </div>
+                {/each}
+              </div>
+            </div>
+          {/if}
+        </div>
+
+        <div class="index-item">
+          <button class="index-row" onclick={() => toggleIndex("education")} aria-expanded={indexOpen.education}>
+            <span class="index-num">02</span>
+            <span class="index-title">Education</span>
+            <span class="index-chevron" class:open={indexOpen.education}>+</span>
+          </button>
+          {#if indexOpen.education}
+            <div class="index-panel">
+              {#each education as item, i}
+                <div class="doc-entry">
+                  <div class="doc-entry-head">
+                    <span class="doc-org">{item.org}</span>
+                    <span class="doc-date">{item.date}</span>
+                  </div>
+                  <div class="doc-role">{item.role}</div>
+                  {#each item.notes as note}
+                    <p class="t-muted-sm">{note}</p>
+                  {/each}
+                </div>
+                {#if i < education.length - 1}<div class="t-rule thin"></div>{/if}
+              {/each}
+            </div>
+          {/if}
+        </div>
+
+        <div class="index-item">
+          <button class="index-row" onclick={() => toggleIndex("experience")} aria-expanded={indexOpen.experience}>
+            <span class="index-num">03</span>
+            <span class="index-title">Experience</span>
+            <span class="index-chevron" class:open={indexOpen.experience}>+</span>
+          </button>
+          {#if indexOpen.experience}
+            <div class="index-panel">
+              {#each experience as job, i}
+                <div class="doc-entry">
+                  <div class="doc-entry-head">
+                    <span class="doc-org">{job.org}</span>
+                    <span class="doc-date">{job.date}</span>
+                  </div>
+                  <div class="doc-role">{job.role}</div>
+                  <div class="t-tag-row">
+                    {#each job.tags as tag}
+                      <span class="t-tag t-tag-{tag.tone}">{tag.label}</span>
+                    {/each}
+                  </div>
+                  <ul class="doc-bullets">
+                    {#each job.bullets as [label, text]}
+                      <li><strong>{label}:</strong> {text}</li>
+                    {/each}
+                  </ul>
+                </div>
+                {#if i < experience.length - 1}<div class="t-rule thin"></div>{/if}
+              {/each}
+            </div>
+          {/if}
+        </div>
+      </div>
+    </main>
+  {/if}
+
+  <!-- ═══════════════════════════════ MASTHEAD LAYOUT ════════════════════════ -->
+  {#if layout === "masthead"}
+    <div class="masthead-wrap">
+      <aside class="masthead-panel">
+        <div class="masthead-stack">
+          <span class="masthead-word">DREW</span>
+          <span class="masthead-word">PILAT</span>
+        </div>
+        <p class="masthead-lead">
+          M.S. Computer Science, University of Chicago — graduating Spring 2027.
+        </p>
+        <div class="masthead-cta">
+          <a href="/Drew_Pilat_Resume.pdf" download class="t-btn t-btn-primary">Resume</a>
+          <a href="/projects" class="t-btn">Projects</a>
+        </div>
+      </aside>
+
+      <main class="masthead-content">
+        <div class="masthead-strip">
+          {#each now as row}
+            <div class="strip-chip">
+              <span class="strip-k">{row.k}</span>
+              <span class="strip-v">{row.v}</span>
+            </div>
+          {/each}
+        </div>
+
+        <div class="masthead-grid">
+          {#each education as item}
+            <div class="t-card masthead-tile">
+              <span class="masthead-tile-kind">Education</span>
+              <div class="bento-entry-head">
+                <span class="bento-org">{item.org}</span>
+                <span class="bento-date">{item.date}</span>
+              </div>
+              <div class="bento-role">{item.role}</div>
+              {#each item.notes as note}
+                <p class="t-muted-sm">{note}</p>
+              {/each}
+            </div>
+          {/each}
+          {#each experience as job}
+            <div class="t-card masthead-tile">
+              <span class="masthead-tile-kind">Experience</span>
+              <div class="bento-entry-head">
+                <span class="bento-org">{job.org}</span>
+                <span class="bento-date">{job.date}</span>
+              </div>
+              <div class="bento-role">{job.role}</div>
+              <div class="t-tag-row">
+                {#each job.tags as tag}
+                  <span class="t-tag t-tag-{tag.tone}">{tag.label}</span>
+                {/each}
+              </div>
+              <ul class="bento-bullets">
+                {#each job.bullets as [label, text]}
+                  <li><strong>{label}:</strong> {text}</li>
+                {/each}
+              </ul>
+            </div>
+          {/each}
+        </div>
+      </main>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -478,6 +716,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    max-width: 280px;
     background: rgba(10, 10, 14, 0.92);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -488,8 +727,9 @@
 
   .switch-group {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.3rem;
+    flex-wrap: wrap;
   }
 
   .switch-group-label {
@@ -1239,6 +1479,299 @@
     .ledger-row {
       grid-template-columns: 1fr;
       gap: 0.6rem;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     LAYOUT: SPEC SHEET (technical datasheet)
+     ═══════════════════════════════════════════════════════════════════════ */
+  .spec-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+
+  .spec-hero {
+    margin-bottom: 2.5rem;
+  }
+
+  .spec-name {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0 0 0.75rem;
+  }
+
+  .spec-cta {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+  }
+
+  .spec-sheet {
+    border: 1px solid var(--t-border);
+    border-radius: var(--t-radius);
+    overflow: hidden;
+  }
+
+  .spec-block {
+    border-bottom: 1px solid var(--t-border);
+  }
+
+  .spec-block:last-child {
+    border-bottom: none;
+  }
+
+  .spec-block-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--t-accent-bright);
+    background: var(--t-surface);
+    padding: 0.6rem 1.5rem;
+    border-bottom: 1px solid var(--t-border);
+  }
+
+  .spec-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.5rem;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid var(--t-rule);
+  }
+
+  .spec-row:last-child {
+    border-bottom: none;
+  }
+
+  .spec-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--t-muted);
+    padding-top: 0.1rem;
+  }
+
+  .spec-value {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #dfe3ec;
+  }
+
+  .spec-value strong {
+    color: var(--t-heading-color);
+  }
+
+  .spec-exp-head {
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .spec-exp-head strong {
+    color: var(--t-heading-color);
+  }
+
+  .spec-bullets {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .spec-bullets li {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: #b5bccb;
+  }
+
+  .spec-bullets li strong {
+    color: var(--t-heading-color);
+  }
+
+  @media (max-width: 640px) {
+    .spec-row {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     LAYOUT: INDEX / ACCORDION (minimal, progressive disclosure)
+     ═══════════════════════════════════════════════════════════════════════ */
+  .index-main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 6rem;
+  }
+
+  .index-hero {
+    margin-bottom: 3.5rem;
+  }
+
+  .index-name {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin: 0 0 0.9rem;
+  }
+
+  .index-cta {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+  }
+
+  .index-list {
+    border-top: 1px solid var(--t-rule);
+  }
+
+  .index-item {
+    border-bottom: 1px solid var(--t-rule);
+  }
+
+  .index-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.4rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .index-num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--t-muted);
+    width: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .index-title {
+    flex: 1;
+    font-family: var(--t-heading-font);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--t-heading-color);
+  }
+
+  .index-chevron {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    color: var(--t-accent-bright);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  .index-chevron.open {
+    transform: rotate(45deg);
+  }
+
+  .index-panel {
+    padding: 0 0 2rem 2.85rem;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     LAYOUT: MASTHEAD (graphic identity panel + content grid)
+     ═══════════════════════════════════════════════════════════════════════ */
+  .masthead-wrap {
+    display: grid;
+    grid-template-columns: minmax(280px, 34%) 1fr;
+    min-height: 100vh;
+  }
+
+  .masthead-panel {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--t-border);
+    background: var(--t-surface);
+  }
+
+  .masthead-stack {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.92;
+    margin-bottom: 1.75rem;
+  }
+
+  .masthead-word {
+    font-family: var(--t-heading-font);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    color: var(--t-heading-color);
+    letter-spacing: -0.02em;
+  }
+
+  .masthead-lead {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--t-muted);
+    max-width: 30ch;
+    margin: 0 0 1.6rem;
+  }
+
+  .masthead-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .masthead-cta .t-btn {
+    justify-content: center;
+  }
+
+  .masthead-content {
+    padding: 3rem 2.5rem 6rem;
+  }
+
+  .masthead-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--t-rule);
+    margin-bottom: 2rem;
+  }
+
+  .masthead-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+
+  .masthead-tile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .masthead-tile-kind {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--t-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .masthead-wrap {
+      grid-template-columns: 1fr;
+    }
+    .masthead-panel {
+      position: static;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--t-border);
+    }
+    .masthead-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
