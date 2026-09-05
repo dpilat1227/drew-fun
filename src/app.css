@@ -280,7 +280,7 @@ code {
 
 .rule {
   height: 1px;
-  background: var(--border-1);
+  background: linear-gradient(90deg, rgba(158, 110, 222, 0.35), rgba(255, 93, 115, 0.2), rgba(255, 159, 67, 0.12), transparent 75%);
   border: none;
   margin: 3.5rem 0;
 }
@@ -336,6 +336,7 @@ code {
 
 .nav-float {
   pointer-events: auto;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -346,6 +347,19 @@ code {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 0 0.5px rgba(255,255,255,0.04);
+}
+
+.nav-float::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #9e6ede, #ff5d73, #ff9f43);
+  opacity: 0.55;
+  filter: blur(0.2px);
 }
 
 a.brand {
@@ -520,6 +534,33 @@ a.project-card:hover {
   height: 5px;
   border-radius: 50%;
   background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* ── Quote ─────────────────────────────────────────────────────────────────── */
+
+.quote {
+  margin: 0;
+  padding: 0.9rem 1.15rem;
+  background: var(--red-wash);
+  border-left: 3px solid var(--red);
+  border-radius: 0 10px 10px 0;
+}
+
+.quote p {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ffadb8;
+  line-height: 1.6;
+  margin: 0 0 0.4rem 0;
+}
+
+.quote cite {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-4);
+  font-style: normal;
 }
 
 .tag {
@@ -551,11 +592,23 @@ a.project-card:hover {
 }
 
 .panel {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(10, 12, 20, 0.72);
+  backdrop-filter: saturate(160%) blur(20px);
   border: 1px solid var(--border-1);
   border-radius: 20px;
   padding: 1.25rem 1.4rem;
-  box-shadow: inset 0 1px 0 rgba(158, 110, 222, 0.18);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(158, 110, 222, 0.18);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.panel:hover {
+  border-color: rgba(158, 110, 222, 0.4);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(158, 110, 222, 0.1),
+    inset 0 1px 0 rgba(158, 110, 222, 0.22);
 }
 
 .now-row {
@@ -584,11 +637,13 @@ a.project-card:hover {
 /* ── Cards & data tables ───────────────────────────────────────────────────── */
 
 .card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(10, 12, 20, 0.72);
+  backdrop-filter: saturate(160%) blur(20px);
   border: 1px solid var(--border-1);
   border-radius: 20px;
   padding: 1.6rem;
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .card-link {
@@ -600,6 +655,9 @@ a.project-card:hover {
 .card-link:hover {
   border-color: var(--border-gold);
   transform: translateY(-2px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(158, 110, 222, 0.1);
   color: inherit;
 }
 
@@ -640,6 +698,7 @@ a.project-card:hover {
 /* ── Résumé timeline ───────────────────────────────────────────────────────── */
 
 .section-head {
+  position: relative;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
@@ -649,6 +708,17 @@ a.project-card:hover {
   padding-bottom: 0.65rem;
   border-bottom: 1px solid var(--border-1);
   margin-bottom: 2rem;
+}
+
+.section-head::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 3.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, #9e6ede, #ff5d73, #ff9f43);
+  opacity: 0.85;
 }
 
 .entry + .entry {
@@ -999,11 +1069,14 @@ figcaption b {
   color: inherit;
   border-bottom: none;
   padding: 0.85rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(10, 12, 20, 0.72);
+  backdrop-filter: saturate(160%) blur(20px);
   border: 1px solid var(--border-1);
   border-radius: 20px;
-  box-shadow: inset 0 1px 0 rgba(158, 110, 222, 0.15);
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(158, 110, 222, 0.15);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .project-card:hover {
@@ -1011,6 +1084,10 @@ figcaption b {
   border-color: rgba(158, 110, 222, 0.45);
   background: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(158, 110, 222, 0.12),
+    inset 0 1px 0 rgba(158, 110, 222, 0.2);
 }
 
 .project-shot {
@@ -1113,10 +1190,13 @@ figcaption b {
 /* ── Callout ───────────────────────────────────────────────────────────────── */
 
 .callout {
-  border-left: 2px solid var(--gold-dim);
-  background: linear-gradient(90deg, var(--gold-wash), transparent 70%);
-  padding: 1.15rem 1.4rem;
-  border-radius: 0 8px 8px 0;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  border-left: 3px solid var(--green);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.9rem 1.15rem;
+  border-radius: 0 10px 10px 0;
 }
 
 .callout .tech-label {
