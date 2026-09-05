@@ -18,8 +18,9 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: var(--accent);
+    height: 3px;
+    background: linear-gradient(90deg, #9e6ede, #ff5d73, #ff9f43);
+    box-shadow: 0 0 12px rgba(158, 110, 222, 0.5);
     transform-origin: 0 50%;
     z-index: 80;
     pointer-events: none;
