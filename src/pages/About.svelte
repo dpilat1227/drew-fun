@@ -22,7 +22,7 @@
       bullets: [
         'Churn models in Python, and the dashboards customer success used to rank who was about to cancel.',
         'Factor models for Benzinga Quant. Ranked equities on volatility and momentum.',
-        'A data product that did $500k+ after launch.',
+        'Launched data product that generated $900K within 12 months.',
       ],
     },
     {
@@ -41,8 +41,8 @@
       role: 'Co-Founder & COO',
       bullets: [
         'Raised $800k pre-seed.',
-        'Partnerships with UPenn and Boston University.',
-        'Consumer mindfulness app. 5.0 on the App Store. Wound it down in 2022.',
+        'Paid partnerships with UPenn and Boston University.',
+        'Consumer mindfulness app. 5.0 on the App Store. Wound down in 2022.',
       ],
     },
   ];
