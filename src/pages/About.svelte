@@ -1,27 +1,16 @@
 <script>
-  const now = [
-    { k: 'Focus', v: 'Quantitative engineering, healthcare startups, data visualization & reading sci-fi' },
-    { k: 'Languages', v: 'TypeScript, Python, C++, SQL' },
-    { k: 'Building', v: 'React Native (Expo), Next.js, Postgres, Prisma, Redis' },
-    { k: 'Infra', v: 'Vercel, Fly.io, Docker, WireGuard' },
-    { k: 'Looking for', v: 'Internships (2026) · full-time (2027)' },
-  ];
-
   const education = [
     {
       org: 'University of Chicago',
       date: 'Expected 2027',
       role: 'M.S. Computer Science',
-      notes: [
-        'Specialization: High Performance Computing',
-        'Coursework: Discrete Mathematics, Python for Data Science, Algorithms, Databases',
-      ],
+      notes: 'High Performance Computing. Algorithms, databases, discrete math.',
     },
     {
       org: 'University of Michigan',
       date: '2016 — 2020',
       role: 'B.B.A., Ross School of Business',
-      notes: ['Specializations: Financial Markets, Entrepreneurial Law'],
+      notes: 'Financial markets and entrepreneurial law.',
     },
   ];
 
@@ -30,80 +19,30 @@
       org: 'Benzinga',
       date: '2023 — 2025',
       role: 'Chief of Staff',
-      tags: [
-        { label: 'Product', tone: 'purple' },
-        { label: 'Strategy & Ops', tone: 'orange' },
-        { label: 'Business Building', tone: 'cyan' },
-      ],
       bullets: [
-        [
-          'Predictive analytics',
-          'Built churn models in Python with Tableau dashboards used by customer success to prioritise at-risk subscribers. Reported 85% accuracy and a 20% lift in CLV.',
-        ],
-        [
-          'Product',
-          'Led development and launch of a data product that generated $500,000+ after release.',
-        ],
-        [
-          'Quantitative work',
-          'Engineered factor-based models for Benzinga Quant to rank equities on volatility and momentum signals.',
-        ],
-        [
-          'Growth operations',
-          'Launched and ran the P&L for a virtual events line of business that did $350,000+ in 2024.',
-        ],
-        [
-          'Marketing',
-          'Rebuilt mobile app acquisition around an attribution model, cutting CAC 33%.',
-        ],
+        'Churn models in Python, and the dashboards customer success used to rank who was about to cancel.',
+        'Factor models for Benzinga Quant. Ranked equities on volatility and momentum.',
+        'A data product that did $500k+ after launch.',
       ],
     },
     {
       org: 'Jumpstart Health Investors',
       date: '2022 — 2023',
       role: 'Investment Associate',
-      tags: [
-        { label: 'Venture Capital · Early Stage', tone: 'green' },
-        { label: 'Healthcare Startups', tone: 'cyan' },
-      ],
       bullets: [
-        [
-          'Diligence',
-          'Evaluated 200+ investment opportunities and presented memos to the Investment Committee.',
-        ],
-        [
-          'Portfolio strategy',
-          'Analysed historical fund data to inform deployment strategy.',
-        ],
-        [
-          'Research',
-          'Mapped market trends across the healthcare startup ecosystem.',
-        ],
+        'Diligence memos on 200+ healthcare companies for the investment committee.',
+        'Used the fund\'s history to decide where the next checks went.',
+        'Worked with portfolio companies on fundraising and product.',
       ],
     },
     {
       org: 'Wellnest',
       date: '2019 — 2022',
       role: 'Co-Founder & COO',
-      tags: [
-        { label: 'Founder / COO', tone: 'pink' },
-        { label: 'VC-Backed', tone: 'green' },
-        { label: 'Mental Health', tone: 'purple' },
-        { label: 'Digital Health', tone: 'cyan' },
-      ],
       bullets: [
-        [
-          'Fundraising',
-          'Raised $800,000 in pre-seed funding from venture firms and angel investors.',
-        ],
-        [
-          'Partnerships',
-          'Signed institutional partnerships with UPenn and Boston University.',
-        ],
-        [
-          'Product',
-          'Ran product for a consumer mindfulness app that held a 5.0 App Store rating. Wound down in 2022.',
-        ],
+        'Raised $800k pre-seed.',
+        'Partnerships with UPenn and Boston University.',
+        'Consumer mindfulness app. 5.0 on the App Store. Wound it down in 2022.',
       ],
     },
   ];
@@ -118,149 +57,171 @@
 
     <section class="hero no-print">
       <h1 class="display-name">Drew Pilat</h1>
-      <p class="lead kicker">
-        M.S. Computer Science, University of Chicago &mdash; graduating Spring 2027.<br />
-        Interested in quant finance, precision medicine, and early-to-late stage startups.
+      <p class="kicker">
+        Interested in software that can get an edge in markets, and in making trading faster. Also interested in precision medicine and healthcare startups.
       </p>
       <div class="cta-row">
         <a href="/Drew_Pilat_Resume.pdf" download class="btn btn-primary">Resume</a>
-        <a href="/projects" class="btn">Projects</a>
+        <a href="mailto:dpilat@uchicago.edu" class="btn">Email</a>
       </div>
     </section>
 
-    <div class="split">
-      <aside class="no-print">
-        <div class="section-head">Currently</div>
-        <table class="data-table">
-          <tbody>
-            {#each now as row (row.k)}
-              <tr><td>{row.k}</td><td>{row.v}</td></tr>
-            {/each}
-          </tbody>
-        </table>
-      </aside>
-
-      <div>
-        <div class="section-head">Education</div>
-        {#each education as item (item.org)}
-          <div class="entry">
-            <div class="entry-meta">
-              <span class="entry-org">{item.org}</span>
-              <span class="entry-date">{item.date}</span>
-            </div>
-            <div class="entry-role">{item.role}</div>
-            {#each item.notes as note}
-              <p style="font-size:0.92rem;color:var(--text-3);margin-bottom:0.2rem;">{note}</p>
-            {/each}
+    <section class="band">
+      <div class="section-head">Education</div>
+      {#each education as item (item.org)}
+        <article class="fact">
+          <div class="fact-top">
+            <h2>{item.org}</h2>
+            <span class="fact-date">{item.date}</span>
           </div>
-        {/each}
+          <p class="fact-sub">{item.role}</p>
+          <p class="note">{item.notes}</p>
+        </article>
+      {/each}
+    </section>
 
-        <div class="section-head" style="margin-top:3.5rem;">Experience</div>
-        {#each experience as job (job.org)}
-          <div class="entry">
-            <div class="entry-meta">
-              <span class="entry-org">{job.org}</span>
-              <span class="entry-date">{job.date}</span>
-            </div>
-            <div class="entry-role">{job.role}</div>
-            {#if job.tags}
-              <div class="tag-row" style="margin:0.35rem 0 0.85rem;">
-                {#each job.tags as tag (tag.label)}
-                  <span class="tag tag-{tag.tone}">{tag.label}</span>
-                {/each}
-              </div>
-            {/if}
-            <ul class="bullets">
-              {#each job.bullets as [label, text]}
-                <li><strong>{label}:</strong> {text}</li>
-              {/each}
-            </ul>
+    <section class="band">
+      <div class="section-head">Experience</div>
+      {#each experience as job (job.org)}
+        <article class="fact">
+          <div class="fact-top">
+            <h2>{job.org}</h2>
+            <span class="fact-date">{job.date}</span>
           </div>
-        {/each}
+          <p class="fact-sub">{job.role}</p>
+          <ul class="bullets">
+            {#each job.bullets as text}
+              <li>{text}</li>
+            {/each}
+          </ul>
+        </article>
+      {/each}
+    </section>
 
-        <div class="section-head" style="margin-top:3.5rem;">Skills</div>
-        <table class="data-table">
-          <tbody>
-            <tr><td>Programming</td><td>TypeScript, Python (NumPy, Pandas, scikit-learn), C++, SQL, Bash</td></tr>
-            <tr><td>Mobile &amp; Web</td><td>React Native (Expo), React, Next.js, Svelte, Node, REST APIs, Prisma, Postgres, Redis</td></tr>
-            <tr><td>Systems</td><td>Linux, Docker, WireGuard, networking, CI/CD</td></tr>
-            <tr><td>Quantitative</td><td>Time-series analysis, factor modelling, risk (VaR, stress testing), Tableau</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <section class="contact no-print">
+      <p class="eyebrow">Contact</p>
+      <p class="contact-line">
+        <a href="mailto:dpilat@uchicago.edu">dpilat@uchicago.edu</a>
+        <a href="https://github.com/dpilat1227" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/drew-pilat/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+      <p class="looking">Looking for internships in 2026, and full-time in 2027.</p>
+    </section>
   </div>
 </div>
 
 <style>
   .home {
-    padding-top: 0.5rem;
+    padding-top: 1.5rem;
   }
 
   .hero {
-    padding: 1.75rem 0 2.75rem;
+    max-width: 40rem;
+    padding: 4.5rem 0 5rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 1.25rem;
   }
 
   .kicker {
-    max-width: 36ch;
-    margin-top: 0.7rem;
-    font-size: 1.05rem;
-    color: var(--text-2);
+    max-width: 38rem;
+    margin-top: 1.5rem;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-1);
+  }
+
+  .band {
+    margin-top: 4.75rem;
+  }
+
+  .fact + .fact {
+    margin-top: 2.75rem;
+  }
+
+  .fact-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+
+  .fact-top h2 {
+    font-size: clamp(1.65rem, 2.8vw, 2.05rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .fact-date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--text-4);
+    white-space: nowrap;
+  }
+
+  .fact-sub {
+    margin: 0.45rem 0 0;
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--text-1);
+  }
+
+  .fact .bullets {
+    margin-top: 0.85rem;
   }
 
   .cta-row {
     display: flex;
     gap: 0.7rem;
     flex-wrap: wrap;
-    margin-top: 1.4rem;
+    margin-top: 1.75rem;
   }
 
-  .split {
-    display: grid;
-    grid-template-columns: minmax(260px, 320px) 1fr;
-    gap: 2.5rem;
-    align-items: start;
+  .note {
+    font-size: 0.95rem;
+    color: var(--text-3);
+    margin: 0.25rem 0 0;
   }
 
-  .split aside {
-    position: sticky;
-    top: 5.5rem;
+  .contact {
+    padding: 2.5rem 0 1rem;
+    border-top: 1px solid var(--border-1);
+    margin-top: 3rem;
   }
 
-  .split aside :global(.data-table tr) {
-    display: block;
-    padding: 0.7rem 0;
+  .contact-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0;
   }
 
-  .split aside :global(.data-table td) {
-    display: block;
-    padding: 0;
+  .looking {
+    margin-top: 0.85rem;
+    color: var(--text-3);
+    font-size: 0.95rem;
   }
 
-  .split aside :global(.data-table td:first-child) {
-    width: auto;
-    padding-bottom: 0.28rem;
-    white-space: normal;
-  }
-
-  @media (max-width: 900px) {
-    .split {
-      grid-template-columns: 1fr;
-      gap: 2.75rem;
+  @media (max-width: 800px) {
+    .hero {
+      padding-top: 2.5rem;
     }
 
-    .split aside {
-      position: static;
-    }
-  }
-
-  @media print {
-    .split {
-      display: block;
-    }
-
-    .home {
-      padding: 0;
+    .fact-top {
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
     }
   }
 </style>

@@ -4,11 +4,11 @@
   const TABLE_ID = import.meta.env.VITE_AIRTABLE_TABLE_ID;
 
   const genreColors = {
-    'sci-fi': '#51FFAD',
-    fantasy: '#BA7AFE',
-    'non-fiction': '#FFCB43',
-    mystery: '#3357FF',
-    biography: '#FF33A1',
+    'sci-fi': '#111110',
+    fantasy: '#111110',
+    'non-fiction': '#111110',
+    mystery: '#111110',
+    biography: '#111110',
   };
 
   const genreTone = {

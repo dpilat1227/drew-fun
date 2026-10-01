@@ -79,16 +79,16 @@
         and a hiring manager will Google it anyway.
       </p>
       <p>
-        The engineering write-ups are
-        <a href="/projects/lavamesh">LavaMesh</a> and
-        <a href="/projects/lavamoney">LavaMoney</a>.
+        The engineering write-up is
+        <a href="/projects/lavamesh">LavaMesh</a>. The market piece is
+        <a href="/projects/microsecond">The Anatomy of a Microsecond</a>.
       </p>
     </section>
 
     <div class="foot-nav">
       <a href="/projects" class="btn">← All projects</a>
       <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
-        <a href="/projects/lavamoney" class="btn">LavaMoney →</a>
+        <a href="/projects/microsecond" class="btn">Microsecond →</a>
         <a href="/projects/lavamesh" class="btn btn-primary">LavaMesh →</a>
       </div>
     </div>

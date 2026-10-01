@@ -6,6 +6,16 @@
     if (e.key === 'Escape') zoomed = false;
   }
 
+  /** Move the overlay to document.body so it isn't trapped by a transformed ancestor. */
+  function portal(node) {
+    document.body.appendChild(node);
+    return {
+      destroy() {
+        node.remove();
+      },
+    };
+  }
+
   $effect(() => {
     document.body.style.overflow = zoomed ? 'hidden' : '';
     return () => {
@@ -43,8 +53,8 @@
 </figure>
 
 {#if zoomed}
-  <div class="lightbox" role="dialog" aria-modal="true" aria-label={alt}>
-    <button type="button" class="backdrop" onclick={() => (zoomed = false)} aria-label="Close enlarged image"></button>
+  <div class="lightbox" use:portal>
+    <button type="button" class="lightbox-close" onclick={() => (zoomed = false)} aria-label="Close enlarged image"></button>
     <img {src} {alt} />
   </div>
 {/if}
@@ -68,20 +78,5 @@
 
   .zoom:hover img {
     transform: scale(1.015);
-  }
-
-  .backdrop {
-    position: absolute;
-    inset: 0;
-    border: none;
-    background: none;
-    cursor: zoom-out;
-    padding: 0;
-  }
-
-  .lightbox img {
-    position: relative;
-    z-index: 1;
-    pointer-events: none;
   }
 </style>
