@@ -87,10 +87,7 @@
         <a class="feat-shot" href="https://quant.drew.fun" target="_blank" rel="noopener noreferrer" aria-label="Open the lavaquant demo">
           <Mockup
             fill
-            bare
-            kind="browser"
             label="Web app"
-            url="quant.drew.fun"
             src="/media/lavaquant/dashboard-crop.webp"
             alt="lavaquant dashboard: score dial, KPI strip and equity curve"
           />
@@ -217,13 +214,14 @@
   .featured {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    border: 1px solid var(--border-1);
+    gap: 2.5rem;
+    align-items: stretch;
   }
 
   .feat-copy {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 0.5rem 0;
   }
 
   .feat-copy h2 {
@@ -256,7 +254,6 @@
 
   .feat-shot {
     display: block;
-    border-left: 1px solid var(--border-1);
   }
 
   .cta-row {
@@ -305,13 +302,12 @@
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .feat-copy {
-      padding: 1.5rem;
+    .featured {
+      gap: 1.5rem;
     }
 
-    .feat-shot {
-      border-left: 0;
-      border-top: 1px solid var(--border-1);
+    .feat-copy {
+      padding: 0;
     }
   }
 </style>

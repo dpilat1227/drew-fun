@@ -1,32 +1,21 @@
 <script>
   /**
-   * Shared project thumbnail: a framed artifact on a light canvas, bleeding off the bottom edge.
-   * kind="browser" wraps the content in a minimal window; kind="poster" frames an image as-is.
-   * Pass children (a snippet) instead of `src` to render custom content, like an SVG.
+   * Shared project thumbnail: one artifact on a light canvas, anchored to the right and bottom
+   * edges so it bleeds off. Two layers only (canvas, artifact), no extra chrome.
+   * Pass children (a snippet) instead of `src` to render custom content.
    */
-  let { kind = 'browser', src = '', alt = '', url = '', label = '', fill = false, bare = false, children } = $props();
+  let { src = '', alt = '', label = '', fill = false, children } = $props();
 </script>
 
-<div class="mock" class:fill class:bare>
+<div class="mock" class:fill>
   {#if label}<span class="tag">{label}</span>{/if}
-
-  {#if kind === 'browser'}
-    <div class="win">
-      <div class="bar">
-        <i></i><i></i><i></i>
-        {#if url}<span class="url">{url}</span>{/if}
-      </div>
-      {#if children}
-        <div class="view">{@render children()}</div>
-      {:else}
-        <img {src} {alt} loading="lazy" decoding="async" />
-      {/if}
-    </div>
-  {:else}
-    <div class="poster">
+  <div class="art">
+    {#if children}
+      {@render children()}
+    {:else}
       <img {src} {alt} loading="lazy" decoding="async" />
-    </div>
-  {/if}
+    {/if}
+  </div>
 </div>
 
 <style>
@@ -39,10 +28,6 @@
     border: 1px solid var(--border-1);
   }
 
-  .mock.bare {
-    border: 0;
-  }
-
   .mock.fill {
     aspect-ratio: auto;
     height: 100%;
@@ -51,62 +36,33 @@
 
   .tag {
     position: absolute;
-    top: 0.85rem;
-    left: 1rem;
+    top: 0.9rem;
+    left: 1.1rem;
     z-index: 2;
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--text-4);
+    color: var(--text-3);
   }
 
-  .win,
-  .poster {
+  .art {
     position: absolute;
     top: 17%;
-    left: 8%;
-    right: 8%;
-    background: #fff;
+    left: 9%;
+    right: 0;
     border: 1px solid var(--border-2);
-    box-shadow:
-      0 34px 60px -30px rgba(17, 17, 16, 0.5),
-      0 2px 6px rgba(17, 17, 16, 0.08);
-    transition: transform 0.5s var(--ease);
-  }
-
-  .mock:hover .win,
-  .mock:hover .poster {
-    transform: translateY(-5px);
-  }
-
-  .bar {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    height: 22px;
-    padding: 0 10px;
-    border-bottom: 1px solid var(--border-1);
+    border-right: 0;
     background: #fff;
+    box-shadow: -6px 18px 48px -18px rgba(17, 17, 16, 0.55);
+    transition: transform 0.55s var(--ease);
   }
 
-  .bar i {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    border: 1px solid var(--border-2);
+  .mock:hover .art {
+    transform: translate(-4px, -5px);
   }
 
-  .url {
-    margin-left: 8px;
-    font-family: var(--font-mono);
-    font-size: 9.5px;
-    letter-spacing: 0.02em;
-    color: var(--text-4);
-  }
-
-  img,
-  .view {
+  img {
     display: block;
     width: 100%;
     height: auto;
