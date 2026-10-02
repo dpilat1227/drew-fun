@@ -4,7 +4,7 @@
       org: 'University of Chicago',
       date: 'Expected 2027',
       role: 'M.S. Computer Science',
-      notes: 'High Performance Computing. Algorithms, databases, discrete math.',
+      notes: 'High Performance Computing. Parallel programming, cloud computing, databases, algorithms, discrete math.',
     },
     {
       org: 'University of Michigan',
@@ -21,7 +21,8 @@
       role: 'Chief of Staff',
       bullets: [
         'Churn models in Python, and the dashboards customer success used to rank who was about to cancel.',
-        'Factor models for Benzinga Quant. Ranked equities on volatility and momentum.',
+        'Built Benzinga Quant: a multi-factor model behind a daily long/short watchlist and a per-stock scorecard of factor drivers like momentum and mean reversion.',
+        'Wrote the companion newsletter on which quant strategies were working and which were decaying.',
         'Launched data product that generated $900K within 12 months.',
       ],
     },
@@ -66,6 +67,31 @@
       </div>
     </section>
 
+    <section class="band no-print">
+      <div class="section-head">Featured project</div>
+      <article class="featured">
+        <div class="feat-copy">
+          <h2>lavaquant</h2>
+          <p class="fact-sub">Alpha research lab</p>
+          <p class="feat-text">
+            Write an alpha, backtest it in seconds, check it against WorldQuant BRAIN and Numerai rules of thumb.
+          </p>
+          <p class="feat-meta">Next.js · FastAPI · LightGBM</p>
+          <div class="cta-row">
+            <a href="https://quant.drew.fun" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live demo</a>
+            <a href="https://github.com/dpilat1227/lavaquant" target="_blank" rel="noopener noreferrer" class="btn">Source</a>
+          </div>
+        </div>
+        <a class="feat-shot" href="https://quant.drew.fun" target="_blank" rel="noopener noreferrer" aria-label="Open the lavaquant demo">
+          <img
+            src="/media/lavaquant/dashboard.webp"
+            alt="lavaquant dashboard: expression editor, score dial, KPI strip and equity curve"
+            loading="lazy"
+          />
+        </a>
+      </article>
+    </section>
+
     <section class="band">
       <div class="section-head">Education</div>
       {#each education as item (item.org)}
@@ -105,7 +131,7 @@
         <a href="https://github.com/dpilat1227" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/drew-pilat/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </p>
-      <p class="looking">Looking for internships in 2026, and full-time in 2027.</p>
+      <p class="looking">Looking for full-time roles starting in 2027.</p>
     </section>
   </div>
 </div>
@@ -182,6 +208,67 @@
     margin-top: 0.85rem;
   }
 
+  .featured {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    border: 1px solid var(--border-1);
+  }
+
+  .feat-copy {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .feat-copy h2 {
+    font-size: clamp(1.65rem, 2.8vw, 2.05rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .feat-text {
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-1);
+  }
+
+  .feat-meta {
+    margin: 0.85rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--text-4);
+  }
+
+  .feat-copy .cta-row {
+    margin-top: auto;
+    padding-top: 1.75rem;
+  }
+
+  .feat-shot {
+    display: block;
+    overflow: hidden;
+    background: #0c0c0f;
+    border-left: 1px solid var(--border-1);
+    min-height: 15rem;
+  }
+
+  .feat-shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    transition: transform 0.6s ease;
+  }
+
+  .feat-shot:hover img {
+    transform: scale(1.025);
+  }
+
   .cta-row {
     display: flex;
     gap: 0.7rem;
@@ -222,6 +309,21 @@
     .fact-top {
       flex-wrap: wrap;
       gap: 0.25rem 1rem;
+    }
+
+    .featured {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .feat-copy {
+      padding: 1.5rem;
+    }
+
+    .feat-shot {
+      border-left: 0;
+      border-top: 1px solid var(--border-1);
+      min-height: 0;
+      aspect-ratio: 16 / 10;
     }
   }
 </style>

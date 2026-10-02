@@ -1,6 +1,20 @@
 <script>
   const projects = [
     {
+      href: 'https://quant.drew.fun',
+      external: true,
+      title: 'lavaquant',
+      blurb:
+        'Alpha research lab. Write an expression, backtest it in seconds, check it against WorldQuant BRAIN and Numerai rules of thumb.',
+      tags: [
+        { label: 'Next.js', tone: 'cyan' },
+        { label: 'FastAPI', tone: 'green' },
+        { label: 'LightGBM', tone: 'orange' },
+      ],
+      image: '/media/lavaquant/dashboard.webp',
+      alt: 'lavaquant dashboard: expression editor, score dial, KPI strip and equity curve',
+    },
+    {
       href: '/projects/microsecond',
       title: 'The Anatomy of a Microsecond',
       blurb:
@@ -51,7 +65,12 @@
 
     <div class="project-list">
       {#each projects as project (project.href)}
-        <a href={project.href} class="project-card">
+        <a
+          href={project.href}
+          class="project-card"
+          target={project.external ? '_blank' : undefined}
+          rel={project.external ? 'noopener noreferrer' : undefined}
+        >
           <div class="project-shot">
             {#if project.essayPreview === 'microsecond'}
               <!-- Animated order-routing preview for the microstructure essay -->
