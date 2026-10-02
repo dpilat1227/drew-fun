@@ -1,4 +1,6 @@
 <script>
+  import Mockup from '../lib/Mockup.svelte';
+
   const education = [
     {
       org: 'University of Chicago',
@@ -20,10 +22,10 @@
       date: '2023 — 2025',
       role: 'Chief of Staff',
       bullets: [
-        'Churn models in Python, and the dashboards customer success used to rank who was about to cancel.',
+        'Built a churn model for Benzinga Pro and the Tableau dashboard customer success used to rank who was about to cancel. 85% accuracy; CLV rose 20%.',
         'Built Benzinga Quant: a multi-factor model behind a daily long/short watchlist and a per-stock scorecard of factor drivers like momentum and mean reversion.',
         'Wrote the companion newsletter on which quant strategies were working and which were decaying.',
-        'Launched data product that generated $900K within 12 months.',
+        'Led development and launch of a mining product that has generated $500K+ since inception.',
       ],
     },
     {
@@ -83,10 +85,14 @@
           </div>
         </div>
         <a class="feat-shot" href="https://quant.drew.fun" target="_blank" rel="noopener noreferrer" aria-label="Open the lavaquant demo">
-          <img
-            src="/media/lavaquant/dashboard.webp"
-            alt="lavaquant dashboard: expression editor, score dial, KPI strip and equity curve"
-            loading="lazy"
+          <Mockup
+            fill
+            bare
+            kind="browser"
+            label="Web app"
+            url="quant.drew.fun"
+            src="/media/lavaquant/dashboard-crop.webp"
+            alt="lavaquant dashboard: score dial, KPI strip and equity curve"
           />
         </a>
       </article>
@@ -143,7 +149,7 @@
 
   .hero {
     max-width: 40rem;
-    padding: 4.5rem 0 5rem;
+    padding: 4.5rem 0 1.5rem;
   }
 
   .eyebrow {
@@ -250,23 +256,7 @@
 
   .feat-shot {
     display: block;
-    overflow: hidden;
-    background: #0c0c0f;
     border-left: 1px solid var(--border-1);
-    min-height: 15rem;
-  }
-
-  .feat-shot img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top left;
-    transition: transform 0.6s ease;
-  }
-
-  .feat-shot:hover img {
-    transform: scale(1.025);
   }
 
   .cta-row {
@@ -322,8 +312,6 @@
     .feat-shot {
       border-left: 0;
       border-top: 1px solid var(--border-1);
-      min-height: 0;
-      aspect-ratio: 16 / 10;
     }
   }
 </style>
