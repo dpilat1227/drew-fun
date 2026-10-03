@@ -5,6 +5,7 @@
   import Rule606Flow from "../lib/microsecond/Rule606Flow.svelte";
   import HftGeographyMap from "../lib/microsecond/HftGeographyMap.svelte";
   import SpeedBumpRace from "../lib/microsecond/SpeedBumpRace.svelte";
+  import SpreadWaterfall from "../lib/microsecond/SpreadWaterfall.svelte";
 
   // ── Scrollytelling Step State ──────────────────────────────────────────────
   let activeStep = $state(0);
@@ -43,68 +44,71 @@
   const narrativeSteps = [
     {
       act: "T + 0 MS",
-      title: "The Illusion of Instant",
-      subtitle: "You tap Buy. A checkmark appears. Done, right?",
-      body: "You buy 10 shares of Apple at market. A spinner runs for about 40 milliseconds and your phone shows a green checkmark. To you, that's instantaneous — a human blink takes about 300ms. But 40 milliseconds is a small eternity to the machines that actually filled your order.",
-      takeaway:
-        "Dilate that 40ms by a factor of a million and you get a full day. A lot happens in a day.",
-      stat: "40 MS PERCEIVED · 40,000,000 NS ACTUAL",
+      title: "Free isn't free",
+      subtitle: "You tap Buy. No commission. Someone still got paid.",
+      body: "You buy 10 shares of Apple. A spinner runs for about 40 milliseconds, then a green checkmark. No fee, no commission. But at least three companies handled your order in that time, and none of them did it for free.",
+      takeaway: "Slow 40 milliseconds down a million times and it becomes a full day. Drag the slider. Plenty happens in that day.",
+      sowhat: "If you aren't paying, the money is coming from somewhere else. This follows it.",
+      stat: "40 MS TO YOU · 40,000,000 NS TO A MACHINE",
     },
     {
       act: "T + 5 MS · RULE 606",
-      title: "The Fork in the Road",
-      subtitle: "Your order never sees the NYSE floor.",
-      body: "The order packet hits your broker's routing server and immediately forks off the public market. Under SEC Rule 606, brokers disclose (quarterly, in fine print) where retail orders actually go. For most brokers, the answer is: not to an exchange, but to a private wholesaler who pays for the privilege of trading against you.",
-      takeaway:
-        "Payment for order flow means Citadel Securities and Virtu pay your broker for the right to fill you — not the other way around.",
-      stat: "70%+ OF RETAIL FLOW ROUTED OFF-EXCHANGE",
+      title: "Your order never reaches an exchange",
+      subtitle: "Your broker sells it first.",
+      body: "Your broker doesn't send the order to the NYSE or Nasdaq. A wholesaler like Citadel Securities or Virtu pays the broker a fraction of a cent a share for the right to fill it. That's payment for order flow, or PFOF. Brokers have to say where they send orders (SEC Rule 606). Almost nobody reads it.",
+      takeaway: "Click through the three brokers. Where your order goes depends on who you trade with.",
+      sowhat: "The commission didn't go away. It moved to the other side of the trade.",
+      stat: "MOST RETAIL ORDERS ARE FILLED OFF-EXCHANGE",
     },
     {
       act: "T + 8 MS · NY4 SECAUCUS",
-      title: "Inside the Internalizer",
-      subtitle: "The spread game, played in sub-pennies.",
-      body: "Your order lands inside Equinix NY4. The NBBO — the best public bid and offer — is $194.99 / $195.00, a one-cent spread. The internalizer steps in front of the public exchange and fills you at $194.998, a tenth of a cent better than the public ask.",
-      takeaway:
-        "Why so generous? Because retail flow is statistically 'uninformed' — low risk of knowing something the market doesn't. The market maker eats almost the whole spread with a rounding error's worth of risk.",
-      stat: "$0.002 PRICE IMPROVEMENT · $0.008 KEPT BY THE HOUSE",
+      title: "You do get a better price",
+      subtitle: "Just not as much better as there is to get.",
+      body: "The order lands in a data center in Secaucus, New Jersey. The best public prices are $194.99 to sell and $195.00 to buy. The wholesaler fills you at $194.998, a fifth of a cent better than the public price. That's real. It's called price improvement, and it's why brokers can say they beat the market. Press the button to route the order.",
+      takeaway: "They can afford it because you're easy to fill. Ten shares from a retail account almost never means you know something the market doesn't.",
+      sowhat: "You save about 2 cents. The wholesaler keeps most of the other 8 on the same trade.",
+      stat: "$0.002 BETTER THAN THE PUBLIC ASK · $0.008 LEFT OVER PER SHARE",
     },
     {
       act: "T + 12–25 MS · THE CHICAGO RACE",
-      title: "The 13-Millisecond Sprint",
-      subtitle: "Apple's price is tethered to a cornfield outside Chicago.",
-      body: "AAPL's fair value is partly anchored to S&P 500 e-mini futures trading on the CME in Aurora, Illinois. Firms spent hundreds of millions building microwave relay towers across the Midwest just to shave milliseconds off the trip between New Jersey and Chicago.",
-      takeaway:
-        "Rain scatters a microwave signal. On a stormy day, that multi-hundred-million-dollar edge quietly evaporates and traffic limps back onto fiber.",
-      stat: "FIBER 14.5 MS · MICROWAVE 13.1 MS · RAIN FADE +1.4 MS",
+      title: "A race to a field in Illinois",
+      subtitle: "Apple's price is partly set 700 miles away.",
+      body: "To quote you a safe price, the wholesaler has to know what Apple is worth right now. Part of that comes from S&P 500 futures, which trade at the CME's data center in Aurora, Illinois. A move there has to reach New Jersey before anyone can act on it. Trading firms built microwave towers in a near-straight line across the Midwest to get there first. Fiber takes the long way: about 13 milliseconds round trip. Microwave takes about 8.",
+      takeaway: "Rain weakens microwaves and the edge disappears. Flip the switch on the map.",
+      sowhat: "The public price you're compared against is built by firms racing like this. One study found the profit window between futures and stocks shrank from about 97 ms in 2005 to about 7 ms in 2011 (Budish, Cramton & Shim).",
+      stat: "ROUND TRIP: FIBER ~13 MS · MICROWAVE ~8 MS",
     },
     {
       act: "T + 26–35 MS · CARTERET, NJ",
-      title: "The Lit Exchange & The Toxic Order",
-      subtitle: "What happens when a pension fund shows up instead of you.",
-      body: "A pension fund needs to buy 500,000 shares — too big to hide, and too big for any internalizer to want the other side of. It has to go to the public, 'lit' exchange. The moment the first 1,000 shares print, HFT sniffing algorithms clock the footprint.",
-      takeaway:
-        "Within about 15 microseconds, market makers cancel their resting quotes and the ask jumps — before the rest of the pension fund's order can fill at the old price.",
-      stat: "15 μS DETECTION WINDOW · ASK REPRICES MID-FILL",
+      title: "When a big order shows up",
+      subtitle: "A pension fund can't hide. Fast traders see it coming.",
+      body: "A pension fund needs 500,000 shares. No wholesaler wants that much risk, so the order goes to a public exchange, in pieces. Fast traders watch for the first piece. When it prints, they cancel their old prices and post higher ones. A few microseconds later the next piece arrives and the price has already moved against the fund.",
+      takeaway: "Nobody broke a rule. The fund lost a race it didn't know it was in. This is called latency arbitrage.",
+      sowhat: "It makes honest public prices expensive to maintain, which is why someone eventually built a fix.",
+      stat: "A FEW μS TO REACT · THE ASK REPRICES MID-FILL",
     },
     {
       act: "T + 36–39 MS · IEX",
-      title: "The 350-Microsecond Speed Bump",
-      subtitle: "A shoebox of coiled fiber, fighting back.",
-      body: "IEX built a 38-mile spool of fiber-optic cable — nicknamed the Magic Shoebox — coiled inside a rack in its data center. Every order, from everyone, gets delayed by exactly 350 microseconds on the way in.",
-      takeaway:
-        "That's just long enough to neutralize a latency-arbitrage sniffer's speed advantage, so the slower institutional order can fill at the real NBBO instead of a stale, already-moved price.",
-      stat: "350 μS UNIFORM DELAY · SNIPER NEUTRALIZED",
+      title: "The speed bump",
+      subtitle: "A coil of fiber built to waste time.",
+      body: "IEX is a stock exchange that delays every order by 350 microseconds, in and out. It does it with about 38 miles of fiber coiled in a box, nicknamed the Magic Shoebox. To a person, 350 microseconds is nothing. To a trading firm it's long enough that IEX can update its own prices before anyone can race them.",
+      takeaway: "Everyone gets the same delay, so being fastest stops paying. The SEC approved IEX as an exchange in 2016. Toggle the bump and run the race.",
+      sowhat: "It shows this is a design problem, not a law of nature. Most of the market still runs without one.",
+      stat: "350 μS DELAY · SAME FOR EVERYONE",
     },
     {
       act: "T = 40 MS · EPILOGUE",
-      title: "Who Actually Pays?",
-      subtitle: '"Bought 10 AAPL at $194.998." Ping.',
-      body: "Your phone buzzes. You saved two cents versus the public ask. Your broker earned a commission for routing you to a wholesaler. The wholesaler collected a near risk-free spread on a firehose of volume just like yours. Everyone in the transaction chain came out ahead — except, maybe, the market itself.",
-      takeaway:
-        "Every order like yours that never reaches a lit exchange drains it of easy, 'uninformed' volume — leaving mostly toxic institutional flow behind, widening public spreads and quietly degrading the price discovery everyone still relies on.",
-      stat: "YOU: −2¢ SAVED · BROKER: +PFOF · WHOLESALER: +SPREAD · PUBLIC BOOK: THINNER",
+      title: "Who got paid",
+      subtitle: "\"Bought 10 AAPL at $194.998.\" Ping.",
+      body: "Your phone buzzes. You paid two cents less than the public price. Your broker got paid for sending the order. The wholesaler earned a spread on thousands of orders like yours. Nobody broke a rule.",
+      takeaway: "The real argument is whether you'd have done even better on a public exchange, and whether pulling most small orders off those exchanges leaves public prices worse for everyone. Economists disagree.",
+      sowhat: "In 2020 Robinhood paid $65 million to settle SEC charges that it misled customers about how it made money from routing their orders.",
+      stat: "YOU +2¢ · BROKER +PFOF · WHOLESALER +SPREAD · PUBLIC BOOK −VOLUME",
     },
   ];
+
+  // The coda is one more beat, with its own visualization.
+  const TOTAL = narrativeSteps.length + 1;
 
   // ── Scrollytelling Intersection Observer Action ───────────────────────────
   /**
@@ -149,7 +153,7 @@
     const handleKeydown = (e) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (["ArrowDown", "ArrowRight", "PageDown"].includes(e.key)) {
-        if (activeStep < narrativeSteps.length - 1) {
+        if (activeStep < TOTAL - 1) {
           e.preventDefault();
           scrollToStep(activeStep + 1);
         }
@@ -194,22 +198,19 @@
         role="progressbar"
         aria-valuenow={activeStep + 1}
         aria-valuemin="1"
-        aria-valuemax={narrativeSteps.length}
+        aria-valuemax={TOTAL}
         onclick={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
           const ratio = (e.clientX - rect.left) / rect.width;
-          const targetIdx = Math.min(
-            narrativeSteps.length - 1,
-            Math.max(0, Math.floor(ratio * narrativeSteps.length)),
-          );
+          const targetIdx = Math.min(TOTAL - 1, Math.max(0, Math.floor(ratio * TOTAL)));
           scrollToStep(targetIdx);
         }}
       >
-        {#each narrativeSteps as _, i}
+        {#each Array(TOTAL) as _, i}
           <span class="meter-tick" class:lit={i <= activeStep}></span>
         {/each}
       </div>
-      <span class="tape-counter">[ {String(activeStep + 1).padStart(2, "0")} / {String(narrativeSteps.length).padStart(2, "0")} ]</span>
+      <span class="tape-counter">[ {String(activeStep + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")} ]</span>
     </div>
   </aside>
 
@@ -237,6 +238,10 @@
                 <span class="takeaway-mark">&gt;</span>
                 <p>{step.takeaway}</p>
               </div>
+            {/if}
+
+            {#if step.sowhat}
+              <p class="slip-sowhat"><span>SO WHAT</span>{step.sowhat}</p>
             {/if}
 
             {#if step.stat}
@@ -277,19 +282,25 @@
       {/each}
 
       <!-- Coda / Sources Card -->
-      <section class="step-card-wrapper final-wrapper">
-        <div class="slip-card coda-card">
+      <section class="step-card-wrapper final-wrapper" use:scrollyStep={narrativeSteps.length}>
+        <div class="slip-card coda-card" class:active-card={activeStep === narrativeSteps.length}>
           <div class="slip-perf top" aria-hidden="true"></div>
           <div class="slip-head">
             <span class="slip-rec">EOD</span>
             <span class="slip-act">DEBRIEF</span>
           </div>
-          <h2 class="slip-title">The Post-Mortem</h2>
+          <h2 class="slip-title">So does it matter?</h2>
+          <h3 class="slip-subtitle">For 10 shares of Apple, no. For the system, maybe.</h3>
           <p class="slip-prose">
-            None of this is illegal, exotic, or even secret — it's disclosed in a PDF the SEC requires
-            every quarter that almost nobody reads. The market didn't break. It got optimized, sub-penny
-            by sub-penny, by people who understood the rules better than the rest of us.
+            You saved a couple of cents and risked nothing. It starts to matter with bigger orders, thinner
+            stocks, and millions of people doing it every day. The market didn't break. It got optimized,
+            sub-penny by sub-penny, by people who read the rules closely. Change the numbers and see who
+            ends up with what.
           </p>
+
+          {#if isMobile}
+            <div class="mobile-inline-stage"><SpreadWaterfall /></div>
+          {/if}
 
           <div class="ledger-compare">
             <div class="lc-col expected">
@@ -298,8 +309,17 @@
             </div>
             <div class="lc-col actual">
               <span class="lc-tag">WHAT ACTUALLY HAPPENS</span>
-              <p>Your broker sells the right to see your order to a wholesaler, who fills you from its own inventory a fraction of a cent better than the public price — and keeps the rest of the spread.</p>
+              <p>Your broker sells the right to see your order to a wholesaler, who fills you from its own inventory a fraction of a cent better than the public price, and keeps the rest of the spread.</p>
             </div>
+          </div>
+
+          <div class="slip-todo">
+            <span class="lc-tag">WHAT YOU CAN DO</span>
+            <ul>
+              <li>Check the spread before you trade. A wide spread means more is at stake.</li>
+              <li>On thin stocks, use a limit order. It caps the price you'll pay.</li>
+              <li>Read your broker's Rule 605 report (how well it fills you) and Rule 606 report (who it sells to).</li>
+            </ul>
           </div>
 
           <div class="coda-links">
@@ -316,8 +336,8 @@
             <span class="colophon-label">TECH SPEC</span>
             <p class="colophon-text">
               Svelte 5 scrollytelling with intersection-observer narrative triggers, a sticky CRT-style
-              visual stage, and five bespoke interactive components: TimeScrubber, OrderBookLadder,
-              Rule606Flow, HftGeographyMap, and SpeedBumpRace.
+              visual stage, and six bespoke interactive components: TimeScrubber, OrderBookLadder,
+              Rule606Flow, HftGeographyMap, SpeedBumpRace, and SpreadWaterfall.
             </p>
           </div>
           <div class="slip-perf bottom" aria-hidden="true"></div>
@@ -348,8 +368,10 @@
                     ALERT: TOXIC FLOW DETECTED · PHASE {litPhase + 1}/4
                   {:else if activeStep === 5}
                     IEX SPEED BUMP SIMULATOR
+                  {:else if activeStep === 6}
+                    TRADE CONFIRMED · WHO GOT PAID
                   {:else}
-                    TRADE CONFIRMED · POST-MORTEM
+                    THE SPREAD · SPLIT THREE WAYS
                   {/if}
                 </span>
               </div>
@@ -393,7 +415,7 @@
                     <svg viewBox="0 0 400 220" class="toxic-svg" preserveAspectRatio="xMidYMid meet">
                       <line x1="30" y1="180" x2="370" y2="180" class="axis-line" />
                       <text x="30" y="196" class="axis-label">ORDER STARTS FILLING</text>
-                      <text x="370" y="196" text-anchor="end" class="axis-label">15μs LATER</text>
+                      <text x="370" y="196" text-anchor="end" class="axis-label">MICROSECONDS LATER</text>
 
                       <!-- Ask price line: flat, then jumps -->
                       <path
@@ -426,7 +448,7 @@
                         {:else if litPhase === 1}
                           <strong>2. First clip fills:</strong> The initial 1,000-share slice prints publicly, leaving a footprint.
                         {:else if litPhase === 2}
-                          <strong>3. Sniffer reacts:</strong> Within ~15μs, HFT algorithms detect the pattern and cancel their resting quotes.
+                          <strong>3. Sniffer reacts:</strong> Within a few microseconds, fast traders spot the pattern and cancel their resting quotes.
                         {:else}
                           <strong>4. Price jumps:</strong> The ask reprices to $195.04 before the rest of the 500,000-share order can fill at the old price.
                         {/if}
@@ -440,7 +462,7 @@
                   <div class="stage-block">
                     <SpeedBumpRace bind:withSpeedBump={speedBumpOn} />
                   </div>
-                {:else}
+                {:else if activeStep === 6}
                   <div class="stage-block epilogue-block">
                     <div class="phone-notif">
                       <span class="notif-badge">AAPL</span>
@@ -452,6 +474,10 @@
                       <div class="ledger-row"><span>The internalizer</span><span class="ledger-good">kept $0.008 spread</span></div>
                       <div class="ledger-row"><span>The public book</span><span class="ledger-bad">lost volume</span></div>
                     </div>
+                  </div>
+                {:else}
+                  <div class="stage-block">
+                    <SpreadWaterfall />
                   </div>
                 {/if}
               </div>
@@ -611,6 +637,43 @@
     transform: none;
     border-color: rgba(62, 224, 127, 0.55);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(62, 224, 127, 0.08);
+  }
+
+  .slip-sowhat {
+    margin: 0.9rem 0 0;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: #f0d9b8;
+  }
+
+  .slip-sowhat span {
+    display: inline-block;
+    margin-right: 0.6rem;
+    padding: 0.08rem 0.4rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #0a0a0a;
+    background: #ff9f43;
+  }
+
+  .slip-todo {
+    margin-top: 1.2rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(62, 224, 127, 0.25);
+    background: rgba(62, 224, 127, 0.04);
+  }
+
+  .slip-todo ul {
+    margin: 0.6rem 0 0;
+    padding-left: 1.1rem;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: #d6e8db;
+  }
+
+  .slip-todo li + li {
+    margin-top: 0.3rem;
   }
 
   .slip-perf {

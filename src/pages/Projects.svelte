@@ -1,16 +1,24 @@
 <script>
   import Mockup from '../lib/Mockup.svelte';
+  import Stage from '../lib/Stage.svelte';
 
   const projects = [
     {
       href: '/projects/lavaquant',
-      title: 'lavaquant',
+      title: 'LavaQuant',
       blurb:
         'Alpha research lab. Write an expression, backtest it in seconds, check it against WorldQuant BRAIN and Numerai rules of thumb.',
       meta: ['Next.js', 'FastAPI', 'LightGBM'],
       label: 'Web app',
-      image: '/media/lavaquant/dashboard-crop.webp',
-      alt: 'lavaquant dashboard: score dial, KPI strip and equity curve',
+      image: '/media/lavaquant/app-window.webp',
+      alt: 'LavaQuant dashboard: score dial, KPI strip and equity curve',
+      stage: {
+        theme: 'ember',
+        floats: [
+          { src: '/media/lavaquant/app-score.webp', alt: 'Score dial and sub-scores', style: 'left:3%; top:61%; width:50%' },
+          { src: '/media/lavaquant/app-explain.webp', alt: 'Step-by-step explanation of an alpha', style: 'right:3.5%; top:7%; width:23%; height:52%', fit: true },
+        ],
+      },
     },
     {
       href: '/projects/microsecond',
@@ -20,6 +28,8 @@
       meta: ['Visual essay', 'Market microstructure', 'Scrollytelling'],
       label: 'Visual essay',
       image: '/media/microsecond/cover.webp',
+      bleed: true,
+      hideLabel: true,
       alt: 'The essay\'s Rule 606 routing table: where a Robinhood market order goes, by wholesaler',
     },
     {
@@ -29,8 +39,25 @@
         'A free dashboard for a Headscale server. Nodes, keys, routes, ACLs, and health checks.',
       meta: ['TypeScript', 'Next.js', 'Postgres'],
       label: 'Web app',
-      image: '/media/lavamesh/landing-crop.webp',
-      alt: 'LavaMesh landing page: Private networking, no compromise',
+      image: '/media/lavamesh/dashboard.webp',
+      alt: 'LavaMesh node fleet dashboard',
+      stage: {
+        theme: 'lava',
+        floats: [
+          {
+            src: '/media/lavamesh/dashboard-node-inspector.webp',
+            alt: 'Node inspector panel',
+            style: 'right:3.5%; top:9%; width:23%',
+            crop: { iw: 2200, ih: 1339, x: 1690, y: 380, w: 470, h: 690 },
+          },
+          {
+            src: '/media/lavamesh/dashboard.webp',
+            alt: 'Fleet health ring',
+            style: 'left:3%; top:63%; width:46%',
+            crop: { iw: 2200, ih: 1339, x: 360, y: 180, w: 1050, h: 190 },
+          },
+        ],
+      },
     },
     {
       href: '/projects/wellnest',
@@ -39,7 +66,8 @@
         'Co-founded a student mental-health app. Raised $800k. Wound down in 2022. I ran the company, not the codebase.',
       meta: ['Product', 'Fundraising', 'Operations'],
       label: 'Mobile app',
-      image: '/media/wellnest/poster.webp',
+      image: '/media/wellnest/screens.webp',
+      bleed: true,
       alt: 'Wellnest launch art: the app home screen and a mascot parachuting beside "Self-care that\'s fun"',
     },
   ];
@@ -57,7 +85,11 @@
           target={project.external ? '_blank' : undefined}
           rel={project.external ? 'noopener noreferrer' : undefined}
         >
-          <Mockup label={project.label} src={project.image} alt={project.alt} />
+          {#if project.stage}
+            <Stage label={project.label} main={project.image} alt={project.alt} theme={project.stage.theme} floats={project.stage.floats} />
+          {:else}
+            <Mockup label={project.hideLabel ? '' : project.label} src={project.image} alt={project.alt} bleed={project.bleed} />
+          {/if}
           <div class="project-body">
             <h2>{project.title}{#if project.external}<span class="ext" aria-hidden="true">↗</span>{/if}</h2>
             <p>{project.blurb}</p>

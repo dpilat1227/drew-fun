@@ -1,5 +1,5 @@
 <script>
-  import Mockup from '../lib/Mockup.svelte';
+  import Stage from '../lib/Stage.svelte';
 
   const education = [
     {
@@ -73,7 +73,7 @@
       <div class="section-head">Featured project</div>
       <article class="featured">
         <div class="feat-copy">
-          <h2><a href="/projects/lavaquant">lavaquant</a></h2>
+          <h2><a href="/projects/lavaquant">LavaQuant</a></h2>
           <p class="fact-sub">Alpha research lab</p>
           <p class="feat-text">
             Write an alpha, backtest it in seconds, check it against WorldQuant BRAIN and Numerai rules of thumb.
@@ -84,12 +84,15 @@
             <a href="https://github.com/dpilat1227/lavaquant" target="_blank" rel="noopener noreferrer" class="btn">Source</a>
           </div>
         </div>
-        <a class="feat-shot" href="https://quant.drew.fun" target="_blank" rel="noopener noreferrer" aria-label="Open the lavaquant demo">
-          <Mockup
-            fill
+        <a class="feat-shot" href="https://quant.drew.fun" target="_blank" rel="noopener noreferrer" aria-label="Open the LavaQuant demo">
+          <Stage
             label="Web app"
-            src="/media/lavaquant/dashboard-crop.webp"
-            alt="lavaquant dashboard: score dial, KPI strip and equity curve"
+            main="/media/lavaquant/app-window.webp"
+            alt="LavaQuant dashboard: score dial, KPI strip and equity curve"
+            floats={[
+              { src: '/media/lavaquant/app-score.webp', alt: 'Score dial and sub-scores', style: 'left:3%; top:61%; width:50%' },
+              { src: '/media/lavaquant/app-explain.webp', alt: 'Step-by-step explanation of an alpha', style: 'right:3.5%; top:7%; width:23%; height:52%' },
+            ]}
           />
         </a>
       </article>

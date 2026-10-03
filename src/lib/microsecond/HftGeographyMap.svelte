@@ -2,8 +2,10 @@
   /** @type {{ rainFade?: boolean }} */
   let { rainFade = $bindable(false) } = $props();
 
-  const fiberMs = 14.5;
-  const microwaveMs = $derived(rainFade ? 14.5 : 13.1);
+  // Round trip, New Jersey to Chicago and back. Fiber is about 13 ms on the straightest routes;
+  // microwave through air is about 8. When rain breaks the link, traffic falls back to fiber.
+  const fiberMs = 13;
+  const microwaveMs = $derived(rainFade ? 13 : 8);
   const deltaMs = $derived((fiberMs - microwaveMs).toFixed(1));
 </script>
 
@@ -61,24 +63,23 @@
 
   <div class="geo-readout">
     <div class="latency-card fiber">
-      <span class="lat-label">Fiber (rail route)</span>
+      <span class="lat-label">Fiber, round trip</span>
       <span class="lat-value">{fiberMs.toFixed(1)} ms</span>
     </div>
     <div class="latency-card microwave" class:degraded={rainFade}>
-      <span class="lat-label">Microwave (line of sight)</span>
+      <span class="lat-label">Microwave, round trip</span>
       <span class="lat-value">{microwaveMs.toFixed(1)} ms</span>
     </div>
   </div>
 
   <p class="geo-note">
     {#if rainFade}
-      Rain and atmospheric moisture scatter the microwave signal, degrading it back to roughly
-      fiber speed. Firms with only a microwave path just lost their <strong>{deltaMs} ms</strong> edge —
-      and in this business, that's the whole business.
+      Heavy rain weakens the microwave link, so traffic drops back to fiber. A firm that only had the
+      microwave path just lost its <strong>{deltaMs} ms</strong> head start. In this business that was the whole edge.
     {:else}
-      The microwave beam travels through air at nearly the speed of light in vacuum — about
-      50% faster than light bouncing through glass fiber. That <strong>{deltaMs} ms</strong> is worth
-      hundreds of millions in infrastructure spend to firms trading the NJ/Chicago basis.
+      Light moves through air about 50% faster than through glass. Microwave towers in a near-straight
+      line shave <strong>{deltaMs} ms</strong> off every round trip. That sounds like nothing. Firms paid
+      hundreds of millions of dollars to get it.
     {/if}
   </p>
 </div>

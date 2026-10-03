@@ -8,7 +8,7 @@
 
     <header class="case-head">
       <span class="tech-label">Markets</span>
-      <h1>lavaquant</h1>
+      <h1>LavaQuant</h1>
       <p class="lead" style="max-width:36rem;margin-top:1.1rem;">
         A tool for writing an alpha, backtesting it, and submitting it to WorldQuant BRAIN.
       </p>
@@ -53,8 +53,8 @@
       </p>
       <div class="shot">
         <Figure
-          src="/media/lavaquant/dashboard.webp"
-          alt="lavaquant dashboard with a score, summary stats, and an equity curve"
+          src="/media/lavaquant/app-window.webp"
+          alt="LavaQuant dashboard with a score, summary stats, and an equity curve"
           label="Dashboard"
           caption="A run. Local prices are a Yahoo sample, so this number is not a BRAIN score."
           chrome={false}

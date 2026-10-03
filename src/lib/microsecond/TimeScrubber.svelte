@@ -7,12 +7,12 @@
   let { value = $bindable(0) } = $props();
 
   const scale = [
-    { label: "1 s", sub: "A finger tap registering", regime: "human" },
-    { label: "100 ms", sub: "A camera shutter click", regime: "human" },
+    { label: "1 s", sub: "One heartbeat", regime: "human" },
+    { label: "100 ms", sub: "A quick blink", regime: "human" },
     { label: "40 ms", sub: "Your order confirmation", regime: "human" },
-    { label: "1 ms", sub: "A housefly wingbeat", regime: "border" },
+    { label: "1 ms", sub: "Sound travels about a foot", regime: "border" },
     { label: "10 μs", sub: "Light travels 3 km", regime: "machine" },
-    { label: "100 ns", sub: "One tick of the matching engine", regime: "machine" },
+    { label: "100 ns", sub: "Light travels 30 meters", regime: "machine" },
   ];
 
   const current = $derived(scale[value]);

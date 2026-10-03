@@ -84,6 +84,7 @@
     <span class="stat-num">{active.offExchangePct}%</span>
     <span class="stat-label">of {active.label}'s market orders never touch a public exchange</span>
   </div>
+  <p class="illus">Illustrative numbers, in the range brokers report. Your broker's real split is in its quarterly Rule 606 report.</p>
 </div>
 
 <style>
@@ -229,5 +230,12 @@
     font-size: 0.78rem;
     line-height: 1.4;
     color: #c5cce0;
+  }
+
+  .illus {
+    margin: 0;
+    font-size: 0.66rem;
+    line-height: 1.5;
+    color: #6f8579;
   }
 </style>

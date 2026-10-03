@@ -4,10 +4,10 @@
    * edges so it bleeds off. Two layers only (canvas, artifact), no extra chrome.
    * Pass children (a snippet) instead of `src` to render custom content.
    */
-  let { src = '', alt = '', label = '', fill = false, children } = $props();
+  let { src = '', alt = '', label = '', fill = false, bleed = false, children } = $props();
 </script>
 
-<div class="mock" class:fill>
+<div class="mock" class:fill class:bleed>
   {#if label}<span class="tag">{label}</span>{/if}
   <div class="art">
     {#if children}
@@ -44,6 +44,28 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--text-3);
+  }
+
+  /* Full-bleed art: the image is the card */
+  .mock.bleed .art {
+    inset: 0;
+    border: 0;
+    box-shadow: none;
+    background: none;
+  }
+
+  .mock.bleed .art img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mock.bleed .tag {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .mock.bleed:hover .art {
+    transform: none;
   }
 
   .art {
