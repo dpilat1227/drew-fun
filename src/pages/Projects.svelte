@@ -3,8 +3,7 @@
 
   const projects = [
     {
-      href: 'https://quant.drew.fun',
-      external: true,
+      href: '/projects/lavaquant',
       title: 'lavaquant',
       blurb:
         'Alpha research lab. Write an expression, backtest it in seconds, check it against WorldQuant BRAIN and Numerai rules of thumb.',

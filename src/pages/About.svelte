@@ -73,7 +73,7 @@
       <div class="section-head">Featured project</div>
       <article class="featured">
         <div class="feat-copy">
-          <h2>lavaquant</h2>
+          <h2><a href="/projects/lavaquant">lavaquant</a></h2>
           <p class="fact-sub">Alpha research lab</p>
           <p class="feat-text">
             Write an alpha, backtest it in seconds, check it against WorldQuant BRAIN and Numerai rules of thumb.
@@ -230,6 +230,15 @@
     letter-spacing: -0.035em;
     line-height: 1.05;
     margin: 0;
+  }
+
+  .feat-copy h2 a {
+    color: inherit;
+    border-bottom: none;
+  }
+
+  .feat-copy h2 a:hover {
+    border-bottom: 1px solid currentColor;
   }
 
   .feat-text {

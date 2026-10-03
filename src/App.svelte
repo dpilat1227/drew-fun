@@ -4,6 +4,7 @@
   import Footer from './lib/Footer.svelte';
   import About from './pages/About.svelte';
   import Projects from './pages/Projects.svelte';
+  import Lavaquant from './pages/Lavaquant.svelte';
   import LavaMesh from './pages/LavaMesh.svelte';
   import Wellnest from './pages/Wellnest.svelte';
   import Microsecond from './pages/Microsecond.svelte';
@@ -14,6 +15,7 @@
   const routes = {
     '/': { component: About, title: 'Drew Pilat' },
     '/projects': { component: Projects, title: 'Projects — Drew Pilat' },
+    '/projects/lavaquant': { component: Lavaquant, title: 'lavaquant — Drew Pilat' },
     '/projects/lavamesh': { component: LavaMesh, title: 'LavaMesh — Drew Pilat' },
     '/projects/wellnest': { component: Wellnest, title: 'Wellnest — Drew Pilat' },
     '/projects/microsecond': { component: Microsecond, title: 'The Anatomy of a Microsecond — Drew Pilat' },
