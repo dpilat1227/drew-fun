@@ -23,6 +23,10 @@
         </a>
       {/each}
     </nav>
-    <a href="mailto:dpilat@uchicago.edu" class="nav-mail">Email</a>
+    <div class="header-end">
+      <a href="https://www.linkedin.com/in/drew-pilat/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/dpilat1227" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="mailto:dpilat@uchicago.edu" class="nav-mail">Email</a>
+    </div>
   </div>
 </header>

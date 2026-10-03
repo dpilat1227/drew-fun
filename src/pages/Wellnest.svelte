@@ -16,27 +16,32 @@
         down in 2022.
       </p>
 
-      <div class="meta-grid">
-        <table class="data-table">
-          <tbody>
-            <tr><td>Role</td><td>Co-founder &amp; COO</td></tr>
-            <tr><td>Years</td><td>2019 — 2022</td></tr>
-            <tr><td>Outcome</td><td>Wound down</td></tr>
-          </tbody>
-        </table>
-        <table class="data-table">
-          <tbody>
-            <tr
-              ><td>What I did</td><td
-                >Fundraising, partnerships, product, operations</td
-              ></tr
-            >
-            <tr><td>What I didn't</td><td>Write the production codebase</td></tr
-            >
-            <tr><td>Raised</td><td>$800,000 pre-seed</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <dl class="spec">
+        <div>
+          <dt>Role</dt>
+          <dd>Co-founder &amp; COO</dd>
+        </div>
+        <div>
+          <dt>What I did</dt>
+          <dd>Fundraising, partnerships, product, operations</dd>
+        </div>
+        <div>
+          <dt>Years</dt>
+          <dd>2019 — 2022</dd>
+        </div>
+        <div>
+          <dt>What I didn't</dt>
+          <dd>Write the production codebase</dd>
+        </div>
+        <div>
+          <dt>Outcome</dt>
+          <dd>Wound down</dd>
+        </div>
+        <div>
+          <dt>Raised</dt>
+          <dd>$800,000 pre-seed</dd>
+        </div>
+      </dl>
     </header>
 
     <hr class="rule" />
@@ -114,13 +119,6 @@
     max-width: 900px;
   }
 
-  .meta-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 3rem;
-    margin-top: 2.5rem;
-  }
-
   section {
     padding: 3.75rem 0 0;
   }
@@ -144,7 +142,6 @@
   }
 
   @media (max-width: 860px) {
-    .meta-grid,
     .phone-row {
       grid-template-columns: 1fr;
     }

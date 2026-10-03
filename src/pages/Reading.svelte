@@ -71,7 +71,7 @@
   <div class="wrap">
     <h1>Reading</h1>
     <p class="lead" style="max-width:46ch;margin-top:0.75rem;">
-      Mostly science fiction, finance, and whatever catches my attention.
+      Mostly sci-fi and microhistories.
     </p>
 
     <div class="controls" style="margin-top:2.5rem;">

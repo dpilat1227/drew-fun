@@ -21,22 +21,32 @@
         Headscale is the open-source Tailscale coordination server. It doesn't ship a real web UI, so I built one. I started it to learn networking. I still use it.
       </p>
 
-      <div class="meta-grid">
-        <table class="data-table">
-          <tbody>
-            <tr><td>Role</td><td>Sole engineer</td></tr>
-            <tr><td>Status</td><td>Active · looking for beta users</td></tr>
-            <tr><td>Scale</td><td>~12,700 lines of TypeScript</td></tr>
-          </tbody>
-        </table>
-        <table class="data-table">
-          <tbody>
-            <tr><td>Stack</td><td>Next.js, React, TypeScript</td></tr>
-            <tr><td>Data</td><td>Postgres, Prisma, Redis, Headscale API</td></tr>
-            <tr><td>Infra</td><td>Vercel, Fly.io</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <dl class="spec">
+        <div>
+          <dt>Role</dt>
+          <dd>Sole engineer</dd>
+        </div>
+        <div>
+          <dt>Stack</dt>
+          <dd>Next.js, React, TypeScript</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd>Active · looking for beta users</dd>
+        </div>
+        <div>
+          <dt>Data</dt>
+          <dd>Postgres, Prisma, Redis, Headscale API</dd>
+        </div>
+        <div>
+          <dt>Scale</dt>
+          <dd>~12,700 lines of TypeScript</dd>
+        </div>
+        <div>
+          <dt>Infra</dt>
+          <dd>Vercel, Fly.io</dd>
+        </div>
+      </dl>
 
       <div class="cta-row">
         <a href="https://github.com/dpilat1227/lavamesh" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source on GitHub →</a>
@@ -241,13 +251,6 @@
     max-width: 900px;
   }
 
-  .meta-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 3rem;
-    margin-top: 2.5rem;
-  }
-
   .cta-row {
     display: flex;
     gap: 0.7rem;
@@ -332,7 +335,6 @@
   }
 
   @media (max-width: 860px) {
-    .meta-grid,
     .mobile-row {
       grid-template-columns: 1fr;
       gap: 2rem;

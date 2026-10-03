@@ -380,9 +380,23 @@ a.project-card:hover {
 .header-end {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-left: 0.1rem;
-  padding-right: 0.2rem;
+  gap: 1.15rem;
+  margin-left: 0.35rem;
+}
+
+.header-end a:not(.nav-mail) {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  border-bottom: none;
+  padding: 0.2rem 0;
+}
+
+.header-end a:not(.nav-mail):hover {
+  color: var(--text-1);
 }
 
 .nav-icon {
@@ -650,6 +664,45 @@ a.project-card:hover {
 
 .data-table td:last-child {
   color: var(--text-2);
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
+  column-gap: 0;
+  margin-top: 2.5rem;
+}
+
+.spec > div {
+  display: contents;
+}
+
+.spec dt,
+.spec dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  padding: 0.72rem 0;
+  border-bottom: 1px solid var(--border-1);
+}
+
+.spec dd {
+  padding-left: 1.5rem;
+}
+
+.spec > div:nth-child(even) dt {
+  padding-left: 3.5rem;
+}
+
+.spec dt {
+  color: var(--text-4);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spec dd {
+  color: var(--text-2);
+  font-size: 0.845rem;
 }
 
 /* ── Résumé timeline ───────────────────────────────────────────────────────── */
@@ -1360,6 +1413,15 @@ figcaption b {
     font-size: 11px;
   }
 
+  .header-end {
+    gap: 0.85rem;
+    margin-left: 0;
+  }
+
+  .header-end a:not(.nav-mail) {
+    font-size: 11px;
+  }
+
   .nav-mail {
     padding: 0.5rem 0.7rem;
     font-size: 11px;
@@ -1398,6 +1460,14 @@ figcaption b {
     padding-right: 0;
     padding-bottom: 0.3rem;
     white-space: normal;
+  }
+
+  .spec {
+    grid-template-columns: max-content minmax(0, 1fr);
+  }
+
+  .spec > div:nth-child(even) dt {
+    padding-left: 0;
   }
 
   .books-scroll {
