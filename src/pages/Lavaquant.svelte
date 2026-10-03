@@ -1,5 +1,7 @@
 <script>
-  import Stage from '../lib/Stage.svelte';
+  import BrowserMock from '../lib/BrowserMock.svelte';
+  import LqFeatures from '../lib/LqFeatures.svelte';
+  import LqShowcase from '../lib/LqShowcase.svelte';
 </script>
 
 <div class="page">
@@ -52,20 +54,22 @@
         You get IC, Sharpe, drawdown, and a chart. The screen on first load is sample data. A backtest is the real numbers.
       </p>
       <div class="shot">
-        <Stage
-          label="Dashboard"
-          main="/media/lavaquant/app-window.webp"
+        <BrowserMock
+          src="/media/lavaquant/app-window.webp"
           alt="LavaQuant dashboard with a score, summary stats, and an equity curve"
           url="quant.drew.fun"
-          phone="/media/lavaquant/app-mobile.webp"
-          phoneAlt="LavaQuant on a phone: score dial and sub-scores"
         />
         <p class="shot-caption">A run. Local prices are a Yahoo sample, so this number is not a BRAIN score.</p>
       </div>
     </section>
 
+    <section class="features">
+      <LqFeatures />
+      <LqShowcase />
+    </section>
+
     <section class="prose">
-      <span class="tech-label">02 · The two scores</span>
+      <span class="tech-label">03 · The two scores</span>
       <h2>BRAIN's book is not this sample</h2>
       <p>
         Local prices come from Yahoo. BRAIN's data is not that sample, so the numbers will not match. The submit button is there so I can see both. Returns are gross of costs. The fit checks are my rules of thumb, not WorldQuant's or Numerai's official bar.
@@ -114,6 +118,10 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-4);
+  }
+
+  .features {
+    padding-top: 2.5rem;
   }
 
   .shot {

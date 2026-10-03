@@ -1,6 +1,6 @@
 <script>
   import Mockup from '../lib/Mockup.svelte';
-  import Stage from '../lib/Stage.svelte';
+  import BrowserMock from '../lib/BrowserMock.svelte';
 
   const projects = [
     {
@@ -12,12 +12,7 @@
       label: 'Web app',
       image: '/media/lavaquant/app-window.webp',
       alt: 'LavaQuant dashboard: score dial, KPI strip and equity curve',
-      stage: {
-        theme: 'ember',
-        url: 'quant.drew.fun',
-        phone: '/media/lavaquant/app-mobile.webp',
-        phoneAlt: 'LavaQuant on a phone: score dial and sub-scores',
-      },
+      browser: 'quant.drew.fun',
     },
     {
       href: '/projects/microsecond',
@@ -40,12 +35,7 @@
       label: 'Web app',
       image: '/media/lavamesh/stage-window.webp',
       alt: 'LavaMesh node fleet dashboard',
-      stage: {
-        theme: 'lava',
-        url: 'lavamesh.app',
-        phone: '/media/lavamesh/stage-mobile.webp',
-        phoneAlt: 'LavaMesh node fleet on a phone',
-      },
+      browser: 'lavamesh.app',
     },
     {
       href: '/projects/wellnest',
@@ -73,8 +63,8 @@
           target={project.external ? '_blank' : undefined}
           rel={project.external ? 'noopener noreferrer' : undefined}
         >
-          {#if project.stage}
-            <Stage label={project.label} main={project.image} alt={project.alt} theme={project.stage.theme} url={project.stage.url} phone={project.stage.phone} phoneAlt={project.stage.phoneAlt} />
+          {#if project.browser}
+            <BrowserMock crop src={project.image} alt={project.alt} url={project.browser} />
           {:else}
             <Mockup label={project.hideLabel ? '' : project.label} src={project.image} alt={project.alt} bleed={project.bleed} />
           {/if}
