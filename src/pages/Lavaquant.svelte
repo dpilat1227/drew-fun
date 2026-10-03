@@ -1,5 +1,5 @@
 <script>
-  import Figure from '../lib/Figure.svelte';
+  import Stage from '../lib/Stage.svelte';
 </script>
 
 <div class="page">
@@ -52,13 +52,15 @@
         You get IC, Sharpe, drawdown, and a chart. The screen on first load is sample data. A backtest is the real numbers.
       </p>
       <div class="shot">
-        <Figure
-          src="/media/lavaquant/app-window.webp"
-          alt="LavaQuant dashboard with a score, summary stats, and an equity curve"
+        <Stage
           label="Dashboard"
-          caption="A run. Local prices are a Yahoo sample, so this number is not a BRAIN score."
-          chrome={false}
+          main="/media/lavaquant/app-window.webp"
+          alt="LavaQuant dashboard with a score, summary stats, and an equity curve"
+          url="quant.drew.fun"
+          phone="/media/lavaquant/app-mobile.webp"
+          phoneAlt="LavaQuant on a phone: score dial and sub-scores"
         />
+        <p class="shot-caption">A run. Local prices are a Yahoo sample, so this number is not a BRAIN score.</p>
       </div>
     </section>
 
@@ -107,8 +109,15 @@
     padding: 3.75rem 0 0;
   }
 
+  .shot-caption {
+    margin: 0.8rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-4);
+  }
+
   .shot {
-    max-width: 52rem;
+    max-width: 62rem;
     margin-top: 1.75rem;
   }
 

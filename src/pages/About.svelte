@@ -89,10 +89,9 @@
             label="Web app"
             main="/media/lavaquant/app-window.webp"
             alt="LavaQuant dashboard: score dial, KPI strip and equity curve"
-            floats={[
-              { src: '/media/lavaquant/app-score.webp', alt: 'Score dial and sub-scores', style: 'left:3%; top:61%; width:50%' },
-              { src: '/media/lavaquant/app-explain.webp', alt: 'Step-by-step explanation of an alpha', style: 'right:3.5%; top:7%; width:23%; height:52%' },
-            ]}
+            url="quant.drew.fun"
+            phone="/media/lavaquant/app-mobile.webp"
+            phoneAlt="LavaQuant on a phone: score dial and sub-scores"
           />
         </a>
       </article>

@@ -43,53 +43,48 @@
   // ── Narrative Beats ─────────────────────────────────────────────────────────
   const narrativeSteps = [
     {
-      act: "T + 0 MS",
+      act: "1 · THE TAP",
       title: "Free isn't free",
-      body: "You buy 10 shares of Apple. A spinner runs for about 40 milliseconds, then a green checkmark. No commission. But at least three companies handled your order in that time, and none of them worked for free.",
-      sowhat: "If you aren't paying, the money is coming from somewhere else. This follows it.",
-      hint: "Drag the slider to slow time down",
+      body: "You buy 10 shares of Apple. A spinner runs for about 40 milliseconds, then a green checkmark. No commission. But at least three companies handled your order in that time, and none of them worked for free. Someone got paid. This follows the money.",
+            hint: "Drag the slider to slow time down",
     },
     {
-      act: "T + 5 MS · SEC RULE 606",
+      act: "2 · THE ROUTE",
       title: "Your order never reaches an exchange",
-      body: "Your broker doesn't send it to the NYSE or Nasdaq. It sells it. A wholesaler like Citadel Securities or Virtu pays your broker a fraction of a cent a share for the right to fill it. That's payment for order flow, or PFOF. Brokers must disclose where they route orders. Almost nobody reads it.",
-      sowhat: "The commission didn't disappear. It moved to the other side of the trade.",
-      hint: "Click a broker to compare",
+      body: "Your broker doesn't send it to the NYSE or Nasdaq. It sells it. A wholesaler like Citadel Securities or Virtu pays your broker a fraction of a cent a share for the right to fill it. That's payment for order flow, or PFOF. Brokers must disclose where they route orders. Almost nobody reads it. The commission didn't disappear. It moved to the other side of the trade.",
+            hint: "Click a broker to compare",
     },
     {
-      act: "T + 8 MS · NY4, SECAUCUS",
+      act: "3 · THE PRICE",
       title: "You do get a better price",
       body: "The best public prices are $194.99 to sell and $195.00 to buy. The wholesaler fills you at $194.998, a fifth of a cent better than the public ask. That's real, and it's how brokers say they beat the market. They can afford it because you're easy to fill: ten shares from a retail account rarely means you know something the market doesn't.",
       sowhat: "The midpoint, $194.995, was better still. You got $0.002 of the $0.005 on offer: about three cents short on this trade.",
       hint: "Press Route to fill the order",
     },
     {
-      act: "T + 12–25 MS · CHICAGO",
+      act: "4 · THE RACE",
       title: "A race to a field in Illinois",
-      body: "To quote you a safe price, the wholesaler needs to know what Apple is worth right now. Part of that comes from S&P 500 futures, traded in Aurora, Illinois. A move there has to reach New Jersey before anyone can act on it, so firms built microwave towers in a near-straight line across the Midwest. Fiber takes about 13 milliseconds round trip. Microwave takes about 8.",
-      sowhat: "The public price your fill is measured against is set by firms racing like this. The profit window between futures and stocks fell from about 97 ms (2005) to about 7 ms (2011).",
-      hint: "Flip the weather switch",
+      body: "To quote you a safe price, the wholesaler needs to know what Apple is worth right now. Part of that comes from S&P 500 futures, traded in Aurora, Illinois. A move there has to reach New Jersey before anyone can act on it, so firms built microwave towers in a near-straight line across the Midwest. Fiber takes about 13 milliseconds round trip. Microwave takes about 8. One study found the profit window between futures and stocks shrank from about 97 ms in 2005 to about 7 ms in 2011.",
+            hint: "Flip the weather switch",
     },
     {
-      act: "T + 26–35 MS · CARTERET, NJ",
+      act: "5 · THE BIG ORDER",
       title: "When a big order shows up",
       body: "Now someone bigger. A pension fund needs 500,000 shares, too much risk for any wholesaler, so it goes to a public exchange in pieces. Fast traders watch for the first piece. When it prints, they cancel their old prices and post higher ones. A few microseconds later the next piece arrives and the price has already moved.",
       sowhat: "That pension fund is somebody's 401(k). Costs like this come out of ordinary savers' returns. One study put them at about a fifth of what investors pay to trade (Aquilina, Budish & O'Neill).",
       hint: "Press Next to step through",
     },
     {
-      act: "T + 36–39 MS · IEX",
+      act: "6 · THE FIX",
       title: "The speed bump",
       body: "IEX is an exchange that delays every order by 350 microseconds, in and out, using about 38 miles of coiled fiber in a box. To a person that's nothing. To a trading firm it's long enough for IEX to update its prices before anyone can race them. The SEC approved it as an exchange in 2016.",
-      sowhat: "It shows this is a design problem, not a law of nature. Most of the market still runs without a bump.",
-      hint: "Toggle the bump, then run the race",
+            hint: "Toggle the bump, then run the race",
     },
     {
-      act: "T = 40 MS",
+      act: "7 · THE PAYOUT",
       title: "Who got paid",
-      body: "Your phone buzzes: bought 10 AAPL at $194.998. You paid less than the public ask. Your broker got paid for routing the order. The wholesaler earned a spread on thousands of orders like yours. Nobody broke a rule.",
-      sowhat: "The argument is whether you'd have done better on a public exchange. In 2020 Robinhood paid $65 million to settle SEC charges that it misled customers about how it made money from routing their orders.",
-      hint: "",
+      body: "Your phone buzzes: bought 10 AAPL at $194.998. You paid less than the public ask. Your broker got paid for routing the order. The wholesaler earned a spread on thousands of orders like yours. Nobody broke a rule. In 2020 Robinhood paid $65 million to settle SEC charges that it misled customers about how it made money from routing their orders.",
+            hint: "",
     },
   ];
 
@@ -673,12 +668,11 @@
 
   .slip-act {
     display: block;
-    margin-bottom: 0.7rem;
-    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #8fe8b4;
-    text-shadow: 0 0 10px rgba(62, 224, 127, 0.35);
+    letter-spacing: 0.12em;
+    color: #b9f5d0;
   }
 
   .slip-title {
