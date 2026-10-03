@@ -8,7 +8,7 @@
   import SpreadWaterfall from "../lib/microsecond/SpreadWaterfall.svelte";
 
   // ── Scrollytelling Step State ──────────────────────────────────────────────
-  let activeStep = $state(0);
+  let activeStep = $state(-1); // -1 = cover
   let isMobile = $state(false);
 
   // Beat 1 interactive state
@@ -45,70 +45,57 @@
     {
       act: "T + 0 MS",
       title: "Free isn't free",
-      subtitle: "You tap Buy. No commission. Someone still got paid.",
-      body: "You buy 10 shares of Apple. A spinner runs for about 40 milliseconds, then a green checkmark. No fee, no commission. But at least three companies handled your order in that time, and none of them did it for free.",
-      takeaway: "Slow 40 milliseconds down a million times and it becomes a full day. Drag the slider. Plenty happens in that day.",
+      body: "You buy 10 shares of Apple. A spinner runs for about 40 milliseconds, then a green checkmark. No commission. But at least three companies handled your order in that time, and none of them worked for free.",
       sowhat: "If you aren't paying, the money is coming from somewhere else. This follows it.",
-      stat: "40 MS TO YOU · 40,000,000 NS TO A MACHINE",
+      hint: "Drag the slider to slow time down",
     },
     {
-      act: "T + 5 MS · RULE 606",
+      act: "T + 5 MS · SEC RULE 606",
       title: "Your order never reaches an exchange",
-      subtitle: "Your broker sells it first.",
-      body: "Your broker doesn't send the order to the NYSE or Nasdaq. A wholesaler like Citadel Securities or Virtu pays the broker a fraction of a cent a share for the right to fill it. That's payment for order flow, or PFOF. Brokers have to say where they send orders (SEC Rule 606). Almost nobody reads it.",
-      takeaway: "Click through the three brokers. Where your order goes depends on who you trade with.",
-      sowhat: "The commission didn't go away. It moved to the other side of the trade.",
-      stat: "MOST RETAIL ORDERS ARE FILLED OFF-EXCHANGE",
+      body: "Your broker doesn't send it to the NYSE or Nasdaq. It sells it. A wholesaler like Citadel Securities or Virtu pays your broker a fraction of a cent a share for the right to fill it. That's payment for order flow, or PFOF. Brokers must disclose where they route orders. Almost nobody reads it.",
+      sowhat: "The commission didn't disappear. It moved to the other side of the trade.",
+      hint: "Click a broker to compare",
     },
     {
-      act: "T + 8 MS · NY4 SECAUCUS",
+      act: "T + 8 MS · NY4, SECAUCUS",
       title: "You do get a better price",
-      subtitle: "Just not as much better as there is to get.",
-      body: "The order lands in a data center in Secaucus, New Jersey. The best public prices are $194.99 to sell and $195.00 to buy. The wholesaler fills you at $194.998, a fifth of a cent better than the public price. That's real. It's called price improvement, and it's why brokers can say they beat the market. Press the button to route the order.",
-      takeaway: "They can afford it because you're easy to fill. Ten shares from a retail account almost never means you know something the market doesn't.",
-      sowhat: "You save about 2 cents. The wholesaler keeps most of the other 8 on the same trade.",
-      stat: "$0.002 BETTER THAN THE PUBLIC ASK · $0.008 LEFT OVER PER SHARE",
+      body: "The best public prices are $194.99 to sell and $195.00 to buy. The wholesaler fills you at $194.998, a fifth of a cent better than the public ask. That's real, and it's how brokers say they beat the market. They can afford it because you're easy to fill: ten shares from a retail account rarely means you know something the market doesn't.",
+      sowhat: "The midpoint, $194.995, was better still. You got $0.002 of the $0.005 on offer: about three cents short on this trade.",
+      hint: "Press Route to fill the order",
     },
     {
-      act: "T + 12–25 MS · THE CHICAGO RACE",
+      act: "T + 12–25 MS · CHICAGO",
       title: "A race to a field in Illinois",
-      subtitle: "Apple's price is partly set 700 miles away.",
-      body: "To quote you a safe price, the wholesaler has to know what Apple is worth right now. Part of that comes from S&P 500 futures, which trade at the CME's data center in Aurora, Illinois. A move there has to reach New Jersey before anyone can act on it. Trading firms built microwave towers in a near-straight line across the Midwest to get there first. Fiber takes the long way: about 13 milliseconds round trip. Microwave takes about 8.",
-      takeaway: "Rain weakens microwaves and the edge disappears. Flip the switch on the map.",
-      sowhat: "The public price you're compared against is built by firms racing like this. One study found the profit window between futures and stocks shrank from about 97 ms in 2005 to about 7 ms in 2011 (Budish, Cramton & Shim).",
-      stat: "ROUND TRIP: FIBER ~13 MS · MICROWAVE ~8 MS",
+      body: "To quote you a safe price, the wholesaler needs to know what Apple is worth right now. Part of that comes from S&P 500 futures, traded in Aurora, Illinois. A move there has to reach New Jersey before anyone can act on it, so firms built microwave towers in a near-straight line across the Midwest. Fiber takes about 13 milliseconds round trip. Microwave takes about 8.",
+      sowhat: "The public price your fill is measured against is set by firms racing like this. The profit window between futures and stocks fell from about 97 ms (2005) to about 7 ms (2011).",
+      hint: "Flip the weather switch",
     },
     {
       act: "T + 26–35 MS · CARTERET, NJ",
       title: "When a big order shows up",
-      subtitle: "A pension fund can't hide. Fast traders see it coming.",
-      body: "A pension fund needs 500,000 shares. No wholesaler wants that much risk, so the order goes to a public exchange, in pieces. Fast traders watch for the first piece. When it prints, they cancel their old prices and post higher ones. A few microseconds later the next piece arrives and the price has already moved against the fund.",
-      takeaway: "Nobody broke a rule. The fund lost a race it didn't know it was in. This is called latency arbitrage.",
-      sowhat: "It makes honest public prices expensive to maintain, which is why someone eventually built a fix.",
-      stat: "A FEW μS TO REACT · THE ASK REPRICES MID-FILL",
+      body: "Now someone bigger. A pension fund needs 500,000 shares, too much risk for any wholesaler, so it goes to a public exchange in pieces. Fast traders watch for the first piece. When it prints, they cancel their old prices and post higher ones. A few microseconds later the next piece arrives and the price has already moved.",
+      sowhat: "That pension fund is somebody's 401(k). Costs like this come out of ordinary savers' returns. One study put them at about a fifth of what investors pay to trade (Aquilina, Budish & O'Neill).",
+      hint: "Press Next to step through",
     },
     {
       act: "T + 36–39 MS · IEX",
       title: "The speed bump",
-      subtitle: "A coil of fiber built to waste time.",
-      body: "IEX is a stock exchange that delays every order by 350 microseconds, in and out. It does it with about 38 miles of fiber coiled in a box, nicknamed the Magic Shoebox. To a person, 350 microseconds is nothing. To a trading firm it's long enough that IEX can update its own prices before anyone can race them.",
-      takeaway: "Everyone gets the same delay, so being fastest stops paying. The SEC approved IEX as an exchange in 2016. Toggle the bump and run the race.",
-      sowhat: "It shows this is a design problem, not a law of nature. Most of the market still runs without one.",
-      stat: "350 μS DELAY · SAME FOR EVERYONE",
+      body: "IEX is an exchange that delays every order by 350 microseconds, in and out, using about 38 miles of coiled fiber in a box. To a person that's nothing. To a trading firm it's long enough for IEX to update its prices before anyone can race them. The SEC approved it as an exchange in 2016.",
+      sowhat: "It shows this is a design problem, not a law of nature. Most of the market still runs without a bump.",
+      hint: "Toggle the bump, then run the race",
     },
     {
-      act: "T = 40 MS · EPILOGUE",
+      act: "T = 40 MS",
       title: "Who got paid",
-      subtitle: "\"Bought 10 AAPL at $194.998.\" Ping.",
-      body: "Your phone buzzes. You paid two cents less than the public price. Your broker got paid for sending the order. The wholesaler earned a spread on thousands of orders like yours. Nobody broke a rule.",
-      takeaway: "The real argument is whether you'd have done even better on a public exchange, and whether pulling most small orders off those exchanges leaves public prices worse for everyone. Economists disagree.",
-      sowhat: "In 2020 Robinhood paid $65 million to settle SEC charges that it misled customers about how it made money from routing their orders.",
-      stat: "YOU +2¢ · BROKER +PFOF · WHOLESALER +SPREAD · PUBLIC BOOK −VOLUME",
+      body: "Your phone buzzes: bought 10 AAPL at $194.998. You paid less than the public ask. Your broker got paid for routing the order. The wholesaler earned a spread on thousands of orders like yours. Nobody broke a rule.",
+      sowhat: "The argument is whether you'd have done better on a public exchange. In 2020 Robinhood paid $65 million to settle SEC charges that it misled customers about how it made money from routing their orders.",
+      hint: "",
     },
   ];
 
   // The coda is one more beat, with its own visualization.
   const TOTAL = narrativeSteps.length + 1;
+  const CODA_HINT = "Change the order size and the stock";
 
   // ── Scrollytelling Intersection Observer Action ───────────────────────────
   /**
@@ -161,6 +148,9 @@
         if (activeStep > 0) {
           e.preventDefault();
           scrollToStep(activeStep - 1);
+        } else if (activeStep === 0) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       }
     };
@@ -210,9 +200,30 @@
           <span class="meter-tick" class:lit={i <= activeStep}></span>
         {/each}
       </div>
-      <span class="tape-counter">[ {String(activeStep + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")} ]</span>
+      <span class="tape-counter">[ {activeStep < 0 ? "--" : String(activeStep + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")} ]</span>
     </div>
   </aside>
+
+  <!-- COVER -->
+  <header class="cover" use:scrollyStep={-1}>
+    <p class="cover-eyebrow">A VISUAL ESSAY · 6 MIN</p>
+    <h1 class="cover-title">You pressed Buy.<br /><span>Who got paid?</span></h1>
+    <p class="cover-deck">
+      A "free" stock trade takes about 40 milliseconds and passes through at least three companies.
+      This follows the money.
+    </p>
+
+    <div class="cover-receipt" aria-hidden="true">
+      <div class="cr-row"><span>AAPL · BUY 10 · MARKET</span><span>FILLED</span></div>
+      <div class="cr-row"><span>COMMISSION</span><span class="cr-zero">$0.00</span></div>
+      <div class="cr-row"><span>PAID TO ROUTE YOUR ORDER</span><span class="cr-q">$?.??</span></div>
+    </div>
+
+    <div class="cover-foot">
+      <span>By Drew Pilat</span>
+      <a class="cover-scroll" href="#start" onclick={(e) => { e.preventDefault(); scrollToStep(0); }}>SCROLL TO START ↓</a>
+    </div>
+  </header>
 
   <!-- TWO-COLUMN SCROLLYTELLING CONTAINER -->
   <div class="scrolly-wrapper">
@@ -223,31 +234,16 @@
           <div class="slip-card" class:active-card={activeStep === idx}>
             <div class="slip-perf top" aria-hidden="true"></div>
 
-            <div class="slip-head">
-              <span class="slip-rec">No. {String(idx + 1).padStart(2, "0")}</span>
-              <span class="slip-act">{step.act}</span>
-            </div>
+            <span class="slip-act">{step.act}</span>
 
             <h2 class="slip-title">{step.title}</h2>
-            <h3 class="slip-subtitle">{step.subtitle}</h3>
 
             <p class="slip-prose">{step.body}</p>
 
-            {#if step.takeaway}
-              <div class="slip-takeaway">
-                <span class="takeaway-mark">&gt;</span>
-                <p>{step.takeaway}</p>
-              </div>
-            {/if}
-
             {#if step.sowhat}
-              <p class="slip-sowhat"><span>SO WHAT</span>{step.sowhat}</p>
-            {/if}
-
-            {#if step.stat}
-              <div class="slip-stat">
-                <span class="stat-dot"></span>
-                <span>{step.stat}</span>
+              <div class="slip-sowhat">
+                <span>SO WHAT?</span>
+                <p>{step.sowhat}</p>
               </div>
             {/if}
 
@@ -281,64 +277,34 @@
         </section>
       {/each}
 
-      <!-- Coda / Sources Card -->
+      <!-- Coda -->
       <section class="step-card-wrapper final-wrapper" use:scrollyStep={narrativeSteps.length}>
         <div class="slip-card coda-card" class:active-card={activeStep === narrativeSteps.length}>
           <div class="slip-perf top" aria-hidden="true"></div>
-          <div class="slip-head">
-            <span class="slip-rec">EOD</span>
-            <span class="slip-act">DEBRIEF</span>
-          </div>
+          <span class="slip-act">THE VERDICT</span>
           <h2 class="slip-title">So does it matter?</h2>
-          <h3 class="slip-subtitle">For 10 shares of Apple, no. For the system, maybe.</h3>
           <p class="slip-prose">
-            You saved a couple of cents and risked nothing. It starts to matter with bigger orders, thinner
-            stocks, and millions of people doing it every day. The market didn't break. It got optimized,
-            sub-penny by sub-penny, by people who read the rules closely. Change the numbers and see who
-            ends up with what.
+            For 10 shares of Apple, barely. You're about three cents short of the best case. It starts to
+            matter with bigger orders, thinner stocks, and millions of people doing it every day. Try your own numbers.
           </p>
 
           {#if isMobile}
             <div class="mobile-inline-stage"><SpreadWaterfall /></div>
           {/if}
 
-          <div class="ledger-compare">
-            <div class="lc-col expected">
-              <span class="lc-tag">WHAT YOU IMAGINE</span>
-              <p>Your order travels to NYSE or Nasdaq and trades against the public order book, same as everyone else's.</p>
-            </div>
-            <div class="lc-col actual">
-              <span class="lc-tag">WHAT ACTUALLY HAPPENS</span>
-              <p>Your broker sells the right to see your order to a wholesaler, who fills you from its own inventory a fraction of a cent better than the public price, and keeps the rest of the spread.</p>
-            </div>
-          </div>
-
-          <div class="slip-todo">
-            <span class="lc-tag">WHAT YOU CAN DO</span>
+          <div class="slip-sowhat todo">
+            <span>WHAT YOU CAN DO</span>
             <ul>
-              <li>Check the spread before you trade. A wide spread means more is at stake.</li>
-              <li>On thin stocks, use a limit order. It caps the price you'll pay.</li>
-              <li>Read your broker's Rule 605 report (how well it fills you) and Rule 606 report (who it sells to).</li>
+              <li>Check the spread before you trade. Wide spread, more at stake.</li>
+              <li>On thin stocks, use a limit order. It caps what you'll pay.</li>
+              <li>Read your broker's Rule 605 (fill quality) and Rule 606 (who it sells to) reports.</li>
             </ul>
           </div>
 
           <div class="coda-links">
-            <a href="https://www.sec.gov/rules/final/2005/34-51808.pdf" target="_blank" rel="noopener" class="coda-btn">
-              SEC RULE 606 DISCLOSURE REQUIREMENTS ↗
-            </a>
-            <a href="https://iextrading.com/docs/IEX%20Fair%20Access.pdf" target="_blank" rel="noopener" class="coda-btn">
-              IEX SPEED BUMP / "MAGIC SHOEBOX" ↗
-            </a>
-            <a href="/projects" class="coda-btn primary">&lt; RETURN TO PROJECTS</a>
-          </div>
-
-          <div class="tech-colophon">
-            <span class="colophon-label">TECH SPEC</span>
-            <p class="colophon-text">
-              Svelte 5 scrollytelling with intersection-observer narrative triggers, a sticky CRT-style
-              visual stage, and six bespoke interactive components: TimeScrubber, OrderBookLadder,
-              Rule606Flow, HftGeographyMap, SpeedBumpRace, and SpreadWaterfall.
-            </p>
+            <a href="https://www.sec.gov/rules/final/2005/34-51808.pdf" target="_blank" rel="noopener" class="coda-btn">SEC RULES ↗</a>
+            <a href="https://iextrading.com/docs/IEX%20Fair%20Access.pdf" target="_blank" rel="noopener" class="coda-btn">IEX ↗</a>
+            <a href="/projects" class="coda-btn primary">&lt; PROJECTS</a>
           </div>
           <div class="slip-perf bottom" aria-hidden="true"></div>
         </div>
@@ -483,7 +449,7 @@
               </div>
             </div>
             <div class="crt-bezel-label">
-              <span>MKT-DATA TERM · CH 4</span>
+              <span class="bezel-hint">{activeStep === narrativeSteps.length ? "▸ " + CODA_HINT : narrativeSteps[activeStep]?.hint ? "▸ " + narrativeSteps[activeStep].hint : "MKT-DATA TERM"}</span>
               <span class="bezel-led"></span>
             </div>
           </div>
@@ -639,41 +605,51 @@
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(62, 224, 127, 0.08);
   }
 
+  /* One callout per card. Everything else on the card is quiet so this reads first. */
   .slip-sowhat {
-    margin: 0.9rem 0 0;
-    font-size: 0.86rem;
-    line-height: 1.6;
-    color: #f0d9b8;
+    margin: 1.25rem 0 0;
+    padding: 0.85rem 1rem 0.9rem;
+    border-left: 3px solid var(--term-amber);
+    background: rgba(255, 159, 67, 0.09);
   }
 
   .slip-sowhat span {
-    display: inline-block;
-    margin-right: 0.6rem;
-    padding: 0.08rem 0.4rem;
-    font-size: 0.6rem;
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.64rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #0a0a0a;
-    background: #ff9f43;
+    letter-spacing: 0.16em;
+    color: #ffc27f;
   }
 
-  .slip-todo {
-    margin-top: 1.2rem;
-    padding: 0.9rem 1rem;
-    border: 1px solid rgba(62, 224, 127, 0.25);
-    background: rgba(62, 224, 127, 0.04);
+  .slip-sowhat p {
+    margin: 0;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #f7ecdb;
   }
 
-  .slip-todo ul {
-    margin: 0.6rem 0 0;
+  .slip-sowhat ul {
+    margin: 0;
     padding-left: 1.1rem;
-    font-size: 0.84rem;
-    line-height: 1.6;
-    color: #d6e8db;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #f7ecdb;
   }
 
-  .slip-todo li + li {
-    margin-top: 0.3rem;
+  .slip-sowhat li + li {
+    margin-top: 0.25rem;
+  }
+
+  .slip-sowhat.todo {
+    border-left-color: var(--term-green);
+    background: rgba(62, 224, 127, 0.07);
+  }
+
+  .slip-sowhat.todo span {
+    color: var(--term-green-bright);
   }
 
   .slip-perf {
@@ -695,26 +671,14 @@
     margin-bottom: -1.75rem;
   }
 
-  .slip-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.9rem;
-  }
-
-  .slip-rec {
-    font-size: 0.66rem;
-    color: #5c7768;
-    letter-spacing: 0.1em;
-  }
-
   .slip-act {
-    font-size: 0.66rem;
+    display: block;
+    margin-bottom: 0.7rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.14em;
-    color: var(--term-amber);
-    border: 1px solid rgba(255, 159, 67, 0.35);
-    padding: 0.15rem 0.45rem;
+    color: #8fe8b4;
+    text-shadow: 0 0 10px rgba(62, 224, 127, 0.35);
   }
 
   .slip-title {
@@ -727,62 +691,12 @@
     letter-spacing: -0.02em;
   }
 
-  .slip-subtitle {
-    font-family: var(--font-sans, sans-serif);
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--term-green-bright);
-    margin: 0 0 1.1rem 0;
-    line-height: 1.4;
-  }
-
   .slip-prose {
     font-family: var(--font-sans, sans-serif);
     font-size: 0.95rem;
     line-height: 1.7;
     color: #b9c9bd;
     margin: 0 0 1.1rem 0;
-  }
-
-  .slip-takeaway {
-    display: flex;
-    gap: 0.6rem;
-    align-items: flex-start;
-    background: rgba(62, 224, 127, 0.05);
-    border-left: 2px solid var(--term-green);
-    padding: 0.75rem 0.9rem;
-    font-family: var(--font-sans, sans-serif);
-    font-size: 0.85rem;
-    line-height: 1.55;
-    color: #d7e8dc;
-    margin-bottom: 1.1rem;
-  }
-
-  .slip-takeaway p {
-    margin: 0;
-  }
-
-  .takeaway-mark {
-    color: var(--term-green);
-    font-weight: 700;
-  }
-
-  .slip-stat {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid rgba(255, 159, 67, 0.3);
-    padding: 0.3rem 0.65rem;
-    font-size: 0.64rem;
-    letter-spacing: 0.03em;
-    color: var(--term-amber);
-  }
-
-  .stat-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--term-amber);
-    box-shadow: 0 0 6px var(--term-amber);
   }
 
   .mobile-inline-stage {
@@ -795,60 +709,21 @@
   }
 
   /* Coda card */
-  .ledger-compare {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    margin: 1.15rem 0;
-  }
-
-  .lc-col {
-    padding: 0.8rem 0.9rem;
-    font-family: var(--font-sans, sans-serif);
-    font-size: 0.78rem;
-    line-height: 1.5;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .lc-col.actual {
-    border-color: rgba(255, 159, 67, 0.3);
-    background: rgba(255, 159, 67, 0.05);
-  }
-
-  .lc-tag {
-    display: block;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.4rem;
-    color: #7e9b89;
-  }
-
-  .lc-col.actual .lc-tag {
-    color: var(--term-amber);
-  }
-
-  .lc-col p {
-    margin: 0;
-    color: #c3d3c7;
-  }
-
   .coda-links {
     display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-    margin-top: 1.15rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
   }
 
   .coda-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.7rem 1rem;
-    font-size: 0.72rem;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-decoration: none;
     background: transparent;
     border: 1px solid rgba(62, 224, 127, 0.3);
@@ -871,27 +746,6 @@
   .coda-btn.primary:hover {
     background: var(--term-green-bright);
     color: #06120a;
-  }
-
-  .tech-colophon {
-    margin-top: 1.4rem;
-    padding-top: 1.1rem;
-    border-top: 1px dashed rgba(62, 224, 127, 0.2);
-  }
-
-  .colophon-label {
-    font-size: 0.58rem;
-    letter-spacing: 0.16em;
-    color: rgba(255, 159, 67, 0.55);
-    display: block;
-    margin-bottom: 0.4rem;
-  }
-
-  .colophon-text {
-    font-size: 0.7rem;
-    line-height: 1.6;
-    color: rgba(214, 232, 219, 0.4);
-    margin: 0;
   }
 
   .final-wrapper {
@@ -1011,6 +865,10 @@
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     color: #4d6659;
+  }
+
+  .bezel-hint {
+    color: #8fb3a0;
   }
 
   .bezel-led {
@@ -1312,8 +1170,113 @@
       margin-bottom: -1.4rem;
     }
 
-    .ledger-compare {
-      grid-template-columns: 1fr;
-    }
+  }
+
+  /* ── Cover ─────────────────────────────────────────────────────────────── */
+  .cover {
+    min-height: calc(100vh - 52px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+    gap: 1.6rem;
+  }
+
+  .cover-eyebrow {
+    margin: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: #8fe8b4;
+  }
+
+  .cover-title {
+    margin: 0;
+    font-family: var(--font-sans, sans-serif);
+    font-size: clamp(2.8rem, 8vw, 6.4rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: #f4faf6;
+  }
+
+  .cover-title span {
+    color: var(--term-green);
+    text-shadow: 0 0 40px rgba(62, 224, 127, 0.35);
+  }
+
+  .cover-deck {
+    margin: 0;
+    max-width: 34rem;
+    font-family: var(--font-sans, sans-serif);
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    line-height: 1.55;
+    color: #b9c9bd;
+  }
+
+  .cover-receipt {
+    width: min(26rem, 100%);
+    padding: 1rem 1.2rem;
+    border: 1px dashed rgba(62, 224, 127, 0.4);
+    background: rgba(6, 10, 8, 0.8);
+    text-align: left;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    color: #9fb8a8;
+  }
+
+  .cr-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.28rem 0;
+  }
+
+  .cr-row + .cr-row {
+    border-top: 1px dotted rgba(62, 224, 127, 0.18);
+  }
+
+  .cr-zero {
+    color: #d6e8db;
+  }
+
+  .cr-q {
+    color: var(--term-amber);
+    font-weight: 700;
+    animation: crBlink 1.4s steps(2, start) infinite;
+  }
+
+  @keyframes crBlink {
+    50% { opacity: 0.25; }
+  }
+
+  .cover-foot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: #7e9b89;
+  }
+
+  .cover-scroll {
+    color: #d6e8db;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    padding: 0.55rem 1rem;
+    border: 1px solid rgba(62, 224, 127, 0.45);
+    animation: crBob 2.2s ease-in-out infinite;
+  }
+
+  .cover-scroll:hover {
+    background: rgba(62, 224, 127, 0.1);
+  }
+
+  @keyframes crBob {
+    50% { transform: translateY(4px); }
   }
 </style>

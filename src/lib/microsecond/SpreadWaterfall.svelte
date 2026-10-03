@@ -27,6 +27,9 @@
   const broker = $derived(Math.min(PFOF, Math.max(0, spread - IMPROVE)) * shares);
   const house = $derived(Math.max(0, pie - you - broker));
 
+  // Filled at the midpoint instead, you'd have saved half the spread per share.
+  const missed = $derived(Math.max(0, (spread / 2 - IMPROVE) * shares));
+
   const pct = (v) => (pie > 0 ? (v / pie) * 100 : 0);
   const money = (v) => (v >= 100 ? `$${v.toFixed(0)}` : v >= 1 ? `$${v.toFixed(2)}` : `$${v.toFixed(3)}`);
 
@@ -78,9 +81,14 @@
       <span class="amt">{money(broker)}</span><span class="pc">{pct(broker).toFixed(0)}%</span>
     </div>
     <div class="row">
-      <span class="dot house"></span><span class="who">The wholesaler, before its costs</span>
+      <span class="dot house"></span><span class="who">The wholesaler, before costs</span>
       <span class="amt">{money(house)}</span><span class="pc">{pct(house).toFixed(0)}%</span>
     </div>
+  </div>
+
+  <div class="missed">
+    <span>Up to this much better at the midpoint</span>
+    <strong>{money(missed)}</strong>
   </div>
 
   <p class="verdict">{verdict}</p>
@@ -238,6 +246,21 @@
   .pc {
     text-align: right;
     color: #7e9b89;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .missed {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.55rem 0.75rem;
+    border: 1px dashed rgba(92, 225, 255, 0.45);
+    font-size: 0.74rem;
+    color: #8fdcf0;
+  }
+
+  .missed strong {
+    color: #fff;
     font-variant-numeric: tabular-nums;
   }
 

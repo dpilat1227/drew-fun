@@ -47,7 +47,11 @@
     <div class="fill-row">
       <span class="fill-badge">INTERNALIZED FILL</span>
       <span class="fill-px">$194.998</span>
-      <span class="fill-detail">10 sh · $0.002 price improvement vs. NBBO ask</span>
+      <span class="fill-detail">10 sh · $0.002 better than the public ask</span>
+    </div>
+    <div class="mid-row">
+      <span>MIDPOINT $194.995</span>
+      <span>$0.003 a share better than your fill, $0.03 on this trade</span>
     </div>
   {/if}
 
@@ -63,12 +67,11 @@
 
   <p class="ladder-note">
     {#if filled}
-      The market maker never touched this book. It sold you shares from its own inventory at
-      <strong>194.998</strong> — a hair better than the public ask, and pocketed the other
-      <strong>$0.008</strong> of the spread with almost no risk, because retail flow rarely knows
-      something the market doesn't.
+      The wholesaler never touched this book. It sold you shares from its own inventory at
+      <strong>194.998</strong> and kept the rest of the spread. Retail flow rarely knows
+      something the market doesn't, so that's close to risk-free.
     {:else}
-      This is the public book sitting in Carteret, NJ. Your order for 10 AAPL never actually reaches it.
+      This is the public book in Carteret, NJ. Your order for 10 AAPL never reaches it.
     {/if}
   </p>
 </div>
@@ -205,6 +208,18 @@
   @keyframes fillPop {
     from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: none; }
+  }
+
+  .mid-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    padding: 0.35rem 0.75rem;
+    border: 1px dashed rgba(92, 225, 255, 0.45);
+    border-radius: 6px;
+    font-size: 0.64rem;
+    color: #8fdcf0;
   }
 
   .fill-badge {
