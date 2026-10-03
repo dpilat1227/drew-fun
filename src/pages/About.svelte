@@ -134,7 +134,7 @@
         <a href="https://github.com/dpilat1227" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/drew-pilat/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </p>
-      <p class="looking">Looking for full-time roles starting in 2027.</p>
+      <p class="looking">Open to an internship or a part-time role now, and to full-time in 2027.</p>
     </section>
   </div>
 </div>
