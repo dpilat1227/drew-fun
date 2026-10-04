@@ -25,7 +25,12 @@
     width: 100%;
     aspect-ratio: 16 / 10;
     background: var(--bg-sunken);
-    border: 1px solid var(--border-1);
+    border-radius: 14px;
+    /* the same edge and shadow as the browser mockups, so a grid of both reads as one set */
+    box-shadow:
+      0 0 0 1px rgba(17, 17, 16, 0.18),
+      0 36px 70px -28px rgba(8, 10, 20, 0.55),
+      0 14px 28px -14px rgba(8, 10, 20, 0.35);
   }
 
   .mock.fill {

@@ -1,5 +1,21 @@
 <script>
+  import { onDestroy, onMount } from 'svelte';
   import { inview } from './inview.js';
+
+  // Like Copilot's cards, the motion plays again every so often while the section is on screen.
+  let root;
+  let timer;
+  onMount(() => {
+    timer = setInterval(() => {
+      if (!root || !root.classList.contains('in')) return;
+      const r = root.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      root.classList.remove('in');
+      void root.offsetWidth;
+      root.classList.add('in');
+    }, 9000);
+  });
+  onDestroy(() => clearInterval(timer));
 
   // Sample numbers: the same ones the app shows on first load. They are not live results.
   const parts = [
@@ -32,7 +48,7 @@
   const ringTarget = C * (1 - 0.57);
 </script>
 
-<section class="lqf" use:inview={0.15}>
+<section class="lqf" bind:this={root} use:inview={0.15}>
   <p class="eyebrow">What's inside</p>
   <h2>Test it. Understand it.<br />Improve it.</h2>
 
@@ -154,7 +170,7 @@
     --teal: #5eead4;
     position: relative;
     margin-top: 1.75rem;
-    padding: clamp(1.6rem, 4vw, 3rem) clamp(1rem, 3vw, 2.2rem) clamp(1.6rem, 3vw, 2.4rem);
+    padding: clamp(1.6rem, 4vw, 3rem) 0.9rem 0.9rem;
     border-radius: 22px;
     background: var(--navy);
     color: var(--txt);

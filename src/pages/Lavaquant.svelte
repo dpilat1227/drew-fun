@@ -125,7 +125,7 @@
   }
 
   .shot {
-    max-width: 62rem;
+    max-width: none;
     margin-top: 1.75rem;
   }
 
