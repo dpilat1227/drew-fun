@@ -1,8 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!media/|assets/|og-image\\.png|favicon\\.svg|icons\\.svg|robots\\.txt|Drew_Pilat_Resume\\.pdf).*)",
+      "source": "/cloud",
+      "destination": "/cloud/index.html"
+    },
+    {
+      "source": "/cloud.html",
+      "destination": "/cloud.html"
+    },
+    {
+      "source": "/((?!media/|assets/|cloud|cloud/|cloud\\.html|og-image\\.png|favicon\\.svg|icons\\.svg|robots\\.txt|Drew_Pilat_Resume\\.pdf).*)",
       "destination": "/index.html"
     }
   ],
