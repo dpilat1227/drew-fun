@@ -23,8 +23,8 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg);
     color: var(--text);
-    line-height: 1.7;
-    padding: 20px 16px 60px 16px;
+    line-height: 1.65;
+    padding: 16px 14px 60px 14px;
     max-width: 840px;
     margin: 0 auto;
     -webkit-font-smoothing: antialiased;
@@ -33,24 +33,24 @@
     display: flex;
     gap: 8px;
     position: sticky;
-    top: 10px;
+    top: 8px;
     z-index: 100;
-    background: rgba(11, 15, 25, 0.94);
+    background: rgba(11, 15, 25, 0.95);
     backdrop-filter: blur(10px);
     padding: 8px 0;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     border-bottom: 1px solid var(--border);
   }
   .nav-pills a {
     color: var(--text);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    padding: 6px 12px;
-    border-radius: 20px;
+    padding: 5px 12px;
+    border-radius: 16px;
     background: var(--card);
     border: 1px solid var(--border);
-    transition: all 0.2s;
+    transition: all 0.15s ease-in-out;
   }
   .nav-pills a:hover, .nav-pills a:focus {
     background: var(--accent);
@@ -59,66 +59,66 @@
   }
   .kicker {
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 2px;
     color: var(--accent);
     margin-bottom: 4px;
   }
   h1 {
-    font-size: 2.1rem;
+    font-size: 1.85rem;
     font-weight: 900;
     line-height: 1.2;
     color: var(--headline);
-    margin: 0 0 8px 0;
+    margin: 0 0 6px 0;
     letter-spacing: -0.5px;
   }
   .subtitle {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     color: var(--muted);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     font-style: italic;
-    line-height: 1.45;
+    line-height: 1.4;
   }
   .byline {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 1px;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 14px;
-    margin-bottom: 22px;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
   }
   h2 {
-    font-size: 1.35rem;
+    font-size: 1.28rem;
     color: var(--accent);
     border-bottom: 2px solid var(--border);
-    padding-bottom: 8px;
-    margin-top: 42px;
+    padding-bottom: 6px;
+    margin-top: 36px;
     letter-spacing: -0.3px;
   }
   h3 {
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     color: var(--headline);
-    margin-top: 26px;
-    margin-bottom: 10px;
+    margin-top: 22px;
+    margin-bottom: 8px;
   }
-  p { margin: 14px 0; font-size: 1rem; }
+  p { margin: 12px 0; font-size: 0.96rem; }
   .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 16px;
-    margin: 18px 0;
+    padding: 14px 16px;
+    margin: 16px 0;
   }
   .pullquote {
-    font-size: 1.1rem;
+    font-size: 1.02rem;
     font-style: italic;
     color: #93c5fd;
     border-left: 3px solid var(--accent);
-    padding-left: 14px;
-    margin: 18px 0;
-    line-height: 1.55;
+    padding-left: 12px;
+    margin: 14px 0;
+    line-height: 1.5;
   }
   .quiz-takeaway {
     background: rgba(56, 189, 248, 0.08);
@@ -126,29 +126,39 @@
     border-left: 4px solid var(--accent);
     border-radius: 6px;
     padding: 12px 14px;
-    margin: 16px 0 22px 0;
-    font-size: 0.93rem;
+    margin: 14px 0 20px 0;
+    font-size: 0.91rem;
     line-height: 1.55;
   }
   .quiz-takeaway strong {
     color: var(--accent);
   }
+  .why-it-matters {
+    display: block;
+    margin-top: 4px;
+    color: #cbd5e1;
+  }
   .q-box {
     background: #111827;
     border: 1px solid #1f293d;
     border-left: 4px solid var(--accent);
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 22px;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .q-box h3 {
+    margin-top: 0;
+    margin-bottom: 6px;
+    font-size: 1rem;
   }
   .option {
-    margin: 9px 0;
-    padding: 10px 14px;
-    border-radius: 6px;
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 5px;
     background: rgba(255,255,255,0.03);
-    font-size: 0.94rem;
+    font-size: 0.91rem;
     word-break: break-word;
-    line-height: 1.5;
+    line-height: 1.45;
   }
   .option.correct {
     background: rgba(74, 222, 128, 0.12);
@@ -158,55 +168,95 @@
   .trap-box {
     background: rgba(248, 113, 113, 0.08);
     border: 1px solid rgba(248, 113, 113, 0.4);
-    border-radius: 6px;
-    padding: 10px 14px;
-    margin-top: 12px;
-    font-size: 0.88rem;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 0.85rem;
     color: #fca5a5;
-    line-height: 1.45;
+    line-height: 1.4;
   }
   pre {
     background: #060911;
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 12px;
+    padding: 10px;
     overflow-x: auto;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.76rem;
+    font-size: 0.72rem;
     color: #38bdf8;
     line-height: 1.35;
   }
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 18px 0;
-    font-size: 0.9rem;
+    margin: 16px 0;
+    font-size: 0.88rem;
     display: block;
     overflow-x: auto;
   }
   th, td {
     border: 1px solid var(--border);
-    padding: 10px 12px;
+    padding: 8px 10px;
     text-align: left;
-    min-width: 130px;
+    min-width: 120px;
   }
   th { background: #131b2e; color: var(--accent); }
   tr:nth-child(even) { background: rgba(255,255,255,0.02); }
-  .glossary-item {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: 0.92rem;
-    line-height: 1.55;
+
+  /* Structured Scannable Glossary */
+  .glossary-cat {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--headline);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
   }
-  .glossary-term { color: var(--accent); font-weight: 700; }
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .glossary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .glossary-card .term {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.96rem;
+    display: inline-block;
+    margin-bottom: 3px;
+  }
+  .glossary-card .real-world {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.86rem;
+    color: #93c5fd;
+  }
+  .glossary-card .trap {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.84rem;
+    color: #fbbf24;
+  }
   ol, ul { padding-left: 20px; }
-  li { margin-bottom: 8px; }
+  li { margin-bottom: 6px; }
   @media (max-width: 600px) {
-    body { padding: 14px 12px 60px 12px; line-height: 1.65; }
-    h1 { font-size: 1.65rem; }
-    h2 { font-size: 1.25rem; }
-    p, .option { font-size: 0.93rem; }
-    pre { font-size: 0.7rem; padding: 10px; }
+    body { padding: 12px 10px 50px 10px; line-height: 1.6; }
+    h1 { font-size: 1.55rem; }
+    h2 { font-size: 1.2rem; }
+    p, .option { font-size: 0.91rem; }
+    pre { font-size: 0.68rem; padding: 8px; }
   }
 </style>
 </head>
@@ -214,8 +264,8 @@
 
 <div class="nav-pills">
   <a href="#act-1">📖 The Story</a>
-  <a href="#cheat-sheet">🎯 14 Quiz Questions</a>
-  <a href="#glossary">⚡ 60s Glossary</a>
+  <a href="#cheat-sheet">🎯 14 Practice Questions</a>
+  <a href="#glossary">⚡ Real-World Reference Sheet</a>
 </div>
 
 <div class="kicker">Wired Investigative • Cloud Computing</div>
@@ -223,17 +273,17 @@
 <div class="subtitle">How Jeff Bezos, a Rabid Monkey, and a UChicago Physicist Built the $600 Billion Cloud Illusion</div>
 <div class="byline">By Drew Pilat • MPCS 51083 Field Guide (Weeks 1 &amp; 2) • 8 min read</div>
 
-<div class="card" style="border-left: 4px solid var(--yellow);">
-  <strong style="color: var(--yellow);">Exam Survival Golden Rule:</strong> The quiz uses Canvas penalty scoring (<strong>+1 for correct, -0.5 penalty for incorrect checkboxes</strong>). Never blind-guess extra options. If you are 50/50 on an option, leaving it unchecked protects your score.
+<div class="card" style="border-left: 4px solid var(--yellow); padding: 12px 14px;">
+  <strong style="color: var(--yellow);">Exam Survival Golden Rule:</strong> Canvas uses negative scoring (<strong>+1 for correct, -0.5 penalty per incorrect checkbox</strong>). Never blind-guess extra options. If you are 50/50 on an option, leaving it unchecked protects your score.
 </div>
 
 <div id="act-1"></div>
-<h2>Act I: The Melting Monolith — Jeff Bezos and the $500,000 Giant</h2>
+<h2>Act I: The Melting Monolith — Bezos and the $500,000 Giant</h2>
 <p>
   On Black Friday in 2004, Jeff Bezos was in an Amazon datacenter frantically pouring cold bottles of San Pellegrino water over an eight-foot-tall enterprise server named <em>Goliath</em>.
 </p>
 <p>
-  Goliath was a $500,000 Sun Microsystems colossus. It boasted 64 cutting-edge processor cores, half a terabyte of RAM, and screamed like a jet engine at full throttle. But when 40,000 holiday shoppers simultaneously hammered the site for Harry Potter books and Furby dolls, Goliath’s database locks seized up. Fans shrieked at 15,000 RPM. And because Amazon ran on this single monolithic machine, <em>every checkout button on Earth froze at the exact same instant</em>.
+  Goliath was a $500,000 Sun Microsystems colossus. Sixty-four processor cores, half a terabyte of RAM, screaming like a jet engine at full throttle. But when 40,000 holiday shoppers simultaneously hammered the site for Harry Potter books and Furby dolls, Goliath’s database locks seized up. Fans shrieked at 15,000 RPM. And because Amazon ran on this single monolithic machine, <em>every checkout button on Earth froze at the exact same instant</em>.
 </p>
 <p>
   The panicked infrastructure team proposed their only known playbook: <strong>Scale-Up (Vertical Scaling)</strong>. Buy a bigger server! Spend $1.2 million on a 128-core <em>Super-Goliath</em>. But datacenter architects calculated the physical weight and realized it would literally crack through the floorboards and crush the electrical mains below.
@@ -242,8 +292,8 @@
   Bezos had hit the three fatal brick walls of <strong>Vertical Scaling (Scale-Up)</strong>:
 </p>
 <ol>
-  <li><strong>The Physical Wall:</strong> Silicon hits thermal and manufacturing limits. You cannot build a motherboard the size of a football field.</li>
-  <li><strong>The Cost Curve:</strong> Punishing and non-linear. Doubling a server's horsepower costs ten times more cash.</li>
+  <li><strong>The Physical Silicon Wall:</strong> Silicon hits thermal and manufacturing limits. You cannot build a motherboard the size of a football field.</li>
+  <li><strong>The Exponential Cost Curve:</strong> Punishing and non-linear. Doubling a server's horsepower costs ten times more cash.</li>
   <li><strong>The Single Point of Failure (SPOF):</strong> When Goliath chokes, your entire business empire flatlines.</li>
 </ol>
 <p>
@@ -271,10 +321,12 @@ SCALE-UP (Vertical Scaling)               SCALE-OUT (Horizontal Scaling)
 </div>
 
 <div class="quiz-takeaway">
-  <strong>🎯 How this appears on the quiz:</strong> Vasiliadis will test which workloads benefit from <em>Scale-Out</em> vs. <em>Scale-Up</em>. Look for parallelizable, independent jobs (video transcoding, chat apps, variable seasonal web traffic). Beware the negative-scoring trap: single-threaded legacy algorithms (like AnnTools in Assignment 5) or monolithic databases with tightly locked in-memory transactions <em>cannot</em> scale out horizontally.
+  <strong>🎯 Real-World Application &amp; Exam Mapping:</strong>
+  <span class="why-it-matters"><strong>Why you must know this:</strong> Real cloud architects never stake production on single gigantic servers. Scale-out lets platforms like Uber and Airbnb survive 10x traffic surges by dynamically spinning up cheap EC2 instances and terminating them when demand subsides.</span>
+  <span class="why-it-matters"><strong>How it appears on the quiz:</strong> Vasiliadis will test which workloads benefit from <em>Scale-Out</em> vs. <em>Scale-Up</em>. Select parallelizable, independent tasks (video transcoding, chat apps, variable seasonal web traffic). Beware the trap: single-threaded legacy algorithms (like AnnTools in Assignment 5) or monolithic databases with tightly locked in-memory transactions <em>cannot</em> scale out horizontally.</span>
 </div>
 
-<h2>Act II: The Great Netflix Migration — Reed Hastings and the Literal Monkey</h2>
+<h2>Act II: The Great Netflix Migration — Hastings and the Literal Monkey</h2>
 <p>
   In August 2008, disaster struck Netflix's private datacenter. A major storage array suffered catastrophic database corruption. For three agonizing days, not a single red DVD envelope could be shipped anywhere in the United States.
 </p>
@@ -291,13 +343,15 @@ SCALE-UP (Vertical Scaling)               SCALE-OUT (Horizontal Scaling)
 <h3>The Four Hard Laws of Distributed Systems:</h3>
 <ul>
   <li><strong>1. Handcuffs vs. Brass Mail Chutes (SQS):</strong> Direct synchronous calls are handcuffs—if your backend video encoder stumbles, your frontend web server freezes and crashes. Netflix decoupled everything with <strong>Amazon SQS</strong>, an asynchronous message queue. When a viewer clicks "Play," the frontend drops a work order into the queue and immediately replies <code>200 OK</code>. It never blocks. Even if all transcoding workers crash, tickets wait safely in the queue until new workers boot up.</li>
-  <li><strong>2. The Network is Untrusted:</strong> Junior engineers assume bandwidth is infinite and latency is zero. In the cloud, the wire is a traitor. Routers drop packets, fiber gets severed, and latency fluctuates. Scalable systems embrace the chaos: they use timeouts, circuit breakers, and retries.</li>
+  <li><strong>2. The Network is Untrusted:</strong> Junior engineers assume bandwidth is infinite and latency is zero (the classic Fallacies of Distributed Computing). In the cloud, the wire is a traitor. Routers drop packets, fiber gets severed, and latency fluctuates. Scalable systems embrace the chaos: they use timeouts, circuit breakers, and retries.</li>
   <li><strong>3. The Illusion of a Global Clock:</strong> In a cluster of 50,000 servers, no two quartz crystals tick in lockstep. Relativistic drift and network jitter make true global time an impossibility. Scalable systems <strong>never assume a centralized master clock</strong>—nodes make autonomous decisions based on local state and logical causality.</li>
   <li><strong>4. Why REST Crushed RPC:</strong> In the 1990s, Remote Procedure Calls (RPC) tried to sweep the network under the rug. An RPC function like <code>user = get_user()</code> pretended a machine 2,000 miles away was sitting right in local RAM. When a router flapped, the thread froze indefinitely. Modern clouds use <strong>stateless REST web services over HTTP</strong>: lightweight, language-independent, and brutally honest about network reality with explicit status codes (<code>200 OK</code>, <code>404 Not Found</code>, <code>500 Server Error</code>).</li>
 </ul>
 
 <div class="quiz-takeaway">
-  <strong>🎯 How this appears on the quiz:</strong> Expect questions on distributed scalability principles. Watch for two classic negative-scoring traps: (1) Any option claiming distributed nodes coordinate via a <em>"centralized master clock"</em> is FALSE—large clouds never assume a global clock. (2) Any option suggesting tight synchronous RPC calls is FALSE—clouds use asynchronous message queues (SQS) and stateless REST HTTP APIs with explicit status codes to decouple components and isolate failure.
+  <strong>🎯 Real-World Application &amp; Exam Mapping:</strong>
+  <span class="why-it-matters"><strong>Why you must know this:</strong> Microservices crash constantly in production. Tight coupling causes cascading catastrophic failure. Asynchronous queues (SQS) insulate your front door from back-office panics.</span>
+  <span class="why-it-matters"><strong>How it appears on the quiz:</strong> Watch for two classic negative-scoring traps: (1) Any option claiming distributed nodes coordinate via a <em>"centralized master clock"</em> is FALSE—large clouds never assume a global clock. (2) Any option suggesting tight synchronous RPC calls is FALSE—clouds use asynchronous message queues (SQS) and stateless REST HTTP APIs with explicit status codes to decouple components and isolate failure.</span>
 </div>
 
 <h2>Act III: The UChicago Connection — Ian Foster and the Electric Toast</h2>
@@ -315,12 +369,12 @@ SCALE-UP (Vertical Scaling)               SCALE-OUT (Horizontal Scaling)
 </p>
 <div class="pullquote">
   "A hardware and software infrastructure that provides dependable, consistent, pervasive, and inexpensive access to high-end computational capabilities."<br>
-  <span style="font-size:0.9rem; color:var(--muted); font-style:normal;">— Ian Foster, 1998</span>
+  <span style="font-size:0.88rem; color:var(--muted); font-style:normal;">— Ian Foster, 1998</span>
 </div>
 <p>
   In 2006, Amazon took Ian Foster's grid model, stripped away academic friction, wrapped it in lightweight <strong>REST Web Services</strong>, and launched AWS:
 </p>
-<div class="card" style="text-align: center; font-size: 1.15rem; color: var(--accent);">
+<div class="card" style="text-align: center; font-size: 1.15rem; color: var(--accent); padding: 12px;">
   <strong>Cloud Computing ≈ Web Services + Grid Computing</strong>
 </div>
 
@@ -341,7 +395,9 @@ SCALE-UP (Vertical Scaling)               SCALE-OUT (Horizontal Scaling)
 </ul>
 
 <div class="quiz-takeaway">
-  <strong>🎯 How this appears on the quiz:</strong> Two guaranteed test items: First, the origin formula: <code>Cloud ≈ Web Services + Grid Computing</code> (originated by UChicago's Ian Foster). Second, the 5 NIST pillars multi-select: check all five (On-demand self-service, Broad network access, Resource pooling/multi-tenancy, Rapid elasticity, Measured service). For service models (IaaS vs PaaS vs SaaS), remember who manages the OS: in IaaS (EC2), <em>you</em> manage the OS and runtime; in PaaS (RDS/Beanstalk), the <em>provider</em> manages the OS and runtime; in all models, physical hardware is managed by the cloud provider.
+  <strong>🎯 Real-World Application &amp; Exam Mapping:</strong>
+  <span class="why-it-matters"><strong>Why you must know this:</strong> Shared responsibility dictates legal and security liability. If your EC2 instance is hacked because you forgot to patch Linux, AWS will not help you—that is your responsibility (IaaS). If AWS's datacenter power cuts out, that is AWS's responsibility.</span>
+  <span class="why-it-matters"><strong>How it appears on the quiz:</strong> Two guaranteed test items: (1) The origin formula: <code>Cloud ≈ Web Services + Grid Computing</code>. (2) The 5 NIST pillars multi-select: check all five (On-demand self-service, Broad network access, Resource pooling/multi-tenancy, Rapid elasticity, Measured service). For service models, remember who manages the OS: in IaaS (EC2), <em>you</em> manage the OS; in PaaS (RDS/Beanstalk), the <em>provider</em> manages the OS; in all models, physical hardware is managed by the cloud provider.</span>
 </div>
 
 <h2>Act IV: The Truman Show — Hypervisors and Tanenbaum’s 8 Invisibility Cloaks</h2>
@@ -391,12 +447,14 @@ TYPE 1: BARE-METAL HYPERVISOR               TYPE 2: HOSTED HYPERVISOR
   </tbody>
 </table>
 
-<div class="card" style="border-left: 4px solid var(--accent);">
+<div class="card" style="border-left: 4px solid var(--accent); padding: 12px 14px;">
   <strong>Critical Exam Rule:</strong> True transparency carries heavy performance penalties. Every layer of invisibility adds network round-trips and synchronization locks. Real-world distributed systems manifest <strong>only a strategic few</strong>, never all eight!
 </div>
 
 <div class="quiz-takeaway">
-  <strong>🎯 How this appears on the quiz:</strong> Watch for the naming traps: (1) Type 1 (bare-metal Nitro/ESXi) sits directly on physical silicon with near-zero overhead, while Type 2 (VirtualBox) sits on a desktop OS and is too slow for cloud datacenters. (2) In Tanenbaum's Transparencies, do not confuse <em>Access</em> (hiding machine architecture/data formats) with <em>Replication</em> (hiding multiple identical copies). Also remember that <em>Relocation</em> transparency means a VM moves while actively running (live migration), and real distributed systems <em>never</em> implement all 8 transparencies due to performance and latency penalties.
+  <strong>🎯 Real-World Application &amp; Exam Mapping:</strong>
+  <span class="why-it-matters"><strong>Why you must know this:</strong> Virtualization boosted datacenter utilization from 10% to 80%. Hypervisors let AWS update physical host blade firmware by live-migrating customer VMs (Relocation transparency) with zero downtime.</span>
+  <span class="why-it-matters"><strong>How it appears on the quiz:</strong> Watch for the naming traps: (1) Type 1 (bare-metal Nitro/ESXi) sits directly on physical silicon with near-zero overhead, while Type 2 (VirtualBox) sits on a desktop OS and is too slow for cloud datacenters. (2) In Tanenbaum's Transparencies, do not confuse <em>Access</em> (hiding machine architecture/data formats) with <em>Replication</em> (hiding multiple identical copies). Also remember that <em>Relocation</em> transparency means a VM moves while actively running (live migration), and real distributed systems <em>never</em> implement all 8 transparencies due to performance and latency penalties.</span>
 </div>
 
 <h2>Act V: The $50 Million Disappearing Ink Disaster</h2>
@@ -459,7 +517,7 @@ TYPE 1: BARE-METAL HYPERVISOR               TYPE 2: HOSTED HYPERVISOR
   <li><strong>S3 Snapshots:</strong> Point-in-time backups pushed to Amazon S3. The first snapshot is a full baseline copy; subsequent snapshots are <strong>incremental</strong> (only changed blocks).</li>
 </ul>
 
-<div class="card" style="border-left: 4px solid var(--red);">
+<div class="card" style="border-left: 4px solid var(--red); padding: 12px 14px;">
   <strong style="color: var(--red);">The 3 Deadly EBS Traps on the Quiz:</strong>
   <ol>
     <li><strong>The Same-AZ Rule:</strong> An EBS volume and its EC2 instance <strong>MUST reside in the exact same Availability Zone</strong> (<code>us-east-1a</code> to <code>us-east-1a</code>). You cannot cross AZs. (To bridge AZs, take an S3 snapshot—snapshots are regional—and restore a new volume in the destination AZ).</li>
@@ -469,7 +527,9 @@ TYPE 1: BARE-METAL HYPERVISOR               TYPE 2: HOSTED HYPERVISOR
 </div>
 
 <div class="quiz-takeaway">
-  <strong>🎯 How this appears on the quiz:</strong> Vasiliadis explicitly flagged this on Ed Discussion: If a question asks where to store permanent database files or data that must survive an instance stop/restart, NEVER select Instance Store (Instance Store is ephemeral NVMe wiped clean on stop). Always select EBS. For EBS exam rules: (1) an EBS volume can ONLY attach to an EC2 instance in the <em>exact same Availability Zone</em>, (2) you are billed for <em>provisioned capacity</em> rather than written data, and (3) EBS snapshots live in <em>Amazon S3</em> with 11 9s of regional durability and are <em>incremental</em>.
+  <strong>🎯 Real-World Application &amp; Exam Mapping:</strong>
+  <span class="why-it-matters"><strong>Why you must know this:</strong> Storage mistakes bankrupt startups and lose customer data. If you run a Postgres database on an Instance Store to "save money," one host server reboot wipes your entire business. Use EBS for persistence; use Instance Store for volatile caches and scratch compilation.</span>
+  <span class="why-it-matters"><strong>How it appears on the quiz:</strong> Vasiliadis explicitly flagged this on Ed Discussion: If a question asks where to store permanent database files or data that must survive an instance stop/restart, NEVER select Instance Store (Instance Store is ephemeral NVMe wiped clean on stop). Always select EBS. For EBS exam rules: (1) an EBS volume can ONLY attach to an EC2 instance in the <em>exact same Availability Zone</em>, (2) you are billed for <em>provisioned capacity</em> rather than written data, and (3) EBS snapshots live in <em>Amazon S3</em> with 11 9s of regional durability and are <em>incremental</em>.</span>
 </div>
 
 <div id="cheat-sheet"></div>
@@ -554,7 +614,7 @@ TYPE 1: BARE-METAL HYPERVISOR               TYPE 2: HOSTED HYPERVISOR
   <div class="option correct">✅ <strong>C. Resource pooling (multi-tenancy).</strong></div>
   <div class="option correct">✅ <strong>D. Rapid elasticity.</strong></div>
   <div class="option correct">✅ <strong>E. Measured service.</strong></div>
-  <p><em>(All five are correct NIST pillars from lecture).</em></p>
+  <p style="margin-top: 6px; font-size: 0.88rem; color: var(--green);"><em>(All five are correct NIST pillars from lecture).</em></p>
 </div>
 
 <div class="q-box">
@@ -616,24 +676,128 @@ TYPE 1: BARE-METAL HYPERVISOR               TYPE 2: HOSTED HYPERVISOR
 </div>
 
 <div id="glossary"></div>
-<h2>PART 3: The 1-Line Rapid Scan Glossary</h2>
-<p><em>Keep this open for a 30-second memory refresh before Canvas opens:</em></p>
+<h2>PART 3: The Rapid Exam Glossary &amp; Reference Sheet</h2>
+<p><em>Straight definitions, formulas, real-world utility, and negative-scoring trap warnings organized by topic. Keep this open for a 60-second review:</em></p>
 
-<div class="card">
-  <div class="glossary-item"><span class="glossary-term">Scale-Up (Vertical):</span> Buying a bigger server; simple, but hits a physical wall and remains a Single Point of Failure (SPOF).</div>
-  <div class="glossary-item"><span class="glossary-term">Scale-Out (Horizontal):</span> Adding a swarm of cheap commodity nodes behind an Elastic Load Balancer (ELB); near-infinite scale and fault-tolerant.</div>
-  <div class="glossary-item"><span class="glossary-term">Type 1 Hypervisor (Bare-Metal):</span> Sits directly on bare silicon (AWS Nitro); wire-speed performance, enterprise standard.</div>
-  <div class="glossary-item"><span class="glossary-term">Type 2 Hypervisor (Hosted):</span> Runs inside a desktop host OS (VirtualBox); high translation overhead, laptop only.</div>
-  <div class="glossary-item"><span class="glossary-term">Instance Store (Ephemeral):</span> Physical NVMe SSD on the host blade; ultra-fast (&lt;100µs), but <strong>completely wiped on instance stop/failure</strong>.</div>
-  <div class="glossary-item"><span class="glossary-term">EBS (Elastic Block Store):</span> Network-attached virtual hard drive; survives instance stop, expandable on the fly, moves between VMs.</div>
-  <div class="glossary-item"><span class="glossary-term">EBS Same-AZ Rule:</span> An EBS volume can ONLY attach to an EC2 instance in the <strong>exact same Availability Zone</strong>.</div>
-  <div class="glossary-item"><span class="glossary-term">EBS Billing Trap:</span> You pay for <strong>provisioned capacity</strong>, NOT used data. (Snapshots bill for actual stored data).</div>
-  <div class="glossary-item"><span class="glossary-term">EBS Snapshots:</span> Point-in-time backups living in <strong>Amazon S3</strong>; first is full clone, subsequent are <strong>incremental</strong>.</div>
-  <div class="glossary-item"><span class="glossary-term">Cloud Formula:</span> Cloud ≈ Web Services + Grid Computing (Ian Foster, 1998).</div>
-  <div class="glossary-item"><span class="glossary-term">NIST 5 Pillars:</span> On-demand self-service, broad network access, resource pooling (multi-tenancy), rapid elasticity, measured service.</div>
-  <div class="glossary-item"><span class="glossary-term">Little’s Law:</span> L = λ × W (Queue length = arrival rate × wait time; queue spikes explode EBS latency).</div>
-  <div class="glossary-item"><span class="glossary-term">Availability 5 Nines (99.999%):</span> EBS durability target; equals only 5.26 minutes of downtime per year.</div>
-  <div class="glossary-item"><span class="glossary-term">Inter-AZ Latency:</span> Typically <strong>&lt;2 ms</strong> (often &lt;1 ms); inter-datacenter within an AZ is <strong>&lt;250 µs</strong>.</div>
+<div class="glossary-cat">🏛️ Architecture &amp; Scaling Models</div>
+<div class="glossary-grid">
+  <div class="glossary-card">
+    <span class="term">Scale-Up (Vertical Scaling)</span><br>
+    Upgrading a single physical server with more CPU cores, RAM, and storage. Simple to code, but hits physical silicon limits, non-linear cost curves, and remains a fatal Single Point of Failure (SPOF).
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Legacy monolithic databases and single-threaded algorithms that cannot shard or parallelize.</span>
+    <span class="trap">⚠️ Trap: Single-threaded code (like AnnTools in A5) can ONLY scale up, not out!</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">Scale-Out (Horizontal Scaling)</span><br>
+    Distributing traffic across a swarm of cheap commodity nodes behind an Elastic Load Balancer (ELB). Highly elastic, self-healing, and fault-tolerant ("cattle, not pets").
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> How Netflix, Uber, and Amazon survive massive traffic spikes without buying million-dollar mainframes.</span>
+    <span class="trap">⚠️ Trap: Monolithic databases with strict synchronous locks cannot scale out horizontally without sharding.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">Asynchronous Decoupling (SQS)</span><br>
+    Connecting producer and consumer nodes via an asynchronous queue (Amazon SQS). Producers drop tasks and immediately return <code>200 OK</code> without waiting, isolating components from downstream failure.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Video upload and processing pipelines where transcoding takes minutes but HTTP requests must answer in 100ms.</span>
+    <span class="trap">⚠️ Trap: Tight synchronous coupling causes cascading crashes when backends stall.</span>
+  </div>
+</div>
+
+<div class="glossary-cat">🌐 Distributed Systems Principles &amp; Fallacies</div>
+<div class="glossary-grid">
+  <div class="glossary-card">
+    <span class="term">Fallacies of Distributed Computing</span><br>
+    False assumptions: (1) network is reliable, (2) latency is zero, (3) bandwidth is infinite, (4) network is secure, (5) topology never changes, (6) transport cost is zero, (7) network is homogeneous.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Dictates why modern systems must implement retries with exponential backoff and circuit breakers.</span>
+    <span class="trap">⚠️ Trap: Scalable cloud architectures assume the wire will fail; never design assuming zero latency.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">The Master Clock Fallacy</span><br>
+    In large clusters, physical quartz crystals suffer drift and network jitter. <em>True global time does not exist.</em> Distributed nodes make autonomous decisions based on local state and causal ordering.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Why Google Spanner had to build atomic clocks and GPS receivers into racks to achieve TrueTime.</span>
+    <span class="trap">⚠️ Trap: Any exam choice claiming nodes coordinate via a "central master clock" is FALSE.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">REST vs. RPC</span><br>
+    Remote Procedure Call (RPC) hid network latency behind fake local function calls (causing threads to hang). REST won because it is stateless, loosely coupled, and uses explicit HTTP status codes (200, 404, 500) that respect network reality.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> The entire modern web and cloud API ecosystem (AWS, Stripe, GitHub APIs) runs on REST.</span>
+  </div>
+</div>
+
+<div class="glossary-cat">☁️ Cloud Standards, NIST &amp; Service Models</div>
+<div class="glossary-grid">
+  <div class="glossary-card">
+    <span class="term">The Cloud Origin Formula</span><br>
+    <code>Cloud Computing ≈ Web Services + Grid Computing</code>. Formulated by UChicago/Argonne professor Ian Foster (1998) who envisioned computing delivered as an electrical utility.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Transitioned IT from buying physical hardware upfront (CapEx) to paying utility operational expenses (OpEx).</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">NIST 5 Essential Characteristics</span><br>
+    (1) On-demand self-service, (2) Broad network access, (3) Resource pooling (multi-tenancy), (4) Rapid elasticity, (5) Measured service.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> The legal and technical definition used by governments and enterprises to certify cloud contracts.</span>
+    <span class="trap">⚠️ Trap: All five must be present; missing one disqualifies a system as true cloud under NIST.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">Shared Responsibility: IaaS vs. PaaS vs. SaaS</span><br>
+    <strong>IaaS (EC2):</strong> You manage OS, runtime, and app; provider manages virtualization and physical hardware.<br>
+    <strong>PaaS (RDS/Beanstalk):</strong> Provider manages OS and runtime; you only manage code and data.<br>
+    <strong>SaaS (Gmail/Slack):</strong> Provider manages entire stack end-to-end.<br>
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Dictates whether you or AWS gets sued when user data is breached due to an unpatched OS.</span>
+    <span class="trap">⚠️ Trap: In ALL models, physical hardware and datacenters are managed exclusively by the cloud provider.</span>
+  </div>
+</div>
+
+<div class="glossary-cat">🖥️ Virtualization &amp; Tanenbaum's Transparencies</div>
+<div class="glossary-grid">
+  <div class="glossary-card">
+    <span class="term">Type 1 Hypervisor (Bare-Metal)</span><br>
+    Sits directly on bare silicon with zero intermediate OS (AWS Nitro, Xen, VMware ESXi). Delivers wire-speed performance and hardware-enforced security isolation. Enterprise datacenter standard.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> What powers 100% of AWS EC2 instances, giving you near-native bare-metal speed.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">Type 2 Hypervisor (Hosted)</span><br>
+    Runs as an application on top of a desktop OS like macOS or Windows (VirtualBox). Suffers heavy translation overhead. Strictly for local laptop testing, never for cloud datacenters.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Running Ubuntu inside macOS on your laptop for CS homework.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">Tanenbaum’s 8 Transparencies</span><br>
+    <strong>Access:</strong> Hides machine architecture/data format differences.<br>
+    <strong>Location:</strong> Hides physical rack or address.<br>
+    <strong>Migration:</strong> Hides resource moving between locations.<br>
+    <strong>Relocation:</strong> Hides resource moving <em>while actively in use</em> (Live VM migration).<br>
+    <strong>Replication:</strong> Hides existence of multiple identical copies.<br>
+    <strong>Concurrency:</strong> Hides competing concurrent users.<br>
+    <strong>Failure:</strong> Hides crash and recovery of resources.<br>
+    <strong>Persistence:</strong> Hides whether data sits in RAM or disk.<br>
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Enables AWS to patch physical server motherboards without terminating your running cloud instances.</span>
+    <span class="trap">⚠️ Trap: Complete transparency is an engineering impossibility. Real clouds only implement a strategic few due to latency/performance costs!</span>
+  </div>
+</div>
+
+<div class="glossary-cat">💾 Storage Showdown: EBS vs. Instance Store</div>
+<div class="glossary-grid">
+  <div class="glossary-card">
+    <span class="term">Instance Store (Ephemeral NVMe)</span><br>
+    Physical SSD slotted directly into the host blade motherboard. Ultra-fast (&lt;100µs latency, millions of IOPS). <strong>Ephemeral:</strong> Wiped to zero on instance stop or hardware crash. Cannot be stopped, only rebooted or terminated. Use strictly for scratch buffers and cache.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> High-frequency trading order books, video render swap space, Redis caches.</span>
+    <span class="trap">⚠️ Trap: Never store database data or persistent state here!</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">Elastic Block Store (EBS)</span><br>
+    Network-attached virtual disk array connected over fiber Ethernet (1–4 ms latency). Survives instance stop/termination, volume mobility between VMs, live programmatic expansion, and S3 incremental snapshots.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Production PostgreSQL, MySQL, and boot root volumes in the enterprise.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">The 3 Deadly EBS Rules</span><br>
+    <strong>1. Same-AZ Rule:</strong> EBS volume and EC2 instance must reside in the <em>identical Availability Zone</em>.<br>
+    <strong>2. Provisioned Capacity Billing:</strong> You pay for <em>allocated</em> space, NOT written data.<br>
+    <strong>3. Single Attachment:</strong> Standard EBS volumes attach to only <em>one instance at a time</em>.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> The #1 reason junior cloud engineers accidentally get surprise $5,000 AWS bills.</span>
+  </div>
+  <div class="glossary-card">
+    <span class="term">Little’s Law &amp; Latencies</span><br>
+    Formula: <code>L = λ × W</code> (Queue length = arrival rate × wait time). When I/O arrival outpaces disk processing, queues back up and latency spikes exponentially.<br>
+    <strong>Latency Benchmarks:</strong> Instance Store: &lt;100 µs | EBS: 1–4 ms | Inter-AZ: &lt;2 ms | Intra-AZ datacenter: &lt;250 µs.
+    <span class="real-world">🌍 <strong>Real-World Use:</strong> Explains why disk queues cause whole database clusters to stall during flash sales.</span>
+  </div>
 </div>
 
 </body>
