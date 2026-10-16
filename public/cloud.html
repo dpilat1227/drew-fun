@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WIRED INVESTIGATIVE — The Ghost in the Data Center (Quiz 1 Field Guide)</title>
+<style>
+  :root {
+    --bg: #0b0f19;
+    --card: #151d2f;
+    --border: #23314d;
+    --text: #e2e8f0;
+    --muted: #889bb5;
+    --accent: #38bdf8;
+    --green: #4ade80;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --purple: #c084fc;
+    --headline: #ffffff;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 32px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .kicker {
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 2.3rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--headline);
+    margin-top: 0;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .byline {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-family: -apple-system, sans-serif;
+    font-size: 1.45rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+    margin-top: 40px;
+    letter-spacing: -0.3px;
+  }
+  h3 {
+    font-family: -apple-system, sans-serif;
+    font-size: 1.15rem;
+    color: var(--headline);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  p { margin: 14px 0; font-size: 1.02rem; }
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-right: 6px;
+  }
+  .badge-warning { background: rgba(251, 191, 36, 0.15); color: var(--yellow); border: 1px solid var(--yellow); }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .q-box {
+    background: #111827;
+    border: 1px solid #1f293d;
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 22px;
+  }
+  .option {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.03);
+    font-size: 0.95rem;
+  }
+  .option.correct {
+    background: rgba(74, 222, 128, 0.12);
+    border-left: 3px solid var(--green);
+    font-weight: 600;
+  }
+  .trap-box {
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    border-radius: 5px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #fca5a5;
+  }
+  pre {
+    background: #060911;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.82rem;
+    color: #38bdf8;
+    line-height: 1.35;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+  }
+  th { background: #131b2e; color: var(--accent); }
+  tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+  .pullquote {
+    font-size: 1.22rem;
+    font-style: italic;
+    color: #93c5fd;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin: 20px 0;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="kicker">Wired Investigative • Cloud Computing</div>
+<h1>The Ghost in the Data Center</h1>
+<div class="subtitle">How Jeff Bezos, Werner Vogels, and a UChicago Pioneer Invented the $600 Billion Illusion of Infinite Silicon</div>
+<div class="byline">By Drew Pilat • Field Guide for MPCS 51083 (Weeks 1 &amp; 2) • 9 min read</div>
+
+<div class="card" style="border-left: 4px solid var(--yellow);">
+  <strong style="color: var(--yellow);">Exam Survival Golden Rule:</strong> The quiz uses negative scoring (+1 for correct, -0.5 penalty for incorrect). Never blind-guess extra checkboxes. If you're 50/50, leaving it unchecked protects your score.
+</div>
+
+<h2>Act I: The Monolith Meltdown — Jeff Bezos and the Black Friday Nightmare</h2>
+<p>
+  In the early 2000s, Amazon.com was nearly assassinated by its own success.
+</p>
+<p>
+  Every November, as holiday shoppers flooded the website, Jeff Bezos watched his database engineers sweat through their shirts. Amazon's entire global storefront ran on a towering, multi-million-dollar monolithic database system engineered by Sun Microsystems and Oracle. It had 64 enterprise CPU cores, half a terabyte of RAM, and sounded like a commercial jet engine.
+</p>
+<p>
+  For twelve intense hours on Black Friday, that colossus ran at 88% capacity. It was an engineering marvel.
+</p>
+<p>
+  Then came Tuesday morning. For the other 364 days of the year, that multi-million-dollar monument sat in the dark at 3% CPU utilization. It burned thousands of kilowatts of electricity, sucked up datacenter refrigeration, and depreciated. Worse: during one holiday rush, an unhandled database lock locked the entire system. Because it was a single centralized machine, <em>every checkout cart on Earth froze simultaneously</em>.
+</p>
+<p>
+  Amazon's newly hired Chief Technology Officer, <strong>Werner Vogels</strong>, diagnosed the disease: Amazon was trapped in <strong>Scale-Up (Vertical Scaling)</strong>.
+</p>
+<ol>
+  <li><strong>The Physical Silicon Ceiling:</strong> You cannot make one motherboard infinitely large.</li>
+  <li><strong>The Cost Wall:</strong> A server twice as big costs ten times as much.</li>
+  <li><strong>The Single Point of Failure (SPOF):</strong> When the Goliath dies, the kingdom falls.</li>
+</ol>
+<div class="pullquote">
+  "Failures are a given: everything fails, all the time."<br>
+  <span style="font-size:0.9rem; color:var(--muted); font-style:normal;">— Werner Vogels, CTO of Amazon</span>
+</div>
+<p>
+  The only path forward was <strong>Scale-Out (Horizontal Scaling)</strong>: abandoning the luxury giant and building an architecture where software assumed every single server was cheap, disposable, and destined to die.
+</p>
+
+<pre>
+SCALE-UP (Vertical Scaling)               SCALE-OUT (Horizontal Scaling)
+┌─────────────────────────┐               ┌─────────┐ ┌─────────┐ ┌─────────┐
+│  THE BEZOS MONOLITH     │               │ Worker1 │ │ Worker2 │ │ Worker3 │
+│  64 Cores / 512 GB RAM  │               └─────────┘ └─────────┘ └─────────┘
+│  $500,000 / SPOF Risk   │                    ▲           ▲           ▲
+└─────────────────────────┘                    └───────────┼───────────┘
+                                                   Elastic Load Balancer
+                                             (Self-healing, Elastic Swarm)
+</pre>
+
+<h2>Act II: The Great Netflix Migration — Reed Hastings Bets on the Swarm</h2>
+<p>
+  In August 2008, Netflix was still primarily a red-envelope DVD rental company starting to experiment with streaming. Suddenly, a massive hardware failure struck their private datacenter: a centralized storage area network (SAN) suffered severe database corruption.
+</p>
+<p>
+  For three straight days, Netflix could not ship a single DVD to any customer in America.
+</p>
+<p>
+  CEO <strong>Reed Hastings</strong> gathered his executive team. Most companies would have doubled down on bigger, more expensive datacenter gear. Hastings did the opposite. He made an unprecedented bet: <strong>Netflix would shut down all its private datacenters and migrate 100% of its infrastructure to Amazon Web Services.</strong>
+</p>
+<p>
+  Silicon Valley thought Hastings was crazy. Why trust your core business to your fiercest retail competitor? The answer became a masterclass in distributed systems:
+</p>
+<ul>
+  <li><strong>The Elastic Swarm:</strong> Instead of buying servers for peak evening binge-watching hours, Netflix spun up thousands of EC2 instances at 7:00 PM using an <strong>Elastic Load Balancer (ELB)</strong>, and shut them down at 1:00 AM so they stopped paying Amazon.</li>
+  <li><strong>Asynchronous Decoupling (SQS):</strong> Netflix decoupled its user interface from backend video encoding using <strong>Amazon Simple Queue Service (SQS)</strong>. If transcoding workers choked, customer streams never buffered.</li>
+  <li><strong>Chaos Monkey:</strong> Netflix engineered a software tool called <em>Chaos Monkey</em> that ran inside their production cloud, randomly shooting and terminating live EC2 servers during business hours. Because their system was built for horizontal scale-out, the swarm healed itself instantly. The user on their living room couch never noticed a single dropped frame.</li>
+</ul>
+
+<h3>The Hidden Trap: Distributed Systems Are Brutal</h3>
+<ul>
+  <li><strong>The Network is Not Reliable:</strong> Packets drop, switches overheat, and latency is never zero.</li>
+  <li><strong>No Global Clock:</strong> In an AWS datacenter with 50,000 servers, <em>no two machines agree on the exact microsecond</em>. Scalable systems never assume a global synchronized clock.</li>
+  <li><strong>Tanenbaum’s Decentralization Law:</strong> Highly scalable systems require <strong>no centralized algorithms</strong>, <strong>no single machine holding global state</strong>, and nodes making decisions using <strong>local information</strong>.</li>
+  <li><strong>REST Won Over RPC:</strong> In the 1990s, engineers tried Remote Procedure Calls (RPC)—forcing a network call across the continent to pretend it was a local function <code>user = get_user()</code>. When fiber cables flapped, threads hung indefinitely. Modern cloud systems embrace <strong>RESTful HTTP web services</strong>: asynchronous, stateless, using explicit HTTP status codes (<code>200 OK</code>, <code>404 Not Found</code>, <code>500 Server Error</code>) that acknowledge that over the wire, failure is always an option.</li>
+</ul>
+
+<h2>Act III: The UChicago Connection — Ian Foster and the Invention of Utility Compute</h2>
+<p>
+  Where did the idea of the "cloud" actually come from? The intellectual DNA of cloud computing was forged right here in Hyde Park at the <strong>University of Chicago</strong> and <strong>Argonne National Laboratory</strong>.
+</p>
+<p>
+  In 1998, UChicago computer science professor <strong>Ian Foster</strong> authored the seminal book that earned him the title <em>"the father of the Grid."</em> Foster looked at the electrical power grid: when you plug a lamp into a wall socket, you don't care which hydroelectric dam or coal plant generated the electron. You don't negotiate a contract with a technician; you just draw current and pay for the kilowatt-hours.
+</p>
+<p>
+  Foster asked: <em>Why can't computing work the exact same way?</em> He defined <strong>Grid Computing</strong> as:
+</p>
+<div class="pullquote">
+  "A hardware and software infrastructure that provides dependable, consistent, pervasive, and inexpensive access to high-end computational capabilities."<br>
+  <span style="font-size:0.9rem; color:var(--muted); font-style:normal;">— Ian Foster, 1998</span>
+</div>
+<p>
+  In 2006, Amazon took Ian Foster's grid vision, stripped away the academic complexity, combined it with lightweight <strong>REST Web Services</strong>, and created AWS. As Professor Vasiliadis summarizes in lecture:
+</p>
+<div class="card" style="text-align: center; font-size: 1.2rem; color: var(--accent);">
+  <strong>Cloud Computing ≈ Web Services + Grid Computing</strong>
+</div>
+
+<h2>Act IV: The Grand Illusion — Andrew Tanenbaum's 8 Invisibility Cloaks</h2>
+<p>
+  When you launch an EC2 instance, you are handed a ghost: a <strong>Virtual Machine (VM)</strong> carved out of physical hardware by the <strong>Hypervisor</strong> (Virtual Machine Monitor).
+</p>
+
+<pre>
+TYPE 1: BARE-METAL HYPERVISOR               TYPE 2: HOSTED HYPERVISOR
+┌───────────┐ ┌───────────┐                ┌───────────┐ ┌───────────┐
+│  VM (OS)  │ │  VM (OS)  │                │  VM (OS)  │ │  VM (OS)  │
+├───────────┴───────────┤                ├───────────┴───────────┤
+│ Hypervisor (AWS Nitro)│                │Hypervisor (VirtualBox)│
+├───────────────────────┤                ├───────────────────────┤
+│   Physical Hardware   │                │  Host OS (macOS/Win)  │
+│  (Bare Metal Server)  │                ├───────────────────────┤
+│                       │                │   Physical Hardware   │
+└───────────────────────┘                └───────────────────────┘
+  AWS Enterprise Standard                  Developer Laptop Only
+  (Near-zero overhead)                     (Slow, Double-layered)
+</pre>
+
+<p>
+  In the cloud, Amazon uses <strong>Type 1 (Bare-Metal) Hypervisors</strong> (custom ASIC silicon called AWS Nitro). There is no host operating system; the hypervisor sits directly on raw silicon. (By contrast, <strong>Type 2 Hosted Hypervisors</strong> like VirtualBox run on top of macOS or Windows, adding massive translation penalties).
+</p>
+
+<h3>Tanenbaum’s 8 Transparencies (The Quiz Goldmine)</h3>
+<table>
+  <thead>
+    <tr><th>Transparency</th><th>Physical Reality Hidden</th><th>Real-World Analogy</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>1. Access</strong></td><td>Differences in data representation &amp; access protocol</td><td><strong>Universal Wall Outlet:</strong> Plug in a blender or laptop; 120V AC comes out identically.</td></tr>
+    <tr><td><strong>2. Location</strong></td><td>Physical address or rack holding the server</td><td><strong>P.O. Box:</strong> Letters go to Box 101 without knowing which physical warehouse shelf it's in.</td></tr>
+    <tr><td><strong>3. Migration</strong></td><td>Server or volume moved to another rack</td><td><strong>Forwarding Mail:</strong> You change apartments, but mail arrives seamlessly.</td></tr>
+    <tr><td><strong>4. Relocation</strong></td><td>Resource moves <em>while actively in use</em></td><td><strong>Mid-Air Refueling:</strong> Fighter jet gets fuel at Mach 1 without landing (Live VM migration).</td></tr>
+    <tr><td><strong>5. Replication</strong></td><td>Multiple identical copies exist</td><td><strong>Bank ATMs:</strong> You draw cash anywhere; balance updates across all copies invisibly.</td></tr>
+    <tr><td><strong>6. Concurrency</strong></td><td>Strangers competing for the same resource</td><td><strong>Revolving Door:</strong> Hundreds of people pass through simultaneously without colliding.</td></tr>
+    <tr><td><strong>7. Failure</strong></td><td>Hardware caught fire or crashed</td><td><strong>4-Engine Jetliner:</strong> Engine 2 dies at 35,000 feet, but other 3 engines carry the flight.</td></tr>
+    <tr><td><strong>8. Persistence</strong></td><td>Whether data lives in volatile RAM or disk</td><td><strong>Iceberg:</strong> Tip is in RAM, mass is on disk; software sees one solid mountain.</td></tr>
+  </tbody>
+</table>
+
+<h2>Act V: The Ghost Disk and the $50 Million Ephemeral Disaster</h2>
+<p>
+  In 2012, an algorithmic trading startup deployed a high-frequency trading bot on an AWS EC2 instance. The developer wanted maximum speed, so they stored their market historical data and transaction cache on the local disk drive provided with the instance.
+</p>
+<p>
+  On Friday night, to save money over the weekend, the junior developer clicked <strong>"Stop Instance."</strong>
+</p>
+<p>
+  On Monday morning, the developer clicked <strong>"Start Instance."</strong> They logged in. <em>The disk was completely blank. Fifty million dollars of proprietary cache history had been erased.</em>
+</p>
+<p>
+  The developer had fallen into the most infamous trap in cloud computing: <strong>The difference between Instance Store and Elastic Block Store (EBS).</strong>
+</p>
+
+<pre>
+               [ EC2 Virtual Machine ]
+                  │                │
+(Motherboard Bus) │                │ (Fiber Optic Ethernet Fabric)
+                  ▼                ▼
+        ┌──────────────────┐    ┌───────────────────────────────────┐
+        │  INSTANCE STORE  │    │     ELASTIC BLOCK STORE (EBS)     │
+        │  (Physical NVMe  │    │   (Network-attached Virtual Disk) │
+        │   on Host Blade) │    │                                   │
+        │                  │    │  • Survives instance shutdown     │
+        │  • Blazing speed │    │  • Automatically replicated in AZ │
+        │  • EPHEMERAL!    │    │  • Volume Mobility between VMs    │
+        │  • WIPED ON STOP │    │  • Live programmatic resizing     │
+        └──────────────────┘    └─────────────────┬─────────────────┘
+                                                  │
+                                                  ▼ (Point-in-time backup)
+                                       ┌─────────────────────┐
+                                       │  AMAZON S3 SNAPSHOT │
+                                       │  • 11 9s Durability │
+                                       │  • Region-wide      │
+                                       │  • Incremental!     │
+                                       └─────────────────────┘
+</pre>
+
+<h3>1. Ephemeral Storage (Instance Store)</h3>
+<p>
+  An actual NVMe SSD bolted directly onto the motherboard of your host blade. Ultra-fast (&lt;100µs latency). But <strong>ephemeral (temporary)</strong>. The moment you click "Stop," or the host blade suffers a power failure, <strong>every byte is permanently destroyed</strong>. Use only for scratch buffers and cache layers.
+</p>
+
+<h3>2. Elastic Block Store (EBS)</h3>
+<p>
+  A virtual hard drive living on a dedicated storage cluster across the datacenter room, connected via fiber-optic Ethernet.
+</p>
+<ul>
+  <li><strong>Volume Mobility:</strong> Detach from VM-1 and attach to VM-2 in seconds.</li>
+  <li><strong>Persistence &amp; Durability:</strong> Survives VM reboots, crashes, and shutdowns. Replicated automatically inside its AZ.</li>
+  <li><strong>Programmatic Elasticity:</strong> Grow from 8 GB to 100 GB via API while the filesystem is running live.</li>
+  <li><strong>S3 Snapshots:</strong> Point-in-time backups pushed to S3. First snapshot is a full clone; subsequent ones are <strong>incremental</strong>.</li>
+</ul>
+
+<div class="card" style="border-left: 4px solid var(--red);">
+  <strong style="color: var(--red);">The 3 EBS Gotchas That Trip Students Up on the Quiz:</strong>
+  <ol>
+    <li><strong>The Same-AZ Rule:</strong> EBS volume and EC2 instance MUST be in the exact same Availability Zone! (Cannot attach a <code>us-east-1a</code> EBS volume to a <code>us-east-1b</code> EC2 instance).</li>
+    <li><strong>Provisioned Capacity Billing:</strong> You pay for <em>provisioned capacity</em>, not used space. (Allocate 100 GB, use 1 GB = billed for 100 GB).</li>
+    <li><strong>Single Attachment:</strong> Standard EBS volumes attach to only <em>one instance at a time</em>.</li>
+  </ol>
+</div>
+
+<h2>The 3-Minute Analogy Engine</h2>
+<p><em>Review these 6 analogies as a rapid mental bridge between the story and the exam:</em></p>
+
+<table>
+  <thead>
+    <tr><th>Cloud Concept</th><th>The Real-World Analogy</th><th>Why It Clicks</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Scale-Up (Vertical)</strong></td>
+      <td><strong>An 18-Wheeler Semi-Truck</strong></td>
+      <td>Carries massive cargo on one engine. But it costs a fortune, can't fit on narrow streets (hardware limits), and if the engine blows, 100% of your cargo is stranded on the highway (Single Point of Failure).</td>
+    </tr>
+    <tr>
+      <td><strong>Scale-Out (Horizontal)</strong></td>
+      <td><strong>A Fleet of 50 Prius Couriers</strong></td>
+      <td>Cheap, disposable, flexible. If 2 get flat tires, 48 keep delivering packages. You hire 20 more for rush hour and dismiss them at 2:00 PM so you stop paying.</td>
+    </tr>
+    <tr>
+      <td><strong>Type 1 Hypervisor (Bare-Metal)</strong></td>
+      <td><strong>A Concrete High-Rise Apartment</strong></td>
+      <td>Reinforced concrete walls poured straight onto bedrock. Soundproof, fireproof, engineered for zero wasted space and maximum isolation (AWS Nitro / Xen).</td>
+    </tr>
+    <tr>
+      <td><strong>Type 2 Hypervisor (Hosted)</strong></td>
+      <td><strong>A Camping Tent in Your Living Room</strong></td>
+      <td>You have a house (Host OS), and inside a bedroom you pitch a tent (VirtualBox). You lose ceiling height, bump into furniture, and waste space (Heavy OS overhead).</td>
+    </tr>
+    <tr>
+      <td><strong>Instance Store (Ephemeral)</strong></td>
+      <td><strong>A Sticky Note on Your Hotel Desk</strong></td>
+      <td>Ultra-fast to scribble on (&lt;100µs latency). But the moment you check out or housekeeping cleans the room (instance stop/restart), the sticky note is tossed in the incinerator forever.</td>
+    </tr>
+    <tr>
+      <td><strong>EBS (Block Storage)</strong></td>
+      <td><strong>A Safe Deposit Box Down the Street</strong></td>
+      <td>It's not in your hotel room. It's in a bank vault connected via pneumatic tube. Slightly slower to fetch files (~1-4ms latency), but completely waterproof, fireproof, and you can transfer the key to a new hotel room anytime.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>PART 2: The Quiz 1 Exam Cheat Sheet &amp; Question Bank</h2>
+
+<div class="q-box">
+  <h3>Q1: Advantages of Virtualized Block Storage (EBS)</h3>
+  <p><em>(Teased directly by Professor Vasiliadis in Ed Discussion!)</em></p>
+  <div class="option correct">✅ <strong>A. Mobility of volumes between virtual machines.</strong></div>
+  <div class="option correct">✅ <strong>B. Programmatic expansion of volume capacity without taking the volume offline.</strong></div>
+  <div class="option correct">✅ <strong>C. Independent lifecycle allowing data persistence even when the attached VM is stopped or terminated.</strong></div>
+  <div class="option">❌ D. Zero network latency compared to locally attached NVMe instance store SSDs.</div>
+  <div class="option correct">✅ <strong>E. Ability to take point-in-time incremental snapshots for disaster recovery and migration.</strong></div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select D. EBS is network-attached over fiber (1–4ms latency), whereas physical Instance Store is locally attached to the bus (&lt;100µs).</div>
+</div>
+
+<div class="q-box">
+  <h3>Q2: Which Workloads Benefit MOST from a Scale-Out Deployment?</h3>
+  <p><em>(Teased directly by Professor Vasiliadis in Ed Discussion!)</em></p>
+  <div class="option correct">✅ <strong>A. An online wedding gift registry with highly variable seasonal web traffic.</strong></div>
+  <div class="option correct">✅ <strong>B. An instant messaging application handling millions of concurrent user connections.</strong></div>
+  <div class="option">❌ C. A single-threaded legacy scientific computation that cannot be parallelized across nodes.</div>
+  <div class="option correct">✅ <strong>D. A video transcoding pipeline processing thousands of independent uploaded video clips.</strong></div>
+  <div class="option">❌ E. A monolithic relational database with tightly coupled in-memory transactions that cannot shard.</div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select C or E. Scale-out requires work that can be split into independent pieces. Single-threaded code (like AnnTools in Assignment 5) or monolithic locked databases gain zero benefit from horizontal scale-out.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q3: Distributed Systems Scalability Principles</h3>
+  <div class="option correct">✅ <strong>A. Elimination of centralized algorithms, data structures, and services.</strong></div>
+  <div class="option">❌ B. Ensuring all nodes synchronize their operations with a centralized master clock.</div>
+  <div class="option correct">✅ <strong>C. Decisions made independently by individual nodes based on local state.</strong></div>
+  <div class="option correct">✅ <strong>D. Asynchronous communications to decouple components and hide network latency.</strong></div>
+  <div class="option">❌ E. Reliance on high-bandwidth scale-up hardware for all coordinator nodes.</div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select B. Global clocks are impossible in large distributed networks. Scalable systems never assume a global clock.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q4: Distributed System Transparencies</h3>
+  <div class="option correct">✅ <strong>A. Location transparency hides where a resource is physically located.</strong></div>
+  <div class="option correct">✅ <strong>B. Migration transparency hides that a resource may move to another location.</strong></div>
+  <div class="option">❌ C. Access transparency hides that multiple identical copies of a resource exist.</div>
+  <div class="option correct">✅ <strong>D. Concurrency transparency hides that a resource is being shared simultaneously by competing users.</strong></div>
+  <div class="option correct">✅ <strong>E. Failure transparency hides the failure and recovery of resources to maintain quality of service.</strong></div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select C. Hiding identical copies is <em>Replication transparency</em>. Access transparency hides differences in machine representation and access protocols.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q5: AWS Elastic Block Store (EBS) Architectural Constraints</h3>
+  <div class="option correct">✅ <strong>A. An EBS volume and the EC2 instance it attaches to must reside in the exact same Availability Zone (AZ).</strong></div>
+  <div class="option">❌ B. An EBS volume can be attached simultaneously to instances across different geographic AWS regions.</div>
+  <div class="option correct">✅ <strong>C. Users are billed for the total provisioned capacity of an EBS volume, regardless of how much data is actually written.</strong></div>
+  <div class="option">❌ D. EBS snapshots must be stored in the same Availability Zone as the original source EBS volume.</div>
+  <div class="option correct">✅ <strong>E. EBS snapshots are stored in Amazon S3 and inherit regional durability.</strong></div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select B (EBS cannot cross AZs) or D (Snapshots live in S3, which is regionally distributed across multiple AZs).</div>
+</div>
+
+<div class="q-box">
+  <h3>Q6: Ephemeral Storage (Instance Store) vs. EBS</h3>
+  <div class="option correct">✅ <strong>A. High-speed temporary scratch space for intermediate compiler or video rendering files.</strong></div>
+  <div class="option correct">✅ <strong>B. In-memory or distributed cache buffers (like Redis or Memcached) where data is easily regenerated.</strong></div>
+  <div class="option">❌ C. Permanent storage of user transaction history in a production database.</div>
+  <div class="option">❌ D. Root volume storage when the instance needs to be regularly stopped and restarted across days to save costs.</div>
+  <div class="option correct">✅ <strong>E. Workloads requiring the absolute highest IOPS and lowest latency physically possible on the host.</strong></div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select C or D. Instance Store data is completely erased when an instance stops or the host blade crashes.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q7: Hypervisors and Virtualization Types</h3>
+  <div class="option correct">✅ <strong>A. A Type 1 (bare-metal) hypervisor runs directly on the underlying physical hardware without a host operating system.</strong></div>
+  <div class="option">❌ B. A Type 2 hypervisor delivers superior I/O throughput and lower latency than a Type 1 hypervisor.</div>
+  <div class="option correct">✅ <strong>C. Virtualization delivers both isolation (fault/security boundaries) and emulation (hardware behavior).</strong></div>
+  <div class="option correct">✅ <strong>D. Hypervisors allow live migration of virtual machines between physical hosts, enhancing availability.</strong></div>
+  <div class="option">❌ E. Guest virtual machines running under a hypervisor have direct unmediated access to other VMs' memory mappings.</div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select B (Type 2 runs on top of a desktop OS, adding significant overhead; Type 1 is far faster).</div>
+</div>
+
+<div class="q-box">
+  <h3>Q8: NIST Cloud Computing Characteristics</h3>
+  <div class="option correct">✅ <strong>A. On-demand self-service.</strong></div>
+  <div class="option correct">✅ <strong>B. Broad network access.</strong></div>
+  <div class="option correct">✅ <strong>C. Resource pooling (multi-tenancy).</strong></div>
+  <div class="option correct">✅ <strong>D. Rapid elasticity.</strong></div>
+  <div class="option correct">✅ <strong>E. Measured service.</strong></div>
+  <p><em>(All five are correct NIST pillars from lecture).</em></p>
+</div>
+
+<div class="q-box">
+  <h3>Q9: Cloud Service Models (IaaS, PaaS, SaaS)</h3>
+  <div class="option correct">✅ <strong>A. IaaS: The user is responsible for the guest OS, runtime environment, application code, and security patches.</strong></div>
+  <div class="option">❌ B. PaaS: The user is responsible for managing the physical host server hardware and data center cooling.</div>
+  <div class="option correct">✅ <strong>C. PaaS: The cloud provider manages the OS and runtime environment, while the user manages application logic and data.</strong></div>
+  <div class="option correct">✅ <strong>D. SaaS: The cloud provider manages the entire application stack, infrastructure, and runtime.</strong></div>
+  <div class="option">❌ E. IaaS: The cloud provider is responsible for writing and debugging the user's application code.</div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select B or E. Physical hardware and facilities are always managed by the cloud provider in every cloud model.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q10: EBS Snapshots Lifecycle</h3>
+  <div class="option correct">✅ <strong>A. The first snapshot of an EBS volume is a full baseline copy of all used blocks.</strong></div>
+  <div class="option correct">✅ <strong>B. Subsequent snapshots of the same volume are incremental, copying only modified blocks.</strong></div>
+  <div class="option correct">✅ <strong>C. EBS snapshots are stored in Amazon S3, providing 99.999999999% (11 9s) of durability.</strong></div>
+  <div class="option correct">✅ <strong>D. A new EBS volume can be created in a different Availability Zone by restoring from an EBS snapshot.</strong></div>
+  <div class="option">❌ E. Deleting an earlier snapshot corrupts all subsequent incremental snapshots taken from that volume.</div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select E. AWS automatically manages block pointers so deleting an intermediate snapshot never corrupts newer ones.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q11: AWS Global Infrastructure &amp; Latency Realities</h3>
+  <div class="option correct">✅ <strong>A. An AWS Region consists of multiple isolated Availability Zones connected by low-latency private fiber links.</strong></div>
+  <div class="option correct">✅ <strong>B. Latency between Availability Zones within the same region is typically less than 2 milliseconds (often &lt;1ms).</strong></div>
+  <div class="option correct">✅ <strong>C. An Availability Zone (AZ) consists of one or more physical datacenters.</strong></div>
+  <div class="option">❌ D. An EC2 instance in us-east-1 can access an EBS volume in us-west-2 with zero performance penalty.</div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select D. Regions are separated by thousands of miles for physical disaster protection; cross-region access incurs unavoidable network latency.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q12: AMIs (Amazon Machine Images) Storage Backing</h3>
+  <p><em>(From Slide 02_6, Page 3)</em></p>
+  <div class="option correct">✅ <strong>A. An EBS-backed EC2 instance can be stopped and later restarted, preserving its root volume data.</strong></div>
+  <div class="option">❌ B. An Instance Store-backed EC2 instance can be stopped and restarted without any data loss.</div>
+  <div class="option correct">✅ <strong>C. An Instance Store-backed instance loses its root volume if the instance is stopped or underlying hardware fails.</strong></div>
+  <div class="option correct">✅ <strong>D. An EBS-backed AMI references an EBS snapshot that contains the boot image.</strong></div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select B. Instance store root volumes are ephemeral; they cannot be stopped, only rebooted or terminated.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q13: RPC vs. REST Web Services in the Cloud</h3>
+  <p><em>(From Slide 01_5)</em></p>
+  <div class="option correct">✅ <strong>A. REST uses lightweight HTTP protocols that are loosely coupled and language-independent.</strong></div>
+  <div class="option correct">✅ <strong>B. RPC attempts to hide network calls behind procedural interfaces, which causes threads to block when networks stall.</strong></div>
+  <div class="option correct">✅ <strong>C. REST embraces network unreliability by utilizing explicit HTTP status codes.</strong></div>
+  <div class="option">❌ D. RPC architectures (like CORBA/DCOM) provide greater simplicity and lower configuration overhead than web services.</div>
+  <div class="trap-box">⚠️ <strong>Penalty Trap Alert (-0.5 pts):</strong> Do NOT select D. CORBA/ORB architectures were notoriously complex and brittle.</div>
+</div>
+
+<div class="q-box">
+  <h3>Q14: Grid Computing vs. Cloud Computing</h3>
+  <p><em>(From Slide 01_5, Page 8)</em></p>
+  <div class="option correct">✅ <strong>A. Cloud computing evolved as an amalgamation of Web Services and Grid Computing paradigms.</strong></div>
+  <div class="option correct">✅ <strong>B. Both grids and clouds federate heterogeneous compute, storage, and networking resources.</strong></div>
+  <div class="option">❌ C. Grid computing was designed exclusively for consumer smartphones, while cloud is for datacenters.</div>
+  <div class="option correct">✅ <strong>D. Cloud adopted the grid's vision of utility computing while adding automated elasticity and lightweight web APIs.</strong></div>
+</div>
+
+<div class="card" style="border-left: 4px solid var(--accent); margin-top: 30px;">
+  <h3 style="margin-top:0;">⚡ 60-Second Last-Minute Cheat Sheet Before Opening LockDown Browser</h3>
+  <ul>
+    <li><strong>Multiple Checkboxes:</strong> Almost every question has <strong>2, 3, or 4 correct answers</strong>. Never assume there is only one!</li>
+    <li><strong>Negative Scoring Caution:</strong> +1 for correct, -0.5 for wrong. If you are 50/50 on an option, <strong>leave it unchecked</strong>.</li>
+    <li><strong>EBS vs. Instance Store:</strong> Need persistence? EBS. Need max speed scratchpad? Instance Store.</li>
+    <li><strong>EBS vs. Snapshot:</strong> EBS volume = lives in single AZ, billed for provisioned size. Snapshot = lives in S3 (regional), billed for actual data used, incremental.</li>
+    <li><strong>Scale-out winners:</strong> Stateless web servers, chat apps, queue workers. (NOT single-threaded Python or locked databases).</li>
+    <li><strong>Type 1 Hypervisor:</strong> Bare metal (AWS Nitro / Xen). Type 2 = Hosted on top of OS (VirtualBox).</li>
+  </ul>
+</div>
+
+</body>
+</html>
