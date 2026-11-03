@@ -15,6 +15,41 @@
       browser: 'quant.drew.fun',
     },
     {
+      href: '/projects/lavamesh',
+      title: 'LavaMesh',
+      blurb:
+        'A free dashboard for a Headscale server. Nodes, keys, routes, ACLs, and health checks.',
+      meta: ['TypeScript', 'Next.js', 'Postgres'],
+      label: 'Web app',
+      image: '/media/lavamesh/stage-window.webp',
+      alt: 'LavaMesh node fleet dashboard',
+      browser: 'lavamesh.app',
+    },
+    {
+      href: '/projects/lavamoney',
+      title: 'Lava Money',
+      blurb:
+        'A spending tracker for iPhone. It compares what you spend with what you usually spend, so there is no budget to set up. Waiting on App Store review.',
+      meta: ['React Native', 'TypeScript', 'Plaid'],
+      label: 'iPhone app',
+      image: '/media/lavamoney/card.webp',
+      bleed: true,
+      hideLabel: true,
+      alt: 'Lava Money on three iPhones: weekly spending, a charge against its usual, and the month against a budget',
+    },
+    {
+      href: '/projects/lavatasks',
+      title: 'Lava Tasks',
+      blurb:
+        'A calm task app for iPhone. Tasks, lists, habits and goals, with no ads and no account. In TestFlight beta.',
+      meta: ['React Native', 'TypeScript', 'Local-first'],
+      label: 'iPhone app',
+      image: '/media/lavatasks/card.webp',
+      bleed: true,
+      hideLabel: true,
+      alt: 'Lava Tasks on three iPhones: today\'s tasks, a grocery list sorted by aisle, and habit grids',
+    },
+    {
       href: '/projects/microsecond',
       title: 'The Anatomy of a Microsecond',
       blurb:
@@ -25,17 +60,6 @@
       bleed: true,
       hideLabel: true,
       alt: 'The essay\'s Rule 606 routing table: where a Robinhood market order goes, by wholesaler',
-    },
-    {
-      href: '/projects/lavamesh',
-      title: 'LavaMesh',
-      blurb:
-        'A free dashboard for a Headscale server. Nodes, keys, routes, ACLs, and health checks.',
-      meta: ['TypeScript', 'Next.js', 'Postgres'],
-      label: 'Web app',
-      image: '/media/lavamesh/stage-window.webp',
-      alt: 'LavaMesh node fleet dashboard',
-      browser: 'lavamesh.app',
     },
     {
       href: '/projects/wellnest',
