@@ -83,9 +83,9 @@
       <div class="phone-grid">
         <PhoneShot
           src="{M}/tasks.webp"
-          alt="Lava Tasks: today's page, with one overdue task and three due today"
+          alt="Lava Tasks: one overdue task, five due today, then the coming days grouped by day"
           label="Today"
-          caption="Overdue sits on top, with a Postpone button."
+          caption="Overdue on top with a Postpone button, then today, then the days ahead."
         />
         <PhoneShot
           src="{M}/add.webp"
