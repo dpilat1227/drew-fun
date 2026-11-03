@@ -77,7 +77,7 @@
       <span class="tech-label">02 · Screens</span>
       <h2>What it looks like</h2>
       <p style="max-width:40rem;color:var(--text-3);font-size:0.95rem;line-height:1.65;margin-top:0.6rem;">
-        The current build, in a browser, on sample data. The browser draws Inter. The phone uses its own type.
+        The current build, in a browser, on sample data. The browser draws Inter, where the phone uses its own type. I added the status bar.
       </p>
 
       <div class="phone-grid">
