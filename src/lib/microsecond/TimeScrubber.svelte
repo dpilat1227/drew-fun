@@ -52,7 +52,7 @@
     {#if current.regime === "human"}
       To you, this feels instant. Nothing worth reacting to happens at this speed.
     {:else if current.regime === "border"}
-      This is the crossover point — where the order stops being a thought and starts being a race.
+      This is the crossover. Past here, an order is a race.
     {:else}
       Down here, the 40&nbsp;ms round trip is an eternity. An algorithm gets thousands of decisions in the time it takes your phone to draw a checkmark.
     {/if}

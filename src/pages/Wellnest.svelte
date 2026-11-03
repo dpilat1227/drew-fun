@@ -50,9 +50,8 @@
       <span class="tech-label">01 // Product</span>
       <h2>What it was</h2>
       <p style="max-width:58ch;color:var(--text-3);">
-        Daily journaling and mood check-ins, with a game-design loop meant to
-        shorten the time it took a student to get value out of a mindfulness
-        routine. Partnerships with UPenn and Boston University were the
+        Daily journaling and mood check-ins, with a game loop meant to get a
+        student some value from a mindfulness routine sooner. Partnerships with UPenn and Boston University were the
         distribution, not the App Store.
       </p>
 

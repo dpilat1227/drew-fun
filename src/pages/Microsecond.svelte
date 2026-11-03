@@ -58,7 +58,7 @@
       act: "3 · THE PRICE",
       title: "You do get a better price",
       body: "The best public prices are $194.99 to sell and $195.00 to buy. The wholesaler fills you at $194.998, a fifth of a cent better than the public ask. That's real, and it's how brokers say they beat the market. They can afford it because you're easy to fill: ten shares from a retail account rarely means you know something the market doesn't.",
-      sowhat: "The midpoint, $194.995, was better still. You got $0.002 of the $0.005 on offer: about three cents short on this trade.",
+      sowhat: "The midpoint, $194.995, was better still. You got $0.002 of the $0.005 on offer. That's about three cents short on this trade.",
       hint: "Press Route to fill the order",
     },
     {
@@ -163,7 +163,7 @@
   <title>The Anatomy of a Microsecond — A Visual Essay by Drew Pilat</title>
   <meta
     name="description"
-    content="Where does your retail market order actually go? A scrollytelling visual essay on payment for order flow, internalization, HFT microwave networks, and IEX's speed bump."
+    content="Where a retail market order goes and who gets paid for it. A scrollytelling visual essay on payment for order flow, internalization, HFT microwave networks, and IEX's speed bump."
   />
 </svelte:head>
 
@@ -202,7 +202,7 @@
   <!-- COVER -->
   <header class="cover" use:scrollyStep={-1}>
     <p class="cover-eyebrow">A VISUAL ESSAY · 6 MIN</p>
-    <h1 class="cover-title">You pressed Buy.<br /><span>Who got paid?</span></h1>
+    <h1 class="cover-title">You pressed Buy.<br /><span>Here's who got paid.</span></h1>
     <p class="cover-deck">
       A "free" stock trade takes about 40 milliseconds and passes through at least three companies.
       This follows the money.
@@ -277,10 +277,10 @@
         <div class="slip-card coda-card" class:active-card={activeStep === narrativeSteps.length}>
           <div class="slip-perf top" aria-hidden="true"></div>
           <span class="slip-act">THE VERDICT</span>
-          <h2 class="slip-title">So does it matter?</h2>
+          <h2 class="slip-title">How much it matters</h2>
           <p class="slip-prose">
             For 10 shares of Apple, barely. You're about three cents short of the best case. It starts to
-            matter with bigger orders, thinner stocks, and millions of people doing it every day. Try your own numbers.
+            matter with bigger orders or thinner stocks, and it adds up across millions of people trading every day. Try your own numbers.
           </p>
 
           {#if isMobile}

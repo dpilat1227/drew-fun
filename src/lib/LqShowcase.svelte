@@ -52,7 +52,7 @@
     <p class="eyebrow">Learn</p>
     <h3>Build your own, starting from an idea</h3>
     <p class="lead">
-      Pick a hunch, set a window, flip a switch. The formula writes itself and explains each piece, so the next one you write
+      Pick an idea and tune it. The formula writes itself and explains each piece, so you can write the next one
       yourself.
     </p>
     <a class="go" {href} target="_blank" rel="noopener noreferrer">Try it in the app <span aria-hidden="true">→</span></a>

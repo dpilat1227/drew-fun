@@ -50,7 +50,7 @@
 
 <section class="lqf" bind:this={root} use:inview={0.15}>
   <p class="eyebrow">What's inside</p>
-  <h2>Test it. Understand it.<br />Improve it.</h2>
+  <h2>Run an alpha.<br />See why it scores what it does.</h2>
 
   <div class="grid">
     <!-- 1 · Explain -->
@@ -83,7 +83,7 @@
     <article class="card wide stack">
       <div class="copy">
         <h3>A score you can read</h3>
-        <p>Six measures, one score, and every point accounted for. Nothing is hidden in the total.</p>
+        <p>Six measures add up to one score, and the page shows every point.</p>
       </div>
       <div class="viz score">
         <div class="ring">

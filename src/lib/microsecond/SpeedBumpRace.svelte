@@ -67,13 +67,13 @@
   <p class="race-note">
     {#if withSpeedBump}
       The 38-mile coil of fiber inside IEX's rack delays every incoming order by exactly
-      <strong>350 microseconds</strong> — including the HFT's. By the time the sniffer's
+      <strong>350 microseconds</strong>, the HFT's included. By the time the sniffer's
       cancel-and-requote reaches the market, the investor's order has already cleared at the
       real NBBO.
     {:else}
       Without the speed bump, the HFT sees the investor's first fill on another exchange,
-      cancels its quotes, and reprices before the rest of the investor's order arrives —
-      classic latency arbitrage.
+      cancels its quotes, and reprices before the rest of the investor's order arrives.
+      That's classic latency arbitrage.
     {/if}
   </p>
 </div>

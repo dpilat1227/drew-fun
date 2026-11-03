@@ -53,7 +53,7 @@
       href: '/projects/microsecond',
       title: 'The Anatomy of a Microsecond',
       blurb:
-        'Where does your retail market order actually go? Payment for order flow, sub-penny internalization, microwave latency arbitrage, and the IEX speed bump — scrollytelling style.',
+        'A scrolling visual essay on where your retail market order goes and who gets paid for it. Payment for order flow, sub-penny internalization, microwave latency arbitrage and the IEX speed bump.',
       meta: ['Visual essay', 'Market microstructure', 'Scrollytelling'],
       label: 'Visual essay',
       image: '/media/microsecond/cover.webp',
@@ -65,7 +65,7 @@
       href: '/projects/wellnest',
       title: 'Wellnest',
       blurb:
-        'Co-founded a student mental-health app. Raised $800k. Wound down in 2022. I ran the company, not the codebase.',
+        'Co-founded a student mental-health app. Raised $800k. Wound down in 2022. I ran the company. I didn\'t write the code.',
       meta: ['Product', 'Fundraising', 'Operations'],
       label: 'Mobile app',
       image: '/media/wellnest/screens.webp',
