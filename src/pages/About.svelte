@@ -1,5 +1,5 @@
 <script>
-  import BrowserMock from '../lib/BrowserMock.svelte';
+  import Mockup from '../lib/Mockup.svelte';
 
   const education = [
     {
@@ -85,11 +85,10 @@
           </div>
         </div>
         <a class="feat-shot" href="https://quant.drew.fun" target="_blank" rel="noopener noreferrer" aria-label="Open the LavaQuant demo">
-          <BrowserMock
-            crop
-            src="/media/lavaquant/app-window.webp"
-            alt="LavaQuant dashboard: score dial, KPI strip and equity curve"
-            url="quant.drew.fun"
+          <Mockup
+            bleed
+            src="/media/lavaquant/card.webp"
+            alt="LavaQuant: a 57 out of 100 score, six summary stats and an equity curve, with the same result on a phone"
           />
         </a>
       </article>
