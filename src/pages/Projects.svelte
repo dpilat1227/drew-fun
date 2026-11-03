@@ -13,7 +13,7 @@
       image: '/media/lavaquant/card.webp',
       bleed: true,
       hideLabel: true,
-      alt: 'LavaQuant: a 57 out of 100 score, six summary stats and an equity curve, with the same result on a phone',
+      alt: 'LavaQuant: a 57 out of 100 score, four summary stats, platform-fit checks and an equity curve',
     },
     {
       href: '/projects/lavamesh',
@@ -25,7 +25,7 @@
       image: '/media/lavamesh/card.webp',
       bleed: true,
       hideLabel: true,
-      alt: 'LavaMesh node fleet: 9 of 12 nodes online, a table of nodes with status, and the same page on a phone',
+      alt: 'LavaMesh: the node fleet with 9 of 12 online, one node\'s detail panel, and the subnet routing page with Approve buttons',
     },
     {
       href: '/projects/lavamoney',

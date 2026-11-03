@@ -88,7 +88,7 @@
           <Mockup
             bleed
             src="/media/lavaquant/card.webp"
-            alt="LavaQuant: a 57 out of 100 score, six summary stats and an equity curve, with the same result on a phone"
+            alt="LavaQuant: a 57 out of 100 score, four summary stats, platform-fit checks and an equity curve"
           />
         </a>
       </article>
