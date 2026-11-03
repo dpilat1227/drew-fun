@@ -18,7 +18,7 @@
         A spending tracker for iPhone. It compares what you spend with what you usually spend.
       </p>
       <p style="max-width:40rem;color:var(--text-3);font-size:0.95rem;line-height:1.65;margin-top:1rem;">
-        Most money apps start with a budget you have to make up. This one starts with your own past weeks. I built the app, the charts and the small server behind it.
+        Most money apps start with a budget you have to make up. This one starts with your own past weeks. I built the app and the small server behind it.
       </p>
 
       <dl class="spec">
@@ -129,7 +129,7 @@
 
       <h3>Usual is a median</h3>
       <p>
-        One $412 week shouldn't move your usual, so it's a median, not a mean. The range around it is meant to hold about 80% of ordinary weeks. With four to eleven weeks of history it comes from the median absolute deviation in log space, with multipliers I tuned by simulation. At twelve it reads the range straight from the data. With fewer than four there's no verdict.
+        A mean gets dragged around by one $412 week, so usual is a median. The range around it is meant to hold about 80% of ordinary weeks. With four to eleven weeks of history it comes from the median absolute deviation in log space, with multipliers I tuned by simulation. At twelve it reads the range straight from the data. With fewer than four there's no verdict.
       </p>
 
       <h3>The server never holds your transactions</h3>

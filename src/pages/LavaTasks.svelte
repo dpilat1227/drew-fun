@@ -18,7 +18,7 @@
         A calm task app for iPhone. Tasks, lists, habits and goals in one place.
       </p>
       <p style="max-width:40rem;color:var(--text-3);font-size:0.95rem;line-height:1.65;margin-top:1rem;">
-        No ads, no points, no account. Everything stays on the phone. It isn't on the App Store yet.
+        There are no ads and no points, and it doesn't need an account. Everything stays on the phone. It isn't on the App Store yet.
       </p>
 
       <dl class="spec">
