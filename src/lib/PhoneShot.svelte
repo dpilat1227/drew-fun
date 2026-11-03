@@ -1,16 +1,16 @@
 <script>
   /** An iPhone screenshot in a dark bezel, with the same label + caption as Figure. */
-  let { src, alt, caption = '', label = '' } = $props();
+  let { src, alt, caption = '', label = '', small = false } = $props();
 </script>
 
-<figure class="phone-fig">
+<figure class="phone-fig" class:small>
   <div class="bezel">
     <img {src} {alt} loading="lazy" decoding="async" />
   </div>
-  {#if caption}
+  {#if caption || label}
     <figcaption>
       {#if label}<span class="fig-badge">{label}</span>{/if}
-      <span class="fig-text">{caption}</span>
+      {#if caption}<span class="fig-text">{caption}</span>{/if}
     </figcaption>
   {/if}
 </figure>
@@ -38,6 +38,26 @@
   figcaption {
     margin-top: 1.1rem;
     padding: 0;
+  }
+
+  .small .bezel {
+    border-radius: 24px;
+    padding: 6px;
+    box-shadow: 0 18px 30px -18px rgba(17, 17, 16, 0.4);
+  }
+
+  .small img {
+    border-radius: 18px;
+  }
+
+  .small figcaption {
+    margin-top: 0.7rem;
+  }
+
+  .small .fig-badge {
+    margin: 0;
+    font-size: 0.66rem;
+    padding: 0.18rem 0.5rem;
   }
 
   .fig-badge {

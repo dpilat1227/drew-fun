@@ -58,7 +58,8 @@
       <nav class="toc no-print" aria-label="Case study">
         <a href="#idea">01 Idea</a>
         <a href="#screens">02 Screens</a>
-        <a href="#engineering">03 Notes</a>
+        <a href="#yours">03 Make it yours</a>
+        <a href="#engineering">04 Notes</a>
       </nav>
       <div>
 
@@ -66,7 +67,7 @@
       <span class="tech-label">01 · The idea</span>
       <h2>One quiet line per task</h2>
       <p>
-        Type "Call the vet tomorrow 9am" and it reads the day and the time. Groceries sort themselves into aisles and can be read by store. Habits fill a grid you can watch build. Goals say, in words, whether you're ahead or behind.
+        Type "Call the vet tomorrow 9am" and it reads the day and the time. Groceries sort themselves into aisles and can be read by store. Habits fill a grid you can watch build. Goals say, in words, whether you're ahead or behind. The highlight color, the background and the task layout are all yours to change.
       </p>
       <p>
         It was made for two people sharing a list. Sharing isn't built yet, so the beta is the one-person version.
@@ -120,8 +121,36 @@
       </div>
     </section>
 
+    <section id="yours">
+      <span class="tech-label">03 · Make it yours</span>
+      <h2>Colors and layouts</h2>
+      <p style="max-width:40rem;color:var(--text-3);font-size:0.95rem;line-height:1.65;margin-top:0.6rem;">
+        Eight highlight colors and six backgrounds. Three ways to lay out tasks, and a few things you can switch on. Same list, same sample data, in every screen below.
+      </p>
+
+      <h3 class="row-title">Color</h3>
+      <p class="row-note">Six of the eight highlight colors, each with a background.</p>
+      <div class="row6">
+        <PhoneShot small src="{M}/themes/orange.webp" alt="Lava Tasks with an orange highlight and a strong orange glow background" label="Orange" />
+        <PhoneShot small src="{M}/themes/green.webp" alt="Lava Tasks with a green highlight and a forest green background" label="Green" />
+        <PhoneShot small src="{M}/themes/blue.webp" alt="Lava Tasks with a blue highlight and a midnight blue background" label="Blue" />
+        <PhoneShot small src="{M}/themes/violet.webp" alt="Lava Tasks with a violet highlight and a plum background" label="Violet" />
+        <PhoneShot small src="{M}/themes/pink.webp" alt="Lava Tasks with a pink highlight on black" label="Pink" />
+        <PhoneShot small src="{M}/themes/teal.webp" alt="Lava Tasks with a teal highlight on black" label="Teal" />
+      </div>
+
+      <h3 class="row-title">Layout</h3>
+      <p class="row-note">Plain, Grouped and Cards, then the last one with the week, the next task and an add box switched on.</p>
+      <div class="row4">
+        <PhoneShot small src="{M}/layouts/plain.webp" alt="Lava Tasks in the Plain layout" label="Plain" />
+        <PhoneShot small src="{M}/layouts/grouped.webp" alt="Lava Tasks in the Grouped layout, with each section in a card" label="Grouped" />
+        <PhoneShot small src="{M}/layouts/cards.webp" alt="Lava Tasks in the Cards layout, one card per task" label="Cards" />
+        <PhoneShot small src="{M}/layouts/dashboard.webp" alt="Lava Tasks with an add box, the week and the next task at the top" label="Everything on" />
+      </div>
+    </section>
+
     <section class="prose" id="engineering">
-      <span class="tech-label">03 · Notes</span>
+      <span class="tech-label">04 · Notes</span>
       <h2>A few things that mattered</h2>
 
       <h3>Quick add only takes words it's sure of</h3>
@@ -191,6 +220,33 @@
     margin-top: 2.25rem;
   }
 
+  .row-title {
+    margin-top: 2.75rem;
+    font-size: 1.15rem;
+  }
+
+  .row-note {
+    max-width: 40rem;
+    margin: 0.35rem 0 0;
+    color: var(--text-3);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .row6 {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.25rem 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  .row4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem 1.1rem;
+    margin-top: 1.5rem;
+  }
+
   .foot-nav {
     display: flex;
     justify-content: space-between;
@@ -209,6 +265,14 @@
     .phone-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2.5rem 1.25rem;
+    }
+
+    .row6 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .row4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>
