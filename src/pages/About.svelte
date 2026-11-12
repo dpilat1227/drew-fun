@@ -26,6 +26,9 @@
         'Built Benzinga Quant: a multi-factor model behind a daily long/short watchlist and a per-stock scorecard of factor drivers like momentum and mean reversion.',
         'Wrote the companion newsletter on which quant strategies were working and which were decaying.',
         'Led development and launch of a mining product that has generated $500K+ since inception.',
+        'Launched and scaled the Virtual Events vertical to $900K+ in revenue since inception. Used analytics to set pricing and speed up customer acquisition.',
+        'Built attribution models and multivariate testing for the mobile app\'s product and marketing strategy. CAC down 33%, conversion up 20%.',
+        'Evaluated M&A opportunities and partnerships under the COO. Built growth forecasts presented to our largest shareholder, Beringer Capital.',
       ],
     },
     {
@@ -33,9 +36,10 @@
       date: '2022 — 2023',
       role: 'Investment Associate',
       bullets: [
-        'Diligence memos on 200+ healthcare companies for the investment committee.',
-        'Used the fund\'s history to decide where the next checks went.',
-        'Worked with portfolio companies on fundraising and product.',
+        'Evaluated 200+ investment opportunities and presented memos to the Investment Committee.',
+        'Used the fund\'s historical investment data to shape future deployment and downside-protection frameworks.',
+        'Researched the healthcare startup ecosystem and spoke with founders to find prospects and spot systemic risks.',
+        'Advised portfolio company management teams on strategy and fundraising.',
       ],
     },
     {
@@ -43,10 +47,21 @@
       date: '2019 — 2022',
       role: 'Co-Founder & COO',
       bullets: [
-        'Raised $800k pre-seed.',
-        'Paid partnerships with UPenn and Boston University.',
-        'Consumer mindfulness app. 5.0 on the App Store. Wound down in 2022.',
+        'Raised $800K pre-seed from venture firms and angel investors.',
+        'Built partnerships with UPenn and Boston University that created revenue streams.',
+        'Consumer mindfulness app. Added game design to cut time to value. 5.0 on the App Store. Covered by Morning Brew and TechCrunch. Wound down in 2022.',
       ],
+    },
+  ];
+
+  const skills = [
+    {
+      label: 'Programming',
+      items: 'Python (NumPy, Pandas, Scikit-learn, SciPy, LightGBM, FastAPI), TypeScript, C++, SQL, Unix/Linux, Git',
+    },
+    {
+      label: 'Data and finance',
+      items: 'Financial modeling, quantitative risk management (VaR, stress testing), Tableau, factor-based modeling, derivatives pricing (Greeks), M&A due diligence, multivariate testing, time-series analysis',
     },
   ];
 </script>
@@ -122,6 +137,16 @@
               <li>{text}</li>
             {/each}
           </ul>
+        </article>
+      {/each}
+    </section>
+
+    <section class="band">
+      <div class="section-head">Skills</div>
+      {#each skills as skill (skill.label)}
+        <article class="skill">
+          <p class="fact-sub">{skill.label}</p>
+          <p class="note">{skill.items}</p>
         </article>
       {/each}
     </section>
@@ -208,6 +233,14 @@
 
   .fact .bullets {
     margin-top: 0.85rem;
+  }
+
+  .skill + .skill {
+    margin-top: 1.75rem;
+  }
+
+  .skill .fact-sub {
+    margin-top: 0;
   }
 
   .featured {

@@ -11,7 +11,7 @@
       <h1>Wellnest</h1>
       <p class="lead" style="max-width:58ch;margin-top:1.1rem;">
         A student mental-health app I co-founded and ran as COO from 2019 to
-        2022. We raised $800k pre-seed, signed university partnerships, and
+        2022. We raised $800K pre-seed, signed university partnerships, and
         shipped a consumer app that held a 5.0 App Store rating. We wound it
         down in 2022.
       </p>
@@ -39,7 +39,7 @@
         </div>
         <div>
           <dt>Raised</dt>
-          <dd>$800,000 pre-seed</dd>
+          <dd>$800K pre-seed</dd>
         </div>
       </dl>
     </header>

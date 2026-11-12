@@ -11,7 +11,6 @@
   import Wellnest from './pages/Wellnest.svelte';
   import Microsecond from './pages/Microsecond.svelte';
   import Reading from './pages/Reading.svelte';
-  import DraftTheme from './pages/DraftTheme.svelte';
   import NotFound from './pages/NotFound.svelte';
 
   const routes = {
@@ -24,7 +23,6 @@
     '/projects/wellnest': { component: Wellnest, title: 'Wellnest — Drew Pilat' },
     '/projects/microsecond': { component: Microsecond, title: 'The Anatomy of a Microsecond — Drew Pilat' },
     '/reading': { component: Reading, title: 'Reading — Drew Pilat' },
-    '/draft-theme': { component: DraftTheme, title: 'Draft theme comparison' },
   };
 
   let match = $derived(routes[route.path] ?? { component: NotFound, title: 'Not found — Drew Pilat' });

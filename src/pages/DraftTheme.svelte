@@ -57,9 +57,9 @@
       ],
       bullets: [
         ["Predictive analytics", "Built churn models in Python with Tableau dashboards used by customer success to prioritise at-risk subscribers. Reported 85% accuracy and a 20% lift in CLV."],
-        ["Product", "Led development and launch of a data product that generated $500,000+ after release."],
+        ["Product", "Led development and launch of a mining product that has generated $500K+ since inception."],
         ["Quantitative work", "Engineered factor-based models for Benzinga Quant to rank equities on volatility and momentum signals."],
-        ["Growth operations", "Launched and ran the P&L for a virtual events line of business that did $350,000+ in 2024."],
+        ["Growth operations", "Launched and scaled the Virtual Events vertical to $900K+ in revenue since inception."],
         ["Marketing", "Rebuilt mobile app acquisition around an attribution model, cutting CAC 33%."],
       ],
     },
@@ -88,7 +88,7 @@
         { label: "Digital Health", tone: "cyan" },
       ],
       bullets: [
-        ["Fundraising", "Raised $800,000 in pre-seed funding from venture firms and angel investors."],
+        ["Fundraising", "Raised $800K in pre-seed funding from venture firms and angel investors."],
         ["Partnerships", "Signed institutional partnerships with UPenn and Boston University."],
         ["Product", "Ran product for a consumer mindfulness app that held a 5.0 App Store rating. Wound down in 2022."],
       ],

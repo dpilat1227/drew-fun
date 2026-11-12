@@ -67,7 +67,7 @@
       href: '/projects/wellnest',
       title: 'Wellnest',
       blurb:
-        'Co-founded a student mental-health app. Raised $800k. Wound down in 2022. I ran the company. I didn\'t write the code.',
+        'Co-founded a student mental-health app. Raised $800K. Wound down in 2022. I ran the company. I didn\'t write the code.',
       meta: ['Product', 'Fundraising', 'Operations'],
       label: 'Mobile app',
       image: '/media/wellnest/screens.webp',
