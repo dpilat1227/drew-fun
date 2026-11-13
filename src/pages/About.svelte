@@ -36,7 +36,7 @@
       date: '2022 — 2023',
       role: 'Investment Associate',
       bullets: [
-        'Evaluated 200+ investment opportunities and presented memos to the Investment Committee.',
+        'Evaluated 200+ early-stage healthcare investment opportunities and presented memos to the Investment Committee.',
         'Used the fund\'s historical investment data to shape future deployment and downside-protection frameworks.',
         'Researched the healthcare startup ecosystem and spoke with founders to find prospects and spot systemic risks.',
         'Advised portfolio company management teams on strategy and fundraising.',
