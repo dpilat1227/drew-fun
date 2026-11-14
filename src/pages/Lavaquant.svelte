@@ -37,7 +37,7 @@
         </div>
         <div>
           <dt>Infra</dt>
-          <dd>Vercel, Railway</dd>
+          <dd>Vercel, Google Cloud Run</dd>
         </div>
       </dl>
 
